@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author adheraprabu
@@ -16,6 +20,7 @@ public class HomeView extends javax.swing.JFrame {
      */
     public HomeView() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -41,6 +46,8 @@ public class HomeView extends javax.swing.JFrame {
         Button_play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-main.png"))); // NOI18N
         Button_play.setBorderPainted(false);
         Button_play.setContentAreaFilled(false);
+        Button_play.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Button_play.setMinimumSize(new java.awt.Dimension(150, 60));
         Button_play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_playActionPerformed(evt);
@@ -77,12 +84,74 @@ public class HomeView extends javax.swing.JFrame {
         Background.setForeground(new java.awt.Color(255, 204, 204));
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-Home.png"))); // NOI18N
         Background.setOpaque(true);
-        Background.setPreferredSize(new java.awt.Dimension(1200, 750));
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void PlayListener(ActionListener l) {
+        this.Button_play.addActionListener(l);
+    }
+    
+    public void PlayMouseListener(MouseListener l) {
+        this.Button_play.addMouseListener(l);
+    }
 
+    public void TentangListener(ActionListener l) {
+        this.Button_Tentang.addActionListener(l);
+    }
+    
+    public void TentangMouseListener(MouseListener l) {
+        this.Button_Tentang.addMouseListener(l);
+    }
+    
+    public void KeluarListener(ActionListener l) {
+        this.Button_keluar.addActionListener(l);
+    }
+    
+    public void KeluarMouseListener(MouseListener l) {
+        this.Button_keluar.addMouseListener(l);
+    }
+    public void BantuanListener(ActionListener l) {
+        this.Button_Bantuan.addActionListener(l);
+    }
+    public void BantuanMouseListener(MouseListener l) {
+        this.Button_Bantuan.addMouseListener(l);
+    }
+    
+    public JButton getButton_Bantuan() {
+        return Button_Bantuan;
+    }
+
+    public void setButton_Bantuan(JButton Button_Bantuan) {
+        this.Button_Bantuan = Button_Bantuan;
+    }
+
+    public JButton getButton_Tentang() {
+        return Button_Tentang;
+    }
+
+    public void setButton_Tentang(JButton Button_Tentang) {
+        this.Button_Tentang = Button_Tentang;
+    }
+
+    public JButton getButton_keluar() {
+        return Button_keluar;
+    }
+
+    public void setButton_keluar(JButton Button_keluar) {
+        this.Button_keluar = Button_keluar;
+    }
+
+    public JButton getButton_play() {
+        return Button_play;
+    }
+
+    public void setButton_play(JButton Button_play) {
+        this.Button_play = Button_play;
+    }
+    
+    
+            
     private void Button_playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_playActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_playActionPerformed

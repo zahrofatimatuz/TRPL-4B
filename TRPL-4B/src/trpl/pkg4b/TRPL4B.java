@@ -5,6 +5,9 @@
  */
 package trpl.pkg4b;
 
+import Controller.UserController;
+import View.HomeView;
+
 /**
  *
  * @author adheraprabu
@@ -15,7 +18,8 @@ public class TRPL4B {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        HomeView home = new HomeView();
+        new UserController(home);
     }
     
 }
