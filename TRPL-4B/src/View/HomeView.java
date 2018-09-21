@@ -66,19 +66,22 @@ public class HomeView extends javax.swing.JFrame {
         getContentPane().add(Button_Tentang, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 660, 140, 50));
 
         Button_keluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-exit.png"))); // NOI18N
+        Button_keluar.setBorder(null);
         Button_keluar.setBorderPainted(false);
         Button_keluar.setContentAreaFilled(false);
         getContentPane().add(Button_keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 60));
 
         Label_level1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_level1.setText("Level 1");
+        Label_level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/icon-lvl1.png"))); // NOI18N
         Label_level1.setOpaque(true);
-        getContentPane().add(Label_level1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 160, 110, 140));
+        Label_level1.setRequestFocusEnabled(false);
+        Label_level1.setVerifyInputWhenFocusTarget(false);
+        getContentPane().add(Label_level1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 45, 180, 200));
 
         Label_level2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_level2.setText("Level 2");
+        Label_level2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/icon-lvl2.png"))); // NOI18N
         Label_level2.setOpaque(true);
-        getContentPane().add(Label_level2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 160, 110, 140));
+        getContentPane().add(Label_level2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 180, 200));
 
         Background.setBackground(new java.awt.Color(255, 102, 102));
         Background.setForeground(new java.awt.Color(255, 204, 204));
