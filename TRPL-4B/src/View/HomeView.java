@@ -36,8 +36,9 @@ public class HomeView extends javax.swing.JFrame {
         Button_Bantuan = new javax.swing.JButton();
         Button_Tentang = new javax.swing.JButton();
         Button_keluar = new javax.swing.JButton();
-        Label_level1 = new javax.swing.JLabel();
-        Label_level2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,17 +72,20 @@ public class HomeView extends javax.swing.JFrame {
         Button_keluar.setContentAreaFilled(false);
         getContentPane().add(Button_keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 60));
 
-        Label_level1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/icon-lvl1.png"))); // NOI18N
-        Label_level1.setOpaque(true);
-        Label_level1.setRequestFocusEnabled(false);
-        Label_level1.setVerifyInputWhenFocusTarget(false);
-        getContentPane().add(Label_level1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 45, 180, 200));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-gantipassword.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 80, -1, -1));
 
-        Label_level2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Label_level2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/icon-lvl2.png"))); // NOI18N
-        Label_level2.setOpaque(true);
-        getContentPane().add(Label_level2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 50, 180, 200));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-sound.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 20, 60, -1));
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-soundX.png"))); // NOI18N
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 80, 60, -1));
 
         Background.setBackground(new java.awt.Color(255, 102, 102));
         Background.setForeground(new java.awt.Color(255, 204, 204));
@@ -166,7 +170,8 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JButton Button_Tentang;
     private javax.swing.JButton Button_keluar;
     private javax.swing.JButton Button_play;
-    private javax.swing.JLabel Label_level1;
-    private javax.swing.JLabel Label_level2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }
