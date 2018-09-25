@@ -6,7 +6,10 @@
 package trpl.pkg4b;
 
 import Controller.UserController;
+import Model.UserModel;
 import View.HomeView;
+import View.awalanView;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,9 +20,10 @@ public class TRPL4B {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        HomeView home = new HomeView();
-        new UserController(home);
+    public static void main(String[] args) throws SQLException {
+        awalanView awal = new awalanView();
+        UserModel userM = new UserModel();
+        new UserController(awal,userM);
     }
     
 }

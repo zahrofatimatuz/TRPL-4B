@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.event.MouseListener;
+
 /**
  *
  * @author FAZA
@@ -16,6 +18,11 @@ public class AboutView extends javax.swing.JFrame {
      */
     public AboutView() {
         initComponents();
+        setLocationRelativeTo(this);
+    }
+
+    public void KembaliMouseListener(MouseListener l) {
+        this.Button_kembali.addMouseListener(l);
     }
 
     /**
@@ -27,16 +34,16 @@ public class AboutView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        Button_kembali = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/About/btn-back.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 150, -1));
+        Button_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/About/btn-back.png"))); // NOI18N
+        Button_kembali.setBorderPainted(false);
+        Button_kembali.setContentAreaFilled(false);
+        getContentPane().add(Button_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 150, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/About/bg-About.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 750));
@@ -45,9 +52,8 @@ public class AboutView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Button_kembali;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
