@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.event.MouseListener;
+import javax.swing.JButton;
 import javax.swing.JRootPane;
 
 /**
@@ -50,6 +51,7 @@ public class PopUpRegisterView extends javax.swing.JDialog {
         Button_simpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Simpan.png"))); // NOI18N
         Button_simpan.setBorderPainted(false);
         Button_simpan.setContentAreaFilled(false);
+        Button_simpan.setDefaultCapable(false);
         Button_simpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_simpanActionPerformed(evt);
@@ -71,6 +73,23 @@ public class PopUpRegisterView extends javax.swing.JDialog {
     public void BatalMouseListener(MouseListener l) {
         this.Button_batal.addMouseListener(l);
     }
+
+    public JButton getButton_batal() {
+        return Button_batal;
+    }
+
+    public void setButton_batal(JButton Button_batal) {
+        this.Button_batal = Button_batal;
+    }
+
+    public JButton getButton_simpan() {
+        return Button_simpan;
+    }
+
+    public void setButton_simpan(JButton Button_simpan) {
+        this.Button_simpan = Button_simpan;
+    }
+    
     private void Button_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_simpanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_simpanActionPerformed

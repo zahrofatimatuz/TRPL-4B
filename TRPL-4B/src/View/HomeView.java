@@ -59,17 +59,17 @@ public class HomeView extends javax.swing.JFrame {
                 Button_playActionPerformed(evt);
             }
         });
-        getContentPane().add(Button_play, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 660, 120, 55));
+        getContentPane().add(Button_play, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 660, 120, 55));
 
         Button_Bantuan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-help.png"))); // NOI18N
         Button_Bantuan.setBorderPainted(false);
         Button_Bantuan.setContentAreaFilled(false);
-        getContentPane().add(Button_Bantuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 660, 140, 50));
+        getContentPane().add(Button_Bantuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 660, 140, 60));
 
         Button_Tentang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-about.png"))); // NOI18N
         Button_Tentang.setBorderPainted(false);
         Button_Tentang.setContentAreaFilled(false);
-        getContentPane().add(Button_Tentang, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 660, 140, 50));
+        getContentPane().add(Button_Tentang, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 660, 140, 60));
 
         Button_keluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-exit.png"))); // NOI18N
         Button_keluar.setBorder(null);
@@ -160,6 +160,30 @@ public class HomeView extends javax.swing.JFrame {
 
     public void setButton_play(JButton Button_play) {
         this.Button_play = Button_play;
+    }
+
+    public JButton getButton_gantiPassword() {
+        return Button_gantiPassword;
+    }
+
+    public void setButton_gantiPassword(JButton Button_gantiPassword) {
+        this.Button_gantiPassword = Button_gantiPassword;
+    }
+
+    public JButton getButton_sound() {
+        return Button_sound;
+    }
+
+    public void setButton_sound(JButton Button_sound) {
+        this.Button_sound = Button_sound;
+    }
+
+    public JButton getButton_soundx() {
+        return Button_soundx;
+    }
+
+    public void setButton_soundx(JButton Button_soundx) {
+        this.Button_soundx = Button_soundx;
     }
 
 

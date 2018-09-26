@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.event.MouseListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -23,6 +24,14 @@ public class AboutView extends javax.swing.JFrame {
 
     public void KembaliMouseListener(MouseListener l) {
         this.Button_kembali.addMouseListener(l);
+    }
+
+    public JButton getButton_kembali() {
+        return Button_kembali;
+    }
+
+    public void setButton_kembali(JButton Button_kembali) {
+        this.Button_kembali = Button_kembali;
     }
 
     /**

@@ -8,6 +8,7 @@ package View;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -47,6 +48,16 @@ public class awalanView extends javax.swing.JFrame {
         this.Button_Register = Button_Register;
     }
 
+    public JLabel getBg() {
+        return Background;
+    }
+
+    public void setBg(JLabel Background) {
+        this.Background = Background;
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,16 +79,15 @@ public class awalanView extends javax.swing.JFrame {
         Button_Masuk.setBorderPainted(false);
         Button_Masuk.setContentAreaFilled(false);
         Button_Masuk.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Button_Masuk.setOpaque(false);
         getContentPane().add(Button_Masuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 670, 130, -1));
 
-        Button_Register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Simpan.png"))); // NOI18N
+        Button_Register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-register.png"))); // NOI18N
         Button_Register.setBorderPainted(false);
         Button_Register.setContentAreaFilled(false);
         getContentPane().add(Button_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 670, 130, -1));
 
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-Home.png"))); // NOI18N
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/bg-Home.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

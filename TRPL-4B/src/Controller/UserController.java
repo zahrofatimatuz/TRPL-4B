@@ -9,6 +9,7 @@ import View.PilihanLevelView;
 import View.PopUpGantiPasswordView;
 import View.PopUpLoginView;
 import View.PopUpRegisterView;
+import View.PopupKeluarView;
 import View.awalanView;
 import java.awt.Button;
 
@@ -27,6 +28,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.UIManager;
 
 public class UserController {
@@ -36,6 +38,7 @@ public class UserController {
     AboutView about = new AboutView();
     HelpView help = new HelpView();
     PilihanLevelView pilihLevel = new PilihanLevelView();
+    PopupKeluarView dialogKeluar;
     PopUpRegisterView dialogRegister;
     PopUpLoginView dialogLogin;
     PopUpGantiPasswordView dialogGantiPass;
@@ -72,6 +75,11 @@ public class UserController {
         dialogGantiPass = new PopUpGantiPasswordView(awal, true);
         dialogGantiPass.BatalMouseListener(new BatalGantiPassMouseListener());
         dialogGantiPass.SimpanMouseListener(new SimpanGantiPassMouseListener());
+
+        dialogKeluar = new PopupKeluarView(awal, true);
+        dialogKeluar.YaMouseListener(new YaMouseListener());
+        dialogKeluar.TidakMouseListener(new TidakMouseListener());
+
     }
 
     public UserController(AboutView about, UserModel userM) {
@@ -111,6 +119,61 @@ public class UserController {
     private void setIcon(JButton button, String resource) {
         button.setIcon(new ImageIcon(getClass().getResource(resource)));
 
+    }
+
+    private class TidakMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            dialogKeluar.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+             setIcon(dialogKeluar.getButton_tidak(), "/View/ExitPopUp/btn-tidak-entered.png");
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setIcon(dialogKeluar.getButton_tidak(), "/View/ExitPopUp/btn-tidak.png");
+        }
+    }
+
+    private class YaMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            new UserController(awal, userM);
+            home.dispose();
+            dialogKeluar.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            setIcon(dialogKeluar.getButton_ya(), "/View/ExitPopUp/btn-ya-entered.png");
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+             setIcon(dialogKeluar.getButton_ya(), "/View/ExitPopUp/btn-ya.png");
+        }
     }
 
     private class Gempa2MouseListener implements MouseListener {
@@ -167,7 +230,7 @@ public class UserController {
 
         @Override
         public void mousePressed(MouseEvent e) {
-       }
+        }
 
         @Override
         public void mouseReleased(MouseEvent e) {
@@ -179,19 +242,19 @@ public class UserController {
 
         @Override
         public void mouseExited(MouseEvent e) {
-       }
+        }
     }
 
     private class Level2MouseListener implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-        pilihLevel.getButton_Banjir1().setVisible(false);
-        pilihLevel.getButton_gempa1().setVisible(false);
-        pilihLevel.getButton_kebakaran1().setVisible(false);
-        pilihLevel.getButton_Banjir2().setVisible(true);
-        pilihLevel.getButton_gempa2().setVisible(true);
-        pilihLevel.getButton_kebakaran2().setVisible(true);
+            pilihLevel.getButton_Banjir1().setVisible(false);
+            pilihLevel.getButton_gempa1().setVisible(false);
+            pilihLevel.getButton_kebakaran1().setVisible(false);
+            pilihLevel.getButton_Banjir2().setVisible(true);
+            pilihLevel.getButton_gempa2().setVisible(true);
+            pilihLevel.getButton_kebakaran2().setVisible(true);
         }
 
         @Override
@@ -200,7 +263,7 @@ public class UserController {
 
         @Override
         public void mouseReleased(MouseEvent e) {
-         }
+        }
 
         @Override
         public void mouseEntered(MouseEvent e) {
@@ -325,10 +388,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(dialogGantiPass.getButton_Simpan(), "/View/RegisterandLogin/btn-simpan-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(dialogGantiPass.getButton_Simpan(), "/View/RegisterandLogin/btn-Simpan.png");
         }
     }
 
@@ -349,10 +414,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(dialogGantiPass.getButton_Batal(), "/View/RegisterandLogin/btn-batal-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(dialogGantiPass.getButton_Batal(), "/View/RegisterandLogin/btn-Batal.png");
         }
     }
 
@@ -374,10 +441,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(help.getButton_Kembali(), "/View/Help/btn-back-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(help.getButton_Kembali(), "/View/Help/btn-back.png");
         }
     }
 
@@ -399,10 +468,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(about.getButton_kembali(), "/View/About/btn-back-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(about.getButton_kembali(), "/View/About/btn-back.png");
         }
     }
 
@@ -422,10 +493,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_soundx(), "/View/Home/btn-soundx-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_soundx(), "/View/Home/btn-soundX.png");
         }
     }
 
@@ -446,10 +519,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_gantiPassword(), "/View/Home/btn-gantipassword-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_gantiPassword(), "/View/Home/btn-gantipassword.png");
         }
     }
 
@@ -469,10 +544,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_sound(), "/View/Home/btn-sound-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_sound(), "/View/Home/btn-sound.png");
         }
     }
 
@@ -481,6 +558,7 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             dialogLogin.dispose();
+
         }
 
         @Override
@@ -493,10 +571,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(dialogLogin.getButton_Batal(), "/View/RegisterandLogin/btn-batal-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(dialogLogin.getButton_Batal(), "/View/RegisterandLogin/btn-Batal.png");
         }
     }
 
@@ -518,10 +598,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(dialogLogin.getButton_Masuk(), "/View/RegisterandLogin/btn-masuk-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(dialogLogin.getButton_Masuk(), "/View/RegisterandLogin/btn-Masuk.png");
         }
     }
 
@@ -542,10 +624,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(awal.getButton_Masuk(), "/View/RegisterandLogin/btn-masuk-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(awal.getButton_Masuk(), "/View/RegisterandLogin/btn-Masuk.png");
         }
     }
 
@@ -554,6 +638,7 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             dialogRegister.dispose();
+
         }
 
         @Override
@@ -566,10 +651,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(dialogRegister.getButton_batal(), "/View/RegisterandLogin/btn-batal-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(dialogRegister.getButton_batal(), "/View/RegisterandLogin/btn-Batal.png");
         }
     }
 
@@ -577,6 +664,7 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+
         }
 
         @Override
@@ -589,10 +677,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(dialogRegister.getButton_simpan(), "/View/RegisterandLogin/btn-simpan-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(dialogRegister.getButton_simpan(), "/View/RegisterandLogin/btn-Simpan.png");
         }
     }
 
@@ -613,10 +703,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(awal.getButton_Register(), "/View/RegisterandLogin/btn-register-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(awal.getButton_Register(), "/View/RegisterandLogin/btn-register.png");
 
         }
     }
@@ -639,10 +731,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_Tentang(), "/View/Home/btn-about-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_Tentang(), "/View/Home/btn-about.png");
         }
     }
 
@@ -650,8 +744,7 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            new UserController(awal, userM);
-            home.dispose();
+            dialogKeluar.setVisible(true);
         }
 
         @Override
@@ -664,10 +757,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_keluar(), "/View/Home/btn-exit-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_keluar(), "/View/Home/btn-exit.png");
         }
     }
 
@@ -689,10 +784,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_Bantuan(), "/View/Home/btn-help-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_Bantuan(), "/View/Home/btn-help.png");
         }
     }
 
@@ -714,10 +811,12 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
+            setIcon(home.getButton_play(), "/View/Home/btn-main-entered.png");
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            setIcon(home.getButton_play(), "/View/Home/btn-main.png");
         }
     }
 }

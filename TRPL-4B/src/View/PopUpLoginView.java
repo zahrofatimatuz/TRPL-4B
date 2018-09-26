@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.event.MouseListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -29,6 +30,24 @@ public class PopUpLoginView extends javax.swing.JDialog {
     public void MasukMouseListener(MouseListener l) {
         this.Button_Masuk.addMouseListener(l);
     }
+
+    public JButton getButton_Batal() {
+        return Button_Batal;
+    }
+
+    public void setButton_Batal(JButton Button_Batal) {
+        this.Button_Batal = Button_Batal;
+    }
+
+    public JButton getButton_Masuk() {
+        return Button_Masuk;
+    }
+
+    public void setButton_Masuk(JButton Button_Masuk) {
+        this.Button_Masuk = Button_Masuk;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

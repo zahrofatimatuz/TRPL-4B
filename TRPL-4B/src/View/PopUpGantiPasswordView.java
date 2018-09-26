@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.event.MouseListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -29,6 +30,24 @@ public class PopUpGantiPasswordView extends javax.swing.JDialog {
     public void SimpanMouseListener(MouseListener l) {
         this.Button_Simpan.addMouseListener(l);
     }
+
+    public JButton getButton_Batal() {
+        return Button_Batal;
+    }
+
+    public void setButton_Batal(JButton Button_Batal) {
+        this.Button_Batal = Button_Batal;
+    }
+
+    public JButton getButton_Simpan() {
+        return Button_Simpan;
+    }
+
+    public void setButton_Simpan(JButton Button_Simpan) {
+        this.Button_Simpan = Button_Simpan;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
