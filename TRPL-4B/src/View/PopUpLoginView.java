@@ -46,6 +46,7 @@ public class PopUpLoginView extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalExclusionType(null);
         setModalityType(null);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Button_Masuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Masuk.png"))); // NOI18N

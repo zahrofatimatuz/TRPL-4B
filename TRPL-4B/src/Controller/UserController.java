@@ -6,6 +6,7 @@ import View.AboutView;
 import View.HelpView;
 import View.HomeView;
 import View.PilihanLevelView;
+import View.PopUpGantiPasswordView;
 import View.PopUpLoginView;
 import View.PopUpRegisterView;
 import View.awalanView;
@@ -37,6 +38,7 @@ public class UserController {
     PilihanLevelView pilihLevel = new PilihanLevelView();
     PopUpRegisterView dialogRegister;
     PopUpLoginView dialogLogin;
+    PopUpGantiPasswordView dialogGantiPass;
     UserModel userM;
 
     public UserController(awalanView awal, UserModel userM) {
@@ -66,6 +68,10 @@ public class UserController {
         home.GantiPasswordMouseListener(new GantiPassMouseListener());
         home.SoundMouseListener(new SoundMouseListener());
         home.SoundxMouseListener(new SoundxMouseListener());
+
+        dialogGantiPass = new PopUpGantiPasswordView(awal, true);
+        dialogGantiPass.BatalMouseListener(new BatalGantiPassMouseListener());
+        dialogGantiPass.SimpanMouseListener(new SimpanGantiPassMouseListener());
     }
 
     public UserController(AboutView about, UserModel userM) {
@@ -86,11 +92,268 @@ public class UserController {
         this.pilihLevel = pilihLevel;
         this.userM = userM;
         pilihLevel.setVisible(true);
+        pilihLevel.Level1MouseListener(new Level1MouseListener());
+        pilihLevel.Banjir1MouseListener(new Banjir1MouseListener());
+        pilihLevel.Gempa1MouseListener(new Gempa1MouseListener());
+        pilihLevel.Kebakaran1MouseListener(new Kebakaran1MouseListener());
+        pilihLevel.Level2MouseListener(new Level2MouseListener());
+        pilihLevel.Banjir2MouseListener(new Banjir2MouseListener());
+        pilihLevel.Gempa2MouseListener(new Gempa2MouseListener());
+        pilihLevel.Kebakaran2MouseListener(new Kebakaran2MouseListener());
+        pilihLevel.getButton_Banjir1().setVisible(false);
+        pilihLevel.getButton_gempa1().setVisible(false);
+        pilihLevel.getButton_kebakaran1().setVisible(false);
+        pilihLevel.getButton_Banjir2().setVisible(false);
+        pilihLevel.getButton_gempa2().setVisible(false);
+        pilihLevel.getButton_kebakaran2().setVisible(false);
     }
 
     private void setIcon(JButton button, String resource) {
         button.setIcon(new ImageIcon(getClass().getResource(resource)));
 
+    }
+
+    private class Gempa2MouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class Kebakaran2MouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class Banjir2MouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+       }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+       }
+    }
+
+    private class Level2MouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        pilihLevel.getButton_Banjir1().setVisible(false);
+        pilihLevel.getButton_gempa1().setVisible(false);
+        pilihLevel.getButton_kebakaran1().setVisible(false);
+        pilihLevel.getButton_Banjir2().setVisible(true);
+        pilihLevel.getButton_gempa2().setVisible(true);
+        pilihLevel.getButton_kebakaran2().setVisible(true);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+         }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class Kebakaran1MouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class Gempa1MouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class Banjir1MouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class Level1MouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            pilihLevel.getButton_Banjir1().setVisible(true);
+            pilihLevel.getButton_gempa1().setVisible(true);
+            pilihLevel.getButton_kebakaran1().setVisible(true);
+            pilihLevel.getButton_Banjir2().setVisible(false);
+            pilihLevel.getButton_gempa2().setVisible(false);
+            pilihLevel.getButton_kebakaran2().setVisible(false);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class SimpanGantiPassMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class BatalGantiPassMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            dialogGantiPass.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
     }
 
     private class KembaliHelpMouseListener implements MouseListener {
@@ -170,6 +433,7 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            dialogGantiPass.setVisible(true);
         }
 
         @Override

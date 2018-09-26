@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author adheraprabu
@@ -17,6 +20,102 @@ public class PilihanLevelView extends javax.swing.JFrame {
     public PilihanLevelView() {
         initComponents();
         setLocationRelativeTo(this);
+    }
+
+    public void Level1MouseListener(MouseListener l) {
+        this.Button_Level1.addMouseListener(l);
+    }
+
+    public void Banjir1MouseListener(MouseListener l) {
+        this.Button_Banjir1.addMouseListener(l);
+    }
+
+    public void Gempa1MouseListener(MouseListener l) {
+        this.Button_gempa1.addMouseListener(l);
+    }
+
+    public void Kebakaran1MouseListener(MouseListener l) {
+        this.Button_kebakaran1.addMouseListener(l);
+    }
+
+    public void Level2MouseListener(MouseListener l) {
+        this.Button_Level2.addMouseListener(l);
+    }
+
+    public void Banjir2MouseListener(MouseListener l) {
+        this.Button_Banjir2.addMouseListener(l);
+    }
+
+    public void Gempa2MouseListener(MouseListener l) {
+        this.Button_gempa2.addMouseListener(l);
+    }
+
+    public void Kebakaran2MouseListener(MouseListener l) {
+        this.Button_kebakaran2.addMouseListener(l);
+    }
+
+    public JButton getButton_Banjir1() {
+        return Button_Banjir1;
+    }
+
+    public void setButton_Banjir1(JButton Button_Banjir1) {
+        this.Button_Banjir1 = Button_Banjir1;
+    }
+
+    public JButton getButton_Banjir2() {
+        return Button_Banjir2;
+    }
+
+    public void setButton_Banjir2(JButton Button_Banjir2) {
+        this.Button_Banjir2 = Button_Banjir2;
+    }
+
+    public JButton getButton_Level1() {
+        return Button_Level1;
+    }
+
+    public void setButton_Level1(JButton Button_Level1) {
+        this.Button_Level1 = Button_Level1;
+    }
+
+    public JButton getButton_Level2() {
+        return Button_Level2;
+    }
+
+    public void setButton_Level2(JButton Button_Level2) {
+        this.Button_Level2 = Button_Level2;
+    }
+
+    public JButton getButton_gempa1() {
+        return Button_gempa1;
+    }
+
+    public void setButton_gempa1(JButton Button_gempa1) {
+        this.Button_gempa1 = Button_gempa1;
+    }
+
+    public JButton getButton_gempa2() {
+        return Button_gempa2;
+    }
+
+    public void setButton_gempa2(JButton Button_gempa2) {
+        this.Button_gempa2 = Button_gempa2;
+    }
+
+    public JButton getButton_kebakaran1() {
+        return Button_kebakaran1;
+    }
+
+    public void setButton_kebakaran1(JButton Button_kebakaran1) {
+        this.Button_kebakaran1 = Button_kebakaran1;
+    }
+
+    public JButton getButton_kebakaran2() {
+        return Button_kebakaran2;
+    }
+
+    public void setButton_kebakaran2(JButton Button_kebakaran2) {
+        this.Button_kebakaran2 = Button_kebakaran2;
     }
 
     /**
@@ -87,7 +186,6 @@ public class PilihanLevelView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
