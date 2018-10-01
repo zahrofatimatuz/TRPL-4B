@@ -14,11 +14,21 @@ public class UserModel {
 
     public boolean save(String query) throws SQLException {
         try {
-            koneksi.execute(query);
-
+            koneksi.execute("INSERT INTO "+query);
+            System.out.println(query);
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+    
+    public boolean update(String query) throws SQLException {
+        try {
+            koneksi.execute(query);
+            return true;
+        } catch (Exception e) {
+            return false;
+
         }
     }
 }

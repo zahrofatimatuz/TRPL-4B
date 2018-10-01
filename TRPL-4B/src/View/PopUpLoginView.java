@@ -71,11 +71,15 @@ public class PopUpLoginView extends javax.swing.JDialog {
         Button_Masuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Masuk.png"))); // NOI18N
         Button_Masuk.setBorderPainted(false);
         Button_Masuk.setContentAreaFilled(false);
+        Button_Masuk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Masuk.setFocusable(false);
         getContentPane().add(Button_Masuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 140, -1));
 
         Button_Batal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Batal.png"))); // NOI18N
         Button_Batal.setBorderPainted(false);
         Button_Batal.setContentAreaFilled(false);
+        Button_Batal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Batal.setFocusable(false);
         getContentPane().add(Button_Batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 570, 140, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

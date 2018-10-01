@@ -53,6 +53,8 @@ public class HelpView extends javax.swing.JFrame {
         Button_Kembali.setBorder(null);
         Button_Kembali.setBorderPainted(false);
         Button_Kembali.setContentAreaFilled(false);
+        Button_Kembali.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Kembali.setFocusable(false);
         getContentPane().add(Button_Kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 650, 140, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 153, 153));

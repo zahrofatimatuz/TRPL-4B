@@ -69,6 +69,8 @@ public class PopupKeluarView extends javax.swing.JDialog {
         Button_tidak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/ExitPopUp/btn-tidak.png"))); // NOI18N
         Button_tidak.setBorderPainted(false);
         Button_tidak.setContentAreaFilled(false);
+        Button_tidak.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_tidak.setFocusable(false);
         Button_tidak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_tidakActionPerformed(evt);
@@ -79,6 +81,8 @@ public class PopupKeluarView extends javax.swing.JDialog {
         Button_ya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/ExitPopUp/btn-ya.png"))); // NOI18N
         Button_ya.setBorderPainted(false);
         Button_ya.setContentAreaFilled(false);
+        Button_ya.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_ya.setFocusable(false);
         Button_ya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_yaActionPerformed(evt);

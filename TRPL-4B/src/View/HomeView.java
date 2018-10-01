@@ -42,7 +42,6 @@ public class HomeView extends javax.swing.JFrame {
         Button_keluar = new javax.swing.JButton();
         Button_gantiPassword = new javax.swing.JButton();
         Button_sound = new javax.swing.JButton();
-        Button_soundx = new javax.swing.JButton();
         Label_profilUser = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
@@ -52,6 +51,8 @@ public class HomeView extends javax.swing.JFrame {
         Button_play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-main.png"))); // NOI18N
         Button_play.setBorderPainted(false);
         Button_play.setContentAreaFilled(false);
+        Button_play.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_play.setFocusable(false);
         Button_play.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Button_play.setMinimumSize(new java.awt.Dimension(150, 60));
         Button_play.addActionListener(new java.awt.event.ActionListener() {
@@ -64,33 +65,38 @@ public class HomeView extends javax.swing.JFrame {
         Button_Bantuan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-help.png"))); // NOI18N
         Button_Bantuan.setBorderPainted(false);
         Button_Bantuan.setContentAreaFilled(false);
+        Button_Bantuan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Bantuan.setFocusable(false);
         getContentPane().add(Button_Bantuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 660, 140, 60));
 
         Button_Tentang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-about.png"))); // NOI18N
         Button_Tentang.setBorderPainted(false);
         Button_Tentang.setContentAreaFilled(false);
+        Button_Tentang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Tentang.setFocusable(false);
         getContentPane().add(Button_Tentang, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 660, 140, 60));
 
         Button_keluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-exit.png"))); // NOI18N
         Button_keluar.setBorder(null);
         Button_keluar.setBorderPainted(false);
         Button_keluar.setContentAreaFilled(false);
+        Button_keluar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_keluar.setFocusable(false);
         getContentPane().add(Button_keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, 60));
 
         Button_gantiPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-gantipassword.png"))); // NOI18N
         Button_gantiPassword.setBorderPainted(false);
         Button_gantiPassword.setContentAreaFilled(false);
+        Button_gantiPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_gantiPassword.setFocusable(false);
         getContentPane().add(Button_gantiPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 80, -1, -1));
 
         Button_sound.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-sound.png"))); // NOI18N
         Button_sound.setBorderPainted(false);
         Button_sound.setContentAreaFilled(false);
+        Button_sound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_sound.setFocusable(false);
         getContentPane().add(Button_sound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 20, 60, -1));
-
-        Button_soundx.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/btn-soundX.png"))); // NOI18N
-        Button_soundx.setBorderPainted(false);
-        Button_soundx.setContentAreaFilled(false);
-        getContentPane().add(Button_soundx, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 80, 60, -1));
         getContentPane().add(Label_profilUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 40, 90, 20));
 
         Background.setBackground(new java.awt.Color(255, 102, 102));
@@ -124,10 +130,6 @@ public class HomeView extends javax.swing.JFrame {
 
     public void SoundMouseListener(MouseListener l) {
         this.Button_sound.addMouseListener(l);
-    }
-
-    public void SoundxMouseListener(MouseListener l) {
-        this.Button_soundx.addMouseListener(l);
     }
 
     public JButton getButton_Bantuan() {
@@ -178,14 +180,6 @@ public class HomeView extends javax.swing.JFrame {
         this.Button_sound = Button_sound;
     }
 
-    public JButton getButton_soundx() {
-        return Button_soundx;
-    }
-
-    public void setButton_soundx(JButton Button_soundx) {
-        this.Button_soundx = Button_soundx;
-    }
-
 
     private void Button_playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_playActionPerformed
         // TODO add your handling code here:
@@ -200,7 +194,6 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JButton Button_keluar;
     private javax.swing.JButton Button_play;
     private javax.swing.JButton Button_sound;
-    private javax.swing.JButton Button_soundx;
     private javax.swing.JLabel Label_profilUser;
     // End of variables declaration//GEN-END:variables
 }

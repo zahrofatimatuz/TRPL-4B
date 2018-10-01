@@ -22,6 +22,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -43,8 +44,9 @@ public class UserController {
     PopUpLoginView dialogLogin;
     PopUpGantiPasswordView dialogGantiPass;
     UserModel userM;
+    boolean sound = true;
 
-    public UserController(awalanView awal, UserModel userM) {
+    public UserController(awalanView awal, UserModel userM) throws SQLException {
         this.awal = awal;
         this.userM = userM;
         awal.setVisible(true);
@@ -60,7 +62,8 @@ public class UserController {
         dialogLogin.BatalMouseListener(new BatalLoginMouseListener());
     }
 
-    public UserController(HomeView home, UserModel userM) {
+    public UserController(HomeView home, UserModel userM) throws SQLException{
+
         this.userM = userM;
         this.home = home;
         home.setVisible(true);
@@ -70,7 +73,6 @@ public class UserController {
         home.TentangMouseListener(new TentangMouseListener());
         home.GantiPasswordMouseListener(new GantiPassMouseListener());
         home.SoundMouseListener(new SoundMouseListener());
-        home.SoundxMouseListener(new SoundxMouseListener());
 
         dialogGantiPass = new PopUpGantiPasswordView(awal, true);
         dialogGantiPass.BatalMouseListener(new BatalGantiPassMouseListener());
@@ -82,21 +84,24 @@ public class UserController {
 
     }
 
-    public UserController(AboutView about, UserModel userM) {
+    public UserController(AboutView about, UserModel userM) throws SQLException{
+
         this.about = about;
         this.userM = userM;
         about.setVisible(true);
         about.KembaliMouseListener(new KembaliAboutMouseListener());
     }
 
-    public UserController(HelpView help, UserModel userM) {
+    public UserController(HelpView help, UserModel userM) throws SQLException{
+
         this.help = help;
         this.userM = userM;
         help.setVisible(true);
         help.KembaliMouseListener(new KembaliHelpMouseListener());
     }
 
-    public UserController(PilihanLevelView pilihLevel, UserModel userM) {
+    public UserController(PilihanLevelView pilihLevel, UserModel userM) throws SQLException{
+
         this.pilihLevel = pilihLevel;
         this.userM = userM;
         pilihLevel.setVisible(true);
@@ -138,8 +143,8 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-             setIcon(dialogKeluar.getButton_tidak(), "/View/ExitPopUp/btn-tidak-entered.png");
-            
+            setIcon(dialogKeluar.getButton_tidak(), "/View/ExitPopUp/btn-tidak-entered.png");
+
         }
 
         @Override
@@ -152,7 +157,11 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            new UserController(awal, userM);
+            try {
+                new UserController(awal, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             home.dispose();
             dialogKeluar.dispose();
         }
@@ -172,7 +181,7 @@ public class UserController {
 
         @Override
         public void mouseExited(MouseEvent e) {
-             setIcon(dialogKeluar.getButton_ya(), "/View/ExitPopUp/btn-ya.png");
+            setIcon(dialogKeluar.getButton_ya(), "/View/ExitPopUp/btn-ya.png");
         }
     }
 
@@ -427,7 +436,11 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            new UserController(home, userM);
+            try {
+                new UserController(home, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             help.dispose();
         }
 
@@ -454,7 +467,11 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            new UserController(home, userM);
+            try {
+                new UserController(home, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             about.dispose();
         }
 
@@ -474,31 +491,6 @@ public class UserController {
         @Override
         public void mouseExited(MouseEvent e) {
             setIcon(about.getButton_kembali(), "/View/About/btn-back.png");
-        }
-    }
-
-    private class SoundxMouseListener implements MouseListener {
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            setIcon(home.getButton_soundx(), "/View/Home/btn-soundx-entered.png");
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            setIcon(home.getButton_soundx(), "/View/Home/btn-soundX.png");
         }
     }
 
@@ -532,6 +524,13 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            if (sound) {
+                sound = false;
+                setIcon(home.getButton_sound(), "/View/Home/btn-soundx.png");
+            } else {
+                sound = true;
+                setIcon(home.getButton_sound(), "/View/Home/btn-sound.png");
+            }
         }
 
         @Override
@@ -544,12 +543,22 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            setIcon(home.getButton_sound(), "/View/Home/btn-sound-entered.png");
+            if (sound) {
+                setIcon(home.getButton_sound(), "/View/Home/btn-sound-entered.png");
+
+            } else {
+                setIcon(home.getButton_sound(), "/View/Home/btn-soundx-entered.png");
+            }
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            setIcon(home.getButton_sound(), "/View/Home/btn-sound.png");
+            if (sound) {
+                setIcon(home.getButton_sound(), "/View/Home/btn-sound.png");
+
+            } else {
+                setIcon(home.getButton_sound(), "/View/Home/btn-soundX.png");
+            }
         }
     }
 
@@ -584,7 +593,11 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            new UserController(home, userM);
+            try {
+                new UserController(home, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             awal.dispose();
         }
 
@@ -664,7 +677,15 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            try {
+                System.out.println("bisa");
+            String username = dialogRegister.getTextField_Username();
+            String pass = dialogRegister.getPasswordField_Password();
 
+                userM.save("`user`(`iduser`, `username`, `password`) VALUES (default," + username + "," + pass + ")");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         @Override
@@ -717,7 +738,11 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            new UserController(about, userM);
+            try {
+                new UserController(about, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             home.dispose();
         }
 
@@ -770,7 +795,11 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            new UserController(help, userM);
+            try {
+                new UserController(help, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             home.dispose();
         }
 
@@ -797,7 +826,11 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            new UserController(pilihLevel, userM);
+            try {
+                new UserController(pilihLevel, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             home.dispose();
         }
 

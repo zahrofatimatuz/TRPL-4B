@@ -7,7 +7,9 @@ package View;
 
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 import javax.swing.JRootPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -35,6 +37,8 @@ public class PopUpRegisterView extends javax.swing.JDialog {
 
         Button_batal = new javax.swing.JButton();
         Button_simpan = new javax.swing.JButton();
+        TextField_Username = new javax.swing.JTextField();
+        PasswordField_Password = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -46,18 +50,34 @@ public class PopUpRegisterView extends javax.swing.JDialog {
         Button_batal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Batal.png"))); // NOI18N
         Button_batal.setBorderPainted(false);
         Button_batal.setContentAreaFilled(false);
+        Button_batal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_batal.setFocusable(false);
         getContentPane().add(Button_batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, 130, -1));
 
         Button_simpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Simpan.png"))); // NOI18N
         Button_simpan.setBorderPainted(false);
         Button_simpan.setContentAreaFilled(false);
+        Button_simpan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_simpan.setDefaultCapable(false);
+        Button_simpan.setFocusable(false);
         Button_simpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_simpanActionPerformed(evt);
             }
         });
         getContentPane().add(Button_simpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 540, 140, -1));
+
+        TextField_Username.setBorder(null);
+        TextField_Username.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        TextField_Username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextField_UsernameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 440, 50));
+
+        PasswordField_Password.setBorder(null);
+        getContentPane().add(PasswordField_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 440, 40));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/PopUp-Register.png"))); // NOI18N
@@ -89,15 +109,37 @@ public class PopUpRegisterView extends javax.swing.JDialog {
     public void setButton_simpan(JButton Button_simpan) {
         this.Button_simpan = Button_simpan;
     }
-    
+
+    public String getPasswordField_Password() {
+        return PasswordField_Password.getText();
+    }
+
+    public void setPasswordField_Password(String Password) {
+        this.PasswordField_Password.setText(Password);
+    }
+
+    public String getTextField_Username() {
+        return TextField_Username.getText();
+    }
+
+    public void setTextField_Username(String Username) {
+        this.TextField_Username.setText(Username);
+    }
+
     private void Button_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_simpanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_simpanActionPerformed
+
+    private void TextField_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextField_UsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextField_UsernameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_batal;
     private javax.swing.JButton Button_simpan;
+    private javax.swing.JPasswordField PasswordField_Password;
+    private javax.swing.JTextField TextField_Username;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

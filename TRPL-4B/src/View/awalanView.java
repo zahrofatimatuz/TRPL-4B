@@ -78,12 +78,15 @@ public class awalanView extends javax.swing.JFrame {
         Button_Masuk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Masuk.png"))); // NOI18N
         Button_Masuk.setBorderPainted(false);
         Button_Masuk.setContentAreaFilled(false);
-        Button_Masuk.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Button_Masuk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Masuk.setFocusable(false);
         getContentPane().add(Button_Masuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 670, 130, -1));
 
         Button_Register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-register.png"))); // NOI18N
         Button_Register.setBorderPainted(false);
         Button_Register.setContentAreaFilled(false);
+        Button_Register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Register.setFocusable(false);
         getContentPane().add(Button_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 670, 130, -1));
 
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

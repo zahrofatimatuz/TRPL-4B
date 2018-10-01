@@ -70,11 +70,15 @@ public class PopUpGantiPasswordView extends javax.swing.JDialog {
         Button_Simpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Simpan.png"))); // NOI18N
         Button_Simpan.setBorderPainted(false);
         Button_Simpan.setContentAreaFilled(false);
+        Button_Simpan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Simpan.setFocusable(false);
         getContentPane().add(Button_Simpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, -1, -1));
 
         Button_Batal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/btn-Batal.png"))); // NOI18N
         Button_Batal.setBorderPainted(false);
         Button_Batal.setContentAreaFilled(false);
+        Button_Batal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Batal.setFocusable(false);
         Button_Batal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Button_BatalActionPerformed(evt);
