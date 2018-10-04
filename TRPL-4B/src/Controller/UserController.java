@@ -30,6 +30,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 public class UserController {
@@ -62,7 +63,7 @@ public class UserController {
         dialogLogin.BatalMouseListener(new BatalLoginMouseListener());
     }
 
-    public UserController(HomeView home, UserModel userM) throws SQLException{
+    public UserController(HomeView home, UserModel userM) throws SQLException {
 
         this.userM = userM;
         this.home = home;
@@ -84,7 +85,7 @@ public class UserController {
 
     }
 
-    public UserController(AboutView about, UserModel userM) throws SQLException{
+    public UserController(AboutView about, UserModel userM) throws SQLException {
 
         this.about = about;
         this.userM = userM;
@@ -92,7 +93,7 @@ public class UserController {
         about.KembaliMouseListener(new KembaliAboutMouseListener());
     }
 
-    public UserController(HelpView help, UserModel userM) throws SQLException{
+    public UserController(HelpView help, UserModel userM) throws SQLException {
 
         this.help = help;
         this.userM = userM;
@@ -100,7 +101,7 @@ public class UserController {
         help.KembaliMouseListener(new KembaliHelpMouseListener());
     }
 
-    public UserController(PilihanLevelView pilihLevel, UserModel userM) throws SQLException{
+    public UserController(PilihanLevelView pilihLevel, UserModel userM) throws SQLException {
 
         this.pilihLevel = pilihLevel;
         this.userM = userM;
@@ -679,10 +680,17 @@ public class UserController {
         public void mouseClicked(MouseEvent e) {
             try {
                 System.out.println("bisa");
-            String username = dialogRegister.getTextField_Username();
-            String pass = dialogRegister.getPasswordField_Password();
+                String username = dialogRegister.getTextField_Username();
+                String pass = dialogRegister.getPasswordField_Password();
+                userM.cekUsername(username);
+                if (userM.getResult() == 0) {
+                    JOptionPane.showMessageDialog(home, "berhasil disimpan");
+                    userM.tambahUser(username, pass);
+                    dialogRegister.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(home, "Username sudah dipakai");
+                }
 
-                userM.save("`user`(`iduser`, `username`, `password`) VALUES (default," + username + "," + pass + ")");
             } catch (SQLException ex) {
                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
