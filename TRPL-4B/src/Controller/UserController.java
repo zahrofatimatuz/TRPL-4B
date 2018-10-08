@@ -11,8 +11,10 @@ import View.PopUpLoginView;
 import View.PopUpRegisterView;
 import View.PopupKeluarView;
 import View.awalanView;
+import View.banjir1View;
+import View.gempa1View;
+import View.kebakaran1View;
 import java.awt.Button;
-
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -39,6 +41,9 @@ public class UserController {
     awalanView awal = new awalanView();
     AboutView about = new AboutView();
     HelpView help = new HelpView();
+    banjir1View banjir1 = new banjir1View();
+    kebakaran1View kebakaran1 = new kebakaran1View();
+    gempa1View gempa1 = new gempa1View();
     PilihanLevelView pilihLevel = new PilihanLevelView();
     PopupKeluarView dialogKeluar;
     PopUpRegisterView dialogRegister;
@@ -83,6 +88,19 @@ public class UserController {
         dialogKeluar.YaMouseListener(new YaMouseListener());
         dialogKeluar.TidakMouseListener(new TidakMouseListener());
 
+    }
+    
+    public UserController(banjir1View banjir1, UserModel userM) throws SQLException {
+
+        banjir1.setVisible(true);
+    }
+    public UserController(kebakaran1View kebakaran1, UserModel userM) throws SQLException {
+
+        kebakaran1.setVisible(true);
+    }
+    public UserController(gempa1View gempa1, UserModel userM) throws SQLException {
+
+        gempa1.setVisible(true);
     }
 
     public UserController(AboutView about, UserModel userM) throws SQLException {
@@ -288,6 +306,12 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            try {
+                new UserController(kebakaran1, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            pilihLevel.dispose();
         }
 
         @Override
@@ -311,6 +335,12 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            try {
+                new UserController(gempa1, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            pilihLevel.dispose();
         }
 
         @Override
@@ -334,6 +364,12 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            try {
+                new UserController(banjir1, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            pilihLevel.dispose();
         }
 
         @Override

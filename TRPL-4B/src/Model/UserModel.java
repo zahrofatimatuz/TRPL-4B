@@ -10,9 +10,9 @@ public class UserModel {
     public Koneksi koneksi;
     private int result = 0;
 
-    public UserModel() throws SQLException {
-        koneksi = new Koneksi("mecin_db", "root", "");
-    }
+//    public UserModel() throws SQLException {
+//        koneksi = new Koneksi("mecin_db", "root", "");
+//    }
 
     public void tambahUser(String username, String password) throws SQLException {
         try {
