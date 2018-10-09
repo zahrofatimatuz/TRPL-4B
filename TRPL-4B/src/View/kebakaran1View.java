@@ -28,13 +28,21 @@ public class kebakaran1View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        darah = new javax.swing.JLabel();
+        api = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("VIEW KEBAKARAN");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 380));
+        darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
+        getContentPane().add(darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 70));
+
+        api.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/api.gif"))); // NOI18N
+        getContentPane().add(api, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 720));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/1.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -42,6 +50,8 @@ public class kebakaran1View extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel api;
+    private javax.swing.JLabel darah;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

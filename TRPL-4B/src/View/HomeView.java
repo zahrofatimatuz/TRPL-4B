@@ -105,7 +105,7 @@ public class HomeView extends javax.swing.JFrame {
 
         Background.setBackground(new java.awt.Color(255, 102, 102));
         Background.setForeground(new java.awt.Color(255, 204, 204));
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-Home.png"))); // NOI18N
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-Home_baru.png"))); // NOI18N
         Background.setOpaque(true);
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

@@ -90,7 +90,7 @@ public class awalanView extends javax.swing.JFrame {
         getContentPane().add(Button_Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 670, 130, -1));
 
         Background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/bg-Home.png"))); // NOI18N
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/bg-Home_2.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
