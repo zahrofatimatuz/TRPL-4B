@@ -118,6 +118,14 @@ public class PopUpRegisterView extends javax.swing.JDialog {
         this.PasswordField_Password.setText(Password);
     }
 
+    public JPasswordField get_Password() {
+        return PasswordField_Password;
+    }
+
+    public JTextField get_Username() {
+        return TextField_Username;
+    }
+
     public String getTextField_Username() {
         return TextField_Username.getText();
     }

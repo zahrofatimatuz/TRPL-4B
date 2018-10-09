@@ -7,6 +7,8 @@ package View;
 
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -46,6 +48,23 @@ public class PopUpLoginView extends javax.swing.JDialog {
     public void setButton_Masuk(JButton Button_Masuk) {
         this.Button_Masuk = Button_Masuk;
     }
+
+    public JPasswordField getPasswordField_Password() {
+        return PasswordField_Password;
+    }
+
+    public void setPasswordField_Password(JPasswordField PasswordField_Password) {
+        this.PasswordField_Password = PasswordField_Password;
+    }
+
+    public JTextField getTextField_Username() {
+        return TextField_Username;
+    }
+
+    public void setTextField_Username(JTextField TextField_Username) {
+        this.TextField_Username = TextField_Username;
+    }
+    
     
     
 
@@ -60,6 +79,8 @@ public class PopUpLoginView extends javax.swing.JDialog {
 
         Button_Masuk = new javax.swing.JButton();
         Button_Batal = new javax.swing.JButton();
+        TextField_Username = new javax.swing.JTextField();
+        PasswordField_Password = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -82,6 +103,17 @@ public class PopUpLoginView extends javax.swing.JDialog {
         Button_Batal.setFocusable(false);
         getContentPane().add(Button_Batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 570, 140, -1));
 
+        TextField_Username.setBorder(null);
+        getContentPane().add(TextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 440, 50));
+
+        PasswordField_Password.setBorder(null);
+        PasswordField_Password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordField_PasswordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(PasswordField_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 440, 40));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/PopUp-Login.png"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -90,10 +122,16 @@ public class PopUpLoginView extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void PasswordField_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordField_PasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordField_PasswordActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Batal;
     private javax.swing.JButton Button_Masuk;
+    private javax.swing.JPasswordField PasswordField_Password;
+    private javax.swing.JTextField TextField_Username;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

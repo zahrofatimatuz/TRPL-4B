@@ -37,20 +37,21 @@ import javax.swing.UIManager;
 
 public class UserController {
 
-    HomeView home = new HomeView();
-    awalanView awal = new awalanView();
-    AboutView about = new AboutView();
-    HelpView help = new HelpView();
-    banjir1View banjir1 = new banjir1View();
-    kebakaran1View kebakaran1 = new kebakaran1View();
-    gempa1View gempa1 = new gempa1View();
-    PilihanLevelView pilihLevel = new PilihanLevelView();
-    PopupKeluarView dialogKeluar;
-    PopUpRegisterView dialogRegister;
-    PopUpLoginView dialogLogin;
-    PopUpGantiPasswordView dialogGantiPass;
-    UserModel userM;
-    boolean sound = true;
+    private HomeView home = new HomeView();
+    private awalanView awal = new awalanView();
+    private AboutView about = new AboutView();
+    private HelpView help = new HelpView();
+    private banjir1View banjir1 = new banjir1View();
+    private kebakaran1View kebakaran1 = new kebakaran1View();
+    private gempa1View gempa1 = new gempa1View();
+    private PilihanLevelView pilihLevel = new PilihanLevelView();
+    private PopupKeluarView dialogKeluar;
+    private PopUpRegisterView dialogRegister;
+    private PopUpLoginView dialogLogin;
+    private PopUpGantiPasswordView dialogGantiPass;
+    private UserModel userM;
+    public static String username = "";
+    private boolean sound = true;
 
     public UserController(awalanView awal, UserModel userM) throws SQLException {
         this.awal = awal;
@@ -73,6 +74,7 @@ public class UserController {
         this.userM = userM;
         this.home = home;
         home.setVisible(true);
+        System.out.println(username);
         home.PlayMouseListener(new PlayMouseListnner());
         home.BantuanMouseListener(new BantuanMouseListener());
         home.KeluarMouseListener(new KeluarMouseListener());
@@ -89,15 +91,17 @@ public class UserController {
         dialogKeluar.TidakMouseListener(new TidakMouseListener());
 
     }
-    
+
     public UserController(banjir1View banjir1, UserModel userM) throws SQLException {
 
         banjir1.setVisible(true);
     }
+
     public UserController(kebakaran1View kebakaran1, UserModel userM) throws SQLException {
 
         kebakaran1.setVisible(true);
     }
+
     public UserController(gempa1View gempa1, UserModel userM) throws SQLException {
 
         gempa1.setVisible(true);
@@ -143,6 +147,11 @@ public class UserController {
     private void setIcon(JButton button, String resource) {
         button.setIcon(new ImageIcon(getClass().getResource(resource)));
 
+    }
+
+    public void resetInputan() {
+        dialogRegister.get_Username().setText("");
+        dialogRegister.get_Password().setText("");
     }
 
     private class TidakMouseListener implements MouseListener {
@@ -422,6 +431,25 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            String passLama = dialogGantiPass.getPasswordField_PasswordLama().getText();
+            String passbaru = dialogGantiPass.getPasswordField_PasswordBaru().getText();
+            String passKonfirmasi = dialogGantiPass.getPasswordField_KonfirmasiBaru().getText();
+
+            userM.cekPasswordLama(username, passLama);
+            if (passLama.equals("") || passbaru.equals("") || passKonfirmasi.equals("")) {
+                JOptionPane.showMessageDialog(home, "Data Tidak Boleh Kosong!!");
+            } else if (userM.getResult() <= 0) {
+                JOptionPane.showMessageDialog(home, "Password Anda Salah!!");
+            } else {
+                if (passbaru.equalsIgnoreCase(passKonfirmasi)) {
+                    userM.updatePassword(username, passbaru);
+                    JOptionPane.showMessageDialog(home, "Password berhasil diubah");
+                    dialogGantiPass.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(home, "Password baru tidak cocok!!");
+                }
+            }
+            
         }
 
         @Override
@@ -631,11 +659,22 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             try {
-                new UserController(home, userM);
+                username = dialogLogin.getTextField_Username().getText();
+                String pass = dialogLogin.getPasswordField_Password().getText();
+
+                userM.Login(username, pass);
+
+                if (userM.getResult() > 0) {
+                    new UserController(home, userM);
+                    home.getLabel_profilUser().setText(username);
+                    System.out.println(username);
+                    awal.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(home, "Username atau password anda salah!!");
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            awal.dispose();
         }
 
         @Override
@@ -719,14 +758,19 @@ public class UserController {
                 String username = dialogRegister.getTextField_Username();
                 String pass = dialogRegister.getPasswordField_Password();
                 userM.cekUsername(username);
-                if (userM.getResult() == 0) {
-                    JOptionPane.showMessageDialog(home, "berhasil disimpan");
-                    userM.tambahUser(username, pass);
-                    dialogRegister.dispose();
+                if (dialogRegister.getTextField_Username().equals("")
+                        || dialogRegister.getPasswordField_Password().equals("")) {
+                    JOptionPane.showMessageDialog(home, "Username dan Password tidak boleh kosong!!");
                 } else {
-                    JOptionPane.showMessageDialog(home, "Username sudah dipakai");
+                    if (userM.getResult() == 0) {
+                        JOptionPane.showMessageDialog(home, "berhasil disimpan");
+                        userM.tambahUser(username, pass);
+                        dialogRegister.dispose();
+                        resetInputan();
+                    } else {
+                        JOptionPane.showMessageDialog(home, "Username sudah dipakai");
+                    }
                 }
-
             } catch (SQLException ex) {
                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }

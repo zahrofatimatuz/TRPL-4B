@@ -12,6 +12,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -97,6 +98,9 @@ public class HomeView extends javax.swing.JFrame {
         Button_sound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_sound.setFocusable(false);
         getContentPane().add(Button_sound, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 20, 60, -1));
+
+        Label_profilUser.setFont(new java.awt.Font("Gill Sans Ultra Bold Condensed", 0, 14)); // NOI18N
+        Label_profilUser.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(Label_profilUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 40, 90, 20));
 
         Background.setBackground(new java.awt.Color(255, 102, 102));
@@ -180,7 +184,15 @@ public class HomeView extends javax.swing.JFrame {
         this.Button_sound = Button_sound;
     }
 
+    public JLabel getLabel_profilUser() {
+        return Label_profilUser;
+    }
 
+    public void setLabel_profilUser(JLabel Label_profilUser) {
+        this.Label_profilUser = Label_profilUser;
+    }
+
+    
     private void Button_playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_playActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Button_playActionPerformed

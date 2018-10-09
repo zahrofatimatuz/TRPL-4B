@@ -7,6 +7,7 @@ package View;
 
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 
 /**
  *
@@ -46,6 +47,31 @@ public class PopUpGantiPasswordView extends javax.swing.JDialog {
     public void setButton_Simpan(JButton Button_Simpan) {
         this.Button_Simpan = Button_Simpan;
     }
+
+    public JPasswordField getPasswordField_KonfirmasiBaru() {
+        return PasswordField_KonfirmasiBaru;
+    }
+
+    public void setPasswordField_KonfirmasiBaru(JPasswordField PasswordField_KonfirmasiBaru) {
+        this.PasswordField_KonfirmasiBaru = PasswordField_KonfirmasiBaru;
+    }
+
+    public JPasswordField getPasswordField_PasswordBaru() {
+        return PasswordField_PasswordBaru;
+    }
+
+    public void setPasswordField_PasswordBaru(JPasswordField PasswordField_PasswordBaru) {
+        this.PasswordField_PasswordBaru = PasswordField_PasswordBaru;
+    }
+
+    public JPasswordField getPasswordField_PasswordLama() {
+        return PasswordField_PasswordLama;
+    }
+
+    public void setPasswordField_PasswordLama(JPasswordField PasswordField_PasswordLama) {
+        this.PasswordField_PasswordLama = PasswordField_PasswordLama;
+    }
+
     
     
     /**
@@ -59,6 +85,9 @@ public class PopUpGantiPasswordView extends javax.swing.JDialog {
 
         Button_Simpan = new javax.swing.JButton();
         Button_Batal = new javax.swing.JButton();
+        PasswordField_PasswordLama = new javax.swing.JPasswordField();
+        PasswordField_KonfirmasiBaru = new javax.swing.JPasswordField();
+        PasswordField_PasswordBaru = new javax.swing.JPasswordField();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -86,6 +115,15 @@ public class PopUpGantiPasswordView extends javax.swing.JDialog {
         });
         getContentPane().add(Button_Batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, -1, -1));
 
+        PasswordField_PasswordLama.setBorder(null);
+        getContentPane().add(PasswordField_PasswordLama, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 440, 40));
+
+        PasswordField_KonfirmasiBaru.setBorder(null);
+        getContentPane().add(PasswordField_KonfirmasiBaru, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 440, 50));
+
+        PasswordField_PasswordBaru.setBorder(null);
+        getContentPane().add(PasswordField_PasswordBaru, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 440, 50));
+
         bg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/RegisterandLogin/PopUp-UpdatePass.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -102,6 +140,9 @@ public class PopUpGantiPasswordView extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_Batal;
     private javax.swing.JButton Button_Simpan;
+    private javax.swing.JPasswordField PasswordField_KonfirmasiBaru;
+    private javax.swing.JPasswordField PasswordField_PasswordBaru;
+    private javax.swing.JPasswordField PasswordField_PasswordLama;
     private javax.swing.JLabel bg;
     // End of variables declaration//GEN-END:variables
 }
