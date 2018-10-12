@@ -5,6 +5,11 @@
  */
 package View;
 
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+
 /**
  *
  * @author rkhis
@@ -29,7 +34,14 @@ public class banjir1View extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        dynamicP = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        navigasi = new javax.swing.JPanel();
+        pelampung = new javax.swing.JButton();
+        galon = new javax.swing.JButton();
+        debog = new javax.swing.JButton();
+        sapu = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -37,15 +49,123 @@ public class banjir1View extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 60));
 
+        dynamicP.setOpaque(false);
+        getContentPane().add(dynamicP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 570));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/banjir1.gif"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 570));
+
+        navigasi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pelampung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-pelampung.png"))); // NOI18N
+        pelampung.setBorderPainted(false);
+        pelampung.setContentAreaFilled(false);
+        pelampung.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pelampung.setFocusable(false);
+        pelampung.setOpaque(false);
+        navigasi.add(pelampung, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 150, 160));
+
+        galon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-galon.png"))); // NOI18N
+        galon.setBorderPainted(false);
+        galon.setContentAreaFilled(false);
+        galon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        galon.setFocusable(false);
+        navigasi.add(galon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 150, 160));
+
+        debog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-pohonpisang.png"))); // NOI18N
+        debog.setBorderPainted(false);
+        debog.setContentAreaFilled(false);
+        debog.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        debog.setFocusable(false);
+        navigasi.add(debog, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 150, 160));
+
+        sapu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-sapu.png"))); // NOI18N
+        sapu.setBorderPainted(false);
+        sapu.setContentAreaFilled(false);
+        sapu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sapu.setFocusable(false);
+        navigasi.add(sapu, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 150, 160));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/footer.png"))); // NOI18N
+        jLabel3.setFocusable(false);
+        navigasi.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 180));
+
+        getContentPane().add(navigasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 1200, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void PelampungListener(MouseListener l) {
+        this.pelampung.addMouseListener(l);
+    }
+    public void GalonListener(MouseListener l) {
+        this.galon.addMouseListener(l);
+    }
+    public void SapuListener(MouseListener l) {
+        this.sapu.addMouseListener(l);
+    }
+    public void PisangListener(MouseListener l) {
+        this.debog.addMouseListener(l);
+    }
+
+    public JButton getDebog() {
+        return debog;
+    }
+
+    public JPanel getDynamicP() {
+        return dynamicP;
+    }
+
+    public JButton getGalon() {
+        return galon;
+    }
+
+    public JPanel getNavigasi() {
+        return navigasi;
+    }
+
+    public JButton getPelampung() {
+        return pelampung;
+    }
+
+    public JButton getSapu() {
+        return sapu;
+    }
+
+    public void setDebog(JButton debog) {
+        this.debog = debog;
+    }
+
+    public void setDynamicP(JPanel dynamicP) {
+        this.dynamicP = dynamicP;
+    }
+
+    public void setGalon(JButton galon) {
+        this.galon = galon;
+    }
+
+    public void setNavigasi(JPanel navigasi) {
+        this.navigasi = navigasi;
+    }
+
+    public void setPelampung(JButton pelampung) {
+        this.pelampung = pelampung;
+    }
+
+    public void setSapu(JButton sapu) {
+        this.sapu = sapu;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton debog;
+    private javax.swing.JPanel dynamicP;
+    private javax.swing.JButton galon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel navigasi;
+    private javax.swing.JButton pelampung;
+    private javax.swing.JButton sapu;
     // End of variables declaration//GEN-END:variables
 }

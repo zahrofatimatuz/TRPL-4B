@@ -5,6 +5,10 @@ import Model.UserModel;
 import View.AboutView;
 import View.HelpView;
 import View.HomeView;
+import View.PanelBanjir2View;
+import View.PanelBanjir3View;
+import View.PanelBanjir4View;
+import View.PanellBanjir1View;
 import View.PilihanLevelView;
 import View.PopUpGantiPasswordView;
 import View.PopUpLoginView;
@@ -16,6 +20,7 @@ import View.gempa1View;
 import View.kebakaran1View;
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -50,6 +55,11 @@ public class UserController {
     private PopUpLoginView dialogLogin;
     private PopUpGantiPasswordView dialogGantiPass;
     private UserModel userM;
+    GridBagLayout layout = new GridBagLayout();
+    PanellBanjir1View debog = new PanellBanjir1View();
+    PanelBanjir2View pelampung = new PanelBanjir2View();
+    PanelBanjir4View sapu = new PanelBanjir4View();
+    PanelBanjir3View galon = new PanelBanjir3View();
     public static String username = "";
     private boolean sound = true;
 
@@ -74,6 +84,7 @@ public class UserController {
         this.userM = userM;
         this.home = home;
         home.setVisible(true);
+        home.getLabel_profilUser().setText(username);
         System.out.println(username);
         home.PlayMouseListener(new PlayMouseListnner());
         home.BantuanMouseListener(new BantuanMouseListener());
@@ -93,8 +104,23 @@ public class UserController {
     }
 
     public UserController(banjir1View banjir1, UserModel userM) throws SQLException {
-
+        this.banjir1 = banjir1;
+        this.userM = userM;
         banjir1.setVisible(true);
+
+        banjir1.PelampungListener(new PelampungListener());
+        banjir1.PisangListener(new PisangListener());
+        banjir1.GalonListener(new GalonListener());
+        banjir1.SapuListener(new SapuListener());
+
+        banjir1.getDynamicP().setLayout(layout);
+        banjir1.getDynamicP().add(pelampung);
+        banjir1.getDynamicP().add(debog);
+        banjir1.getDynamicP().add(sapu);
+        banjir1.getDynamicP().add(galon);
+
+        banjir1.getDynamicP().setVisible(false);
+
     }
 
     public UserController(kebakaran1View kebakaran1, UserModel userM) throws SQLException {
@@ -128,6 +154,7 @@ public class UserController {
         this.pilihLevel = pilihLevel;
         this.userM = userM;
         pilihLevel.setVisible(true);
+        pilihLevel.KembaliMouseListener(new KembaliPilihLevel());
         pilihLevel.Level1MouseListener(new Level1MouseListener());
         pilihLevel.Banjir1MouseListener(new Banjir1MouseListener());
         pilihLevel.Gempa1MouseListener(new Gempa1MouseListener());
@@ -152,6 +179,159 @@ public class UserController {
     public void resetInputan() {
         dialogRegister.get_Username().setText("");
         dialogRegister.get_Password().setText("");
+        dialogLogin.getTextField_Username().setText("");
+        dialogLogin.getPasswordField_Password().setText("");
+    }
+
+    private class GalonListener implements MouseListener {
+
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            banjir1.getDynamicP().setVisible(true);
+            galon.setVisible(true);
+            sapu.setVisible(false);
+            debog.setVisible(false);
+            pelampung.setVisible(false);
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
+    }
+
+    private  class SapuListener implements MouseListener {
+
+
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            banjir1.getDynamicP().setVisible(true);
+            galon.setVisible(false);
+            sapu.setVisible(true);
+            debog.setVisible(false);
+            pelampung.setVisible(false);
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+           }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
+    }
+
+    private class KembaliPilihLevel implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+            try {
+                new UserController(home, userM);
+                pilihLevel.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+             setIcon(pilihLevel.getButton_kembali(), "/View/About/btn-back-entered.png");
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setIcon(pilihLevel.getButton_kembali(), "/View/About/btn-back.png");
+        }
+    }
+
+    private class PisangListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            banjir1.getDynamicP().setVisible(true);
+            pelampung.setVisible(false);
+            debog.setVisible(true);
+            galon.setVisible(false);
+            sapu.setVisible(false);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class PelampungListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            banjir1.getDynamicP().setVisible(true);
+            pelampung.setVisible(true);
+            debog.setVisible(false);
+            sapu.setVisible(false);
+            galon.setVisible(false);
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
     }
 
     private class TidakMouseListener implements MouseListener {
@@ -449,7 +629,7 @@ public class UserController {
                     JOptionPane.showMessageDialog(home, "Password baru tidak cocok!!");
                 }
             }
-            
+
         }
 
         @Override
@@ -663,15 +843,19 @@ public class UserController {
                 String pass = dialogLogin.getPasswordField_Password().getText();
 
                 userM.Login(username, pass);
-
-                if (userM.getResult() > 0) {
-                    new UserController(home, userM);
-                    home.getLabel_profilUser().setText(username);
-                    System.out.println(username);
-                    awal.dispose();
+                if (username.equals("") || pass.equals("")) {
+                    JOptionPane.showMessageDialog(home, "Data tidak boleh kosong");
                 } else {
-                    JOptionPane.showMessageDialog(home, "Username atau password anda salah!!");
+                    if (userM.getResult() > 0) {
+                        new UserController(home, userM);
+
+                        System.out.println(username);
+                        awal.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(home, "Username atau password anda salah!!");
+                    }
                 }
+                resetInputan();
             } catch (SQLException ex) {
                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -771,6 +955,7 @@ public class UserController {
                         JOptionPane.showMessageDialog(home, "Username sudah dipakai");
                     }
                 }
+                resetInputan();
             } catch (SQLException ex) {
                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
