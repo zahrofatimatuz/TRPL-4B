@@ -33,11 +33,13 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.UIManager;
 
 public class UserController {
@@ -55,6 +57,9 @@ public class UserController {
     private PopUpLoginView dialogLogin;
     private PopUpGantiPasswordView dialogGantiPass;
     private UserModel userM;
+    private int darah;
+    private Timer time;
+    private int sekon = 5;
     GridBagLayout layout = new GridBagLayout();
     PanellBanjir1View debog = new PanellBanjir1View();
     PanelBanjir2View pelampung = new PanelBanjir2View();
@@ -104,8 +109,10 @@ public class UserController {
     }
 
     public UserController(banjir1View banjir1, UserModel userM) throws SQLException {
+
         this.banjir1 = banjir1;
         this.userM = userM;
+        darah = 3;
         banjir1.setVisible(true);
 
         banjir1.PelampungListener(new PelampungListener());
@@ -124,7 +131,6 @@ public class UserController {
     }
 
     public UserController(kebakaran1View kebakaran1, UserModel userM) throws SQLException {
-
         kebakaran1.setVisible(true);
     }
 
@@ -173,10 +179,66 @@ public class UserController {
 
     private void setIcon(JButton button, String resource) {
         button.setIcon(new ImageIcon(getClass().getResource(resource)));
-
     }
 
-    public void resetInputan() {
+    private void setIconLabel(JLabel label, String resource) {
+        label.setIcon(new ImageIcon(getClass().getResource(resource)));
+    }
+
+    private void timer() {
+        ActionListener gameTimer = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                sekon--;
+                if (sekon == 0) {
+                    if (darah == 2) {
+                        JOptionPane.showMessageDialog(banjir1, "tolong in akuu!!");
+                    } else if (darah == 1) {
+                        JOptionPane.showMessageDialog(banjir1, "Ak mulai tenggelam!!");
+                    } else if (darah == 0) {
+                        JOptionPane.showMessageDialog(banjir1, "Aku Meninggal Dunia!!");
+                    }
+                }
+            }
+        };
+        time = new Timer(1000, gameTimer);
+        time.start();
+    }
+
+    private void balikPanelAwal() {
+            banjir1.getDynamicP().setVisible(false);
+            galon.setVisible(false);
+            sapu.setVisible(false);
+            debog.setVisible(false);
+            pelampung.setVisible(false);
+    }
+
+    private void minDarah() throws SQLException {
+        darah--;
+        if (darah == 2) {
+            setIconLabel(banjir1.getLabel_darah(), "/View/Level/75_.png");
+            timer();
+            sekon = 5;
+            
+
+        } else if (darah == 1) {
+            setIconLabel(banjir1.getLabel_darah(), "/View/Level/50_.png");
+            timer();
+            sekon = 5;
+            
+        } else if (darah == 0) {
+            setIconLabel(banjir1.getLabel_darah(), "/View/Level/25_.png");
+            timer();
+            sekon = 5;
+            
+//            banjir1.dispose();
+            new UserController(pilihLevel, userM);
+        } else {
+
+        }
+    }
+
+    private void resetInputan() {
         dialogRegister.get_Username().setText("");
         dialogRegister.get_Password().setText("");
         dialogLogin.getTextField_Username().setText("");
@@ -185,61 +247,69 @@ public class UserController {
 
     private class GalonListener implements MouseListener {
 
-
         @Override
         public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             banjir1.getDynamicP().setVisible(true);
             galon.setVisible(true);
             sapu.setVisible(false);
             debog.setVisible(false);
             pelampung.setVisible(false);
-            }
+        }
 
         @Override
         public void mousePressed(MouseEvent e) {
-            }
+        }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            }
+        }
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            }
+        }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            }
+        }
     }
 
-    private  class SapuListener implements MouseListener {
-
-
+    private class SapuListener implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             banjir1.getDynamicP().setVisible(true);
             galon.setVisible(false);
             sapu.setVisible(true);
             debog.setVisible(false);
             pelampung.setVisible(false);
-            }
+            sekon = 4;
+        }
 
         @Override
         public void mousePressed(MouseEvent e) {
-           }
+        }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            }
+        }
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            }
+        }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            }
+        }
     }
 
     private class KembaliPilihLevel implements MouseListener {
@@ -267,8 +337,8 @@ public class UserController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-             setIcon(pilihLevel.getButton_kembali(), "/View/About/btn-back-entered.png");
-            
+            setIcon(pilihLevel.getButton_kembali(), "/View/About/btn-back-entered.png");
+
         }
 
         @Override

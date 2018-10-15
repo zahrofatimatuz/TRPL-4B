@@ -7,6 +7,7 @@ package View;
 
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
@@ -33,7 +34,7 @@ public class banjir1View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        Label_darah = new javax.swing.JLabel();
         dynamicP = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         navigasi = new javax.swing.JPanel();
@@ -46,8 +47,8 @@ public class banjir1View extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 60));
+        Label_darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
+        getContentPane().add(Label_darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 60));
 
         dynamicP.setOpaque(false);
         getContentPane().add(dynamicP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 570));
@@ -62,7 +63,6 @@ public class banjir1View extends javax.swing.JFrame {
         pelampung.setContentAreaFilled(false);
         pelampung.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pelampung.setFocusable(false);
-        pelampung.setOpaque(false);
         navigasi.add(pelampung, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 150, 160));
 
         galon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-galon.png"))); // NOI18N
@@ -155,14 +155,24 @@ public class banjir1View extends javax.swing.JFrame {
     public void setSapu(JButton sapu) {
         this.sapu = sapu;
     }
+
+    public JLabel getLabel_darah() {
+        return Label_darah;
+    }
+
+    public void setLabel_darah(JLabel Label_darah) {
+        this.Label_darah = Label_darah;
+    }
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Label_darah;
     private javax.swing.JButton debog;
     private javax.swing.JPanel dynamicP;
     private javax.swing.JButton galon;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel navigasi;
     private javax.swing.JButton pelampung;
