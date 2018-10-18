@@ -231,7 +231,7 @@ public class UserController {
             timer();
             sekon = 5;
             
-//            banjir1.dispose();
+            banjir1.dispose();
             new UserController(pilihLevel, userM);
         } else {
 
