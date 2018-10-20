@@ -189,14 +189,25 @@ public class UserController {
         ActionListener gameTimer = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ImageIcon img1 = new ImageIcon("/View/Level/popup2.png");
                 sekon--;
                 if (sekon == 0) {
                     if (darah == 2) {
-                        JOptionPane.showMessageDialog(banjir1, "tolong in akuu!!");
+                        
+                        JOptionPane.showMessageDialog(banjir1, "Masih belum tepat.. Tetap semangat"
+                                + "Ayo cari benda yang tepat untuk menyelamatkan korban");
+                        banjir1.getDynamicP().setVisible(false);
                     } else if (darah == 1) {
-                        JOptionPane.showMessageDialog(banjir1, "Ak mulai tenggelam!!");
+                        JOptionPane.showMessageDialog(banjir1, "Kok masih salah? Ayo belajar dari kesalahan");
+                        banjir1.getDynamicP().setVisible(false);
                     } else if (darah == 0) {
-                        JOptionPane.showMessageDialog(banjir1, "Aku Meninggal Dunia!!");
+                        JOptionPane.showMessageDialog(banjir1, "Yah kesempatanmu sudah habis. bye bye...");
+                        banjir1.dispose();
+                        try {
+                            new UserController(pilihLevel, userM);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 }
             }
@@ -220,7 +231,6 @@ public class UserController {
             timer();
             sekon = 5;
             
-
         } else if (darah == 1) {
             setIconLabel(banjir1.getLabel_darah(), "/View/Level/50_.png");
             timer();
@@ -231,10 +241,8 @@ public class UserController {
             timer();
             sekon = 5;
             
-            banjir1.dispose();
-            new UserController(pilihLevel, userM);
+            
         } else {
-
         }
     }
 
@@ -243,7 +251,40 @@ public class UserController {
         dialogRegister.get_Password().setText("");
         dialogLogin.getTextField_Username().setText("");
         dialogLogin.getPasswordField_Password().setText("");
+        
+        
     }
+    
+    private class popUpListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+           
+            banjir1.getDebog().setEnabled(true);
+            banjir1.getSapu().setEnabled(true);
+            banjir1.getGalon().setEnabled(true);
+            banjir1.getPelampung().setEnabled(true);
+            banjir1.getPopUp().setVisible(false);
+            
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+    
 
     private class GalonListener implements MouseListener {
 
@@ -258,7 +299,7 @@ public class UserController {
             galon.setVisible(true);
             sapu.setVisible(false);
             debog.setVisible(false);
-            pelampung.setVisible(false);
+            pelampung.setVisible(false);   
         }
 
         @Override
