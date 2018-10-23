@@ -19,6 +19,6 @@ public class TRPL4B {
         awalanView awal = new awalanView();
         banjir1View banjir = new banjir1View();
         UserModel userM = new UserModel();
-        new UserController(banjir,userM);
+        new UserController(awal,userM);
     }    
 }

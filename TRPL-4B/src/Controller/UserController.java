@@ -21,6 +21,9 @@ import View.kebakaran1View;
 import View.PopUpdialogView;
 import View.PopUpdialog2View;
 import View.PopUpdialog3View;
+import View.panelBakar1;
+import View.panelBakar2;
+import View.panelGempa1;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.GridBagLayout;
@@ -62,15 +65,21 @@ public class UserController {
     private PopUpdialogView dialogPopUp;
     private PopUpdialog2View dialogPopUp2;
     private PopUpdialog3View dialogPopup3;
+    
     private UserModel userM;
     private int darah;
     private Timer time;
     private int sekon = 5;
     GridBagLayout layout = new GridBagLayout();
+    GridBagLayout layout2 = new GridBagLayout();
     PanellBanjir1View debog = new PanellBanjir1View();
     PanelBanjir2View pelampung = new PanelBanjir2View();
     PanelBanjir4View sapu = new PanelBanjir4View();
     PanelBanjir3View galon = new PanelBanjir3View();
+    panelBakar1 gas = new panelBakar1();
+    panelBakar2 air = new panelBakar2();
+    panelBakar2 lap = new panelBakar2();
+//  panelGempa1 meja = new panelGempa1();
     public static String username = "";
     private boolean sound = true;
 
@@ -144,7 +153,30 @@ public class UserController {
     }
 
     public UserController(kebakaran1View kebakaran1, UserModel userM) throws SQLException {
+        this.kebakaran1=kebakaran1;
+        this.userM = userM;
+        
         kebakaran1.setVisible(true);
+        
+        kebakaran1.AirListener(new AirListener());
+        kebakaran1.GasListener(new GasListener());
+        kebakaran1.LapListener(new LapListener());
+        
+        kebakaran1.getDynamic_Panel().setLayout(layout2);
+        kebakaran1.getDynamic_Panel().add(air);
+        kebakaran1.getDynamic_Panel().add(gas);
+        kebakaran1.getDynamic_Panel().add(lap);
+        
+        kebakaran1.getDynamic_Panel().setVisible(false);
+        dialogPopUp = new PopUpdialogView(kebakaran1, true);
+        dialogPopUp.OKMouseListener(new popOkListener());
+
+        dialogPopUp2 = new PopUpdialog2View(kebakaran1, true);
+        dialogPopUp2.OK2MouseListener(new OK2Listenner());
+
+        dialogPopup3 = new PopUpdialog3View(kebakaran1, true);
+        dialogPopup3.OK3MouseListener(new OK3Listener());
+        
     }
 
     public UserController(gempa1View gempa1, UserModel userM) throws SQLException {
@@ -201,7 +233,6 @@ public class UserController {
         ActionListener gameTimer = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ImageIcon img1 = new ImageIcon("/View/Level/popup2.png");
                 sekon--;
                 if (sekon == 0) {
                     if (darah == 2) {
@@ -262,6 +293,89 @@ public class UserController {
         dialogLogin.getTextField_Username().setText("");
         dialogLogin.getPasswordField_Password().setText("");
 
+    }
+
+    private class LapListener implements MouseListener {
+
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            kebakaran1.getDynamic_Panel().setVisible(true);
+            lap.setVisible(true);
+            gas.setVisible(false);
+            air.setVisible(false);
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
+    }
+
+    private class GasListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            kebakaran1.getDynamic_Panel().setVisible(true);
+            lap.setVisible(false);
+            gas.setVisible(true);
+            air.setVisible(false);
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
+    }
+
+    private class AirListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+            kebakaran1.getDynamic_Panel().setVisible(true);
+            lap.setVisible(false);
+            gas.setVisible(false);
+            air.setVisible(true);
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
     }
 
     private class OK3Listener implements MouseListener {
