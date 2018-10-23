@@ -36,10 +36,10 @@ public class kebakaran1View extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
-        getContentPane().add(darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 70));
+        getContentPane().add(darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
 
         api.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/api.gif"))); // NOI18N
-        getContentPane().add(api, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 720));
+        getContentPane().add(api, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, 680));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

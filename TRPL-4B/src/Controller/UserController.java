@@ -18,6 +18,8 @@ import View.awalanView;
 import View.banjir1View;
 import View.gempa1View;
 import View.kebakaran1View;
+import View.popUpdialog;
+import View.popUpdialog2;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.GridBagLayout;
@@ -56,6 +58,8 @@ public class UserController {
     private PopUpRegisterView dialogRegister;
     private PopUpLoginView dialogLogin;
     private PopUpGantiPasswordView dialogGantiPass;
+    private popUpdialog dialogPopUp;
+    private popUpdialog2 dialogPopUp2;
     private UserModel userM;
     private int darah;
     private Timer time;
@@ -119,7 +123,7 @@ public class UserController {
         banjir1.PisangListener(new PisangListener());
         banjir1.GalonListener(new GalonListener());
         banjir1.SapuListener(new SapuListener());
-
+        
         banjir1.getDynamicP().setLayout(layout);
         banjir1.getDynamicP().add(pelampung);
         banjir1.getDynamicP().add(debog);
@@ -127,6 +131,9 @@ public class UserController {
         banjir1.getDynamicP().add(galon);
 
         banjir1.getDynamicP().setVisible(false);
+        dialogPopUp=new popUpdialog(banjir1,true);
+        dialogPopUp.OKMouseListener(new popOkListener());
+        dialogPopUp2=new popUpdialog2(banjir1, true);
 
     }
 
@@ -135,7 +142,6 @@ public class UserController {
     }
 
     public UserController(gempa1View gempa1, UserModel userM) throws SQLException {
-
         gempa1.setVisible(true);
     }
 
@@ -193,7 +199,7 @@ public class UserController {
                 sekon--;
                 if (sekon == 0) {
                     if (darah == 2) {
-                        
+                        dialogPopUp.setVisible(true);
                         JOptionPane.showMessageDialog(banjir1, "Masih belum tepat.. Tetap semangat"
                                 + "Ayo cari benda yang tepat untuk menyelamatkan korban");
                         banjir1.getDynamicP().setVisible(false);
@@ -254,6 +260,31 @@ public class UserController {
         
         
     }
+
+    private  class popOkListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            dialogPopUp.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
+    }
+    
     
     private class popUpListener implements MouseListener {
 
