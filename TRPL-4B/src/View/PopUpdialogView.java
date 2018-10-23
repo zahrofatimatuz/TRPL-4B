@@ -13,29 +13,30 @@ import javax.swing.JButton;
  *
  * @author rkhis
  */
-public class popUpdialog2 extends javax.swing.JDialog {
+public class PopUpdialogView extends javax.swing.JDialog {
 
     /**
-     * Creates new form popUpdialog2
+     * Creates new form popUpdialog
      */
-    public popUpdialog2(java.awt.Frame parent, boolean modal) {
+    public PopUpdialogView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(this);
         setBackground(new Color(0,0,0,0));
     }
     
-    public void OK2MouseListener(MouseListener l) {
-        this.button_ok2.addMouseListener(l);
+    public void OKMouseListener(MouseListener l) {
+        this.button_ok.addMouseListener(l);
     }
 
     public JButton getButton_ok() {
-        return button_ok2;
+        return button_ok;
     }
 
     public void setButton_ok(JButton button_ok) {
-        this.button_ok2 = button_ok;
+        this.button_ok = button_ok;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,17 +47,22 @@ public class popUpdialog2 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        button_ok2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        button_ok = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        button_ok2.setText("OK");
-        getContentPane().add(button_ok2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/popup1.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 319, 250));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/popup3.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 323));
+        button_ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/PopUp/Ok.png"))); // NOI18N
+        button_ok.setBorderPainted(false);
+        button_ok.setContentAreaFilled(false);
+        button_ok.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_ok.setFocusable(false);
+        getContentPane().add(button_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 60, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,20 +84,21 @@ public class popUpdialog2 extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(popUpdialog2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PopUpdialogView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(popUpdialog2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PopUpdialogView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(popUpdialog2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PopUpdialogView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(popUpdialog2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PopUpdialogView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                popUpdialog2 dialog = new popUpdialog2(new javax.swing.JFrame(), true);
+                PopUpdialogView dialog = new PopUpdialogView(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -104,7 +111,7 @@ public class popUpdialog2 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_ok2;
+    private javax.swing.JButton button_ok;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

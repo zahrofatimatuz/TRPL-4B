@@ -36,7 +36,6 @@ public class banjir1View extends javax.swing.JFrame {
 
         Label_darah = new javax.swing.JLabel();
         dynamicP = new javax.swing.JPanel();
-        popUp = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         navigasi = new javax.swing.JPanel();
         pelampung = new javax.swing.JButton();
@@ -54,13 +53,6 @@ public class banjir1View extends javax.swing.JFrame {
         dynamicP.setOpaque(false);
         dynamicP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(dynamicP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 570));
-
-        popUp.setBorder(null);
-        popUp.setBorderPainted(false);
-        popUp.setContentAreaFilled(false);
-        popUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        popUp.setFocusPainted(false);
-        getContentPane().add(popUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 233, 400, 240));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/banjir1.gif"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 570));
@@ -116,18 +108,7 @@ public class banjir1View extends javax.swing.JFrame {
     public void PisangListener(MouseListener l) {
         this.debog.addMouseListener(l);
     }
-    public void popUpListener(MouseListener l) {
-        this.popUp.addMouseListener(l);
-    }
-
-    public JButton getPopUp() {
-        return popUp;
-    }
-
-    public void setPopUp(JButton popUp) {
-        this.popUp = popUp;
-    }
-    
+     
 
     public JButton getDebog() {
         return debog;
@@ -197,7 +178,6 @@ public class banjir1View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel navigasi;
     private javax.swing.JButton pelampung;
-    private javax.swing.JButton popUp;
     private javax.swing.JButton sapu;
     // End of variables declaration//GEN-END:variables
 }

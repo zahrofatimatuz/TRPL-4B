@@ -18,8 +18,9 @@ import View.awalanView;
 import View.banjir1View;
 import View.gempa1View;
 import View.kebakaran1View;
-import View.popUpdialog;
-import View.popUpdialog2;
+import View.PopUpdialogView;
+import View.PopUpdialog2View;
+import View.PopUpdialog3View;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.GridBagLayout;
@@ -58,8 +59,9 @@ public class UserController {
     private PopUpRegisterView dialogRegister;
     private PopUpLoginView dialogLogin;
     private PopUpGantiPasswordView dialogGantiPass;
-    private popUpdialog dialogPopUp;
-    private popUpdialog2 dialogPopUp2;
+    private PopUpdialogView dialogPopUp;
+    private PopUpdialog2View dialogPopUp2;
+    private PopUpdialog3View dialogPopup3;
     private UserModel userM;
     private int darah;
     private Timer time;
@@ -123,7 +125,7 @@ public class UserController {
         banjir1.PisangListener(new PisangListener());
         banjir1.GalonListener(new GalonListener());
         banjir1.SapuListener(new SapuListener());
-        
+
         banjir1.getDynamicP().setLayout(layout);
         banjir1.getDynamicP().add(pelampung);
         banjir1.getDynamicP().add(debog);
@@ -131,10 +133,14 @@ public class UserController {
         banjir1.getDynamicP().add(galon);
 
         banjir1.getDynamicP().setVisible(false);
-        dialogPopUp=new popUpdialog(banjir1,true);
+        dialogPopUp = new PopUpdialogView(banjir1, true);
         dialogPopUp.OKMouseListener(new popOkListener());
-        dialogPopUp2=new popUpdialog2(banjir1, true);
 
+        dialogPopUp2 = new PopUpdialog2View(banjir1, true);
+        dialogPopUp2.OK2MouseListener(new OK2Listenner());
+
+        dialogPopup3 = new PopUpdialog3View(banjir1, true);
+        dialogPopup3.OK3MouseListener(new OK3Listener());
     }
 
     public UserController(kebakaran1View kebakaran1, UserModel userM) throws SQLException {
@@ -200,19 +206,19 @@ public class UserController {
                 if (sekon == 0) {
                     if (darah == 2) {
                         dialogPopUp.setVisible(true);
-                        JOptionPane.showMessageDialog(banjir1, "Masih belum tepat.. Tetap semangat"
-                                + "Ayo cari benda yang tepat untuk menyelamatkan korban");
                         banjir1.getDynamicP().setVisible(false);
                     } else if (darah == 1) {
-                        JOptionPane.showMessageDialog(banjir1, "Kok masih salah? Ayo belajar dari kesalahan");
+                        dialogPopUp2.setVisible(true);
                         banjir1.getDynamicP().setVisible(false);
                     } else if (darah == 0) {
-                        JOptionPane.showMessageDialog(banjir1, "Yah kesempatanmu sudah habis. bye bye...");
+                        dialogPopup3.setVisible(true);
                         banjir1.dispose();
-                        try {
-                            new UserController(pilihLevel, userM);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                        if (!dialogPopup3.isVisible()) {
+                            try {
+                                new UserController(pilihLevel, userM);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         }
                     }
                 }
@@ -222,32 +228,30 @@ public class UserController {
         time.start();
     }
 
-    private void balikPanelAwal() {
-            banjir1.getDynamicP().setVisible(false);
-            galon.setVisible(false);
-            sapu.setVisible(false);
-            debog.setVisible(false);
-            pelampung.setVisible(false);
-    }
-
+//    private void balikPanelAwal() {
+//        banjir1.getDynamicP().setVisible(false);
+//        galon.setVisible(false);
+//        sapu.setVisible(false);
+//        debog.setVisible(false);
+//        pelampung.setVisible(false);
+//    }
     private void minDarah() throws SQLException {
         darah--;
         if (darah == 2) {
             setIconLabel(banjir1.getLabel_darah(), "/View/Level/75_.png");
             timer();
             sekon = 5;
-            
+
         } else if (darah == 1) {
             setIconLabel(banjir1.getLabel_darah(), "/View/Level/50_.png");
             timer();
             sekon = 5;
-            
+
         } else if (darah == 0) {
             setIconLabel(banjir1.getLabel_darah(), "/View/Level/25_.png");
             timer();
             sekon = 5;
-            
-            
+
         } else {
         }
     }
@@ -257,11 +261,58 @@ public class UserController {
         dialogRegister.get_Password().setText("");
         dialogLogin.getTextField_Username().setText("");
         dialogLogin.getPasswordField_Password().setText("");
-        
-        
+
     }
 
-    private  class popOkListener implements MouseListener {
+    private class OK3Listener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            dialogPopup3.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class OK2Listenner implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            dialogPopUp2.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class popOkListener implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -274,37 +325,6 @@ public class UserController {
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            }
-    }
-    
-    
-    private class popUpListener implements MouseListener {
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-           
-            banjir1.getDebog().setEnabled(true);
-            banjir1.getSapu().setEnabled(true);
-            banjir1.getGalon().setEnabled(true);
-            banjir1.getPelampung().setEnabled(true);
-            banjir1.getPopUp().setVisible(false);
-            
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
         }
 
         @Override
@@ -315,7 +335,6 @@ public class UserController {
         public void mouseExited(MouseEvent e) {
         }
     }
-    
 
     private class GalonListener implements MouseListener {
 
@@ -330,7 +349,7 @@ public class UserController {
             galon.setVisible(true);
             sapu.setVisible(false);
             debog.setVisible(false);
-            pelampung.setVisible(false);   
+            pelampung.setVisible(false);
         }
 
         @Override

@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author rkhis
@@ -18,6 +21,18 @@ public class kebakaran1View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
     }
+    public void GasListener(MouseListener l) {
+        this.gas_button.addMouseListener(l);
+    }
+
+    public JButton getGas_button() {
+        return gas_button;
+    }
+
+    public void setGas_button(JButton gas_button) {
+        this.gas_button = gas_button;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,8 +44,13 @@ public class kebakaran1View extends javax.swing.JFrame {
     private void initComponents() {
 
         darah = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         api = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        gas_button = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -38,11 +58,38 @@ public class kebakaran1View extends javax.swing.JFrame {
         darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
         getContentPane().add(darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
 
+        jPanel1.setOpaque(false);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 570));
+
         api.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/api.gif"))); // NOI18N
-        getContentPane().add(api, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, 680));
+        getContentPane().add(api, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -140, -1, 710));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 560));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-KainBasah.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 580, 140, 160));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-Air.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 580, 140, 160));
+
+        gas_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-Gas.png"))); // NOI18N
+        gas_button.setBorder(null);
+        gas_button.setBorderPainted(false);
+        gas_button.setContentAreaFilled(false);
+        gas_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(gas_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 580, 140, 160));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/panel.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 1200, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -52,6 +99,11 @@ public class kebakaran1View extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel api;
     private javax.swing.JLabel darah;
+    private javax.swing.JButton gas_button;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
