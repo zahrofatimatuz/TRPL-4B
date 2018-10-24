@@ -10,6 +10,7 @@ import Model.UserModel;
 import View.HomeView;
 import View.awalanView;
 import View.banjir1View;
+import View.kebakaran1View;
 import java.sql.SQLException;
 
 public class TRPL4B {
@@ -18,6 +19,7 @@ public class TRPL4B {
     public static void main(String[] args) throws SQLException {
         awalanView awal = new awalanView();
         banjir1View banjir = new banjir1View();
+        kebakaran1View bakar = new kebakaran1View();
         UserModel userM = new UserModel();
         new UserController(awal,userM);
     }    
