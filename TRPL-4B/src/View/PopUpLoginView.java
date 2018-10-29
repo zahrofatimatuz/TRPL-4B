@@ -103,9 +103,13 @@ public class PopUpLoginView extends javax.swing.JDialog {
         Button_Batal.setFocusable(false);
         getContentPane().add(Button_Batal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 570, 140, -1));
 
+        TextField_Username.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TextField_Username.setForeground(new java.awt.Color(0, 102, 102));
         TextField_Username.setBorder(null);
         getContentPane().add(TextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 440, 50));
 
+        PasswordField_Password.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        PasswordField_Password.setForeground(new java.awt.Color(0, 102, 102));
         PasswordField_Password.setBorder(null);
         PasswordField_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

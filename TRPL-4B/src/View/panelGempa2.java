@@ -7,14 +7,14 @@ package View;
 
 /**
  *
- * @author adheraprabu
+ * @author rkhis
  */
-public class panelBakar1 extends javax.swing.JPanel {
+public class panelGempa2 extends javax.swing.JPanel {
 
     /**
-     * Creates new form panelBakar1
+     * Creates new form panelGempa2
      */
-    public panelBakar1() {
+    public panelGempa2() {
         initComponents();
     }
 
@@ -27,21 +27,16 @@ public class panelBakar1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/seneng.gif"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 250, 330));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/1_1.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 570));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/lari.gif"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 750));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

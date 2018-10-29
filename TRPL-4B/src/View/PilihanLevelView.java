@@ -157,7 +157,6 @@ public class PilihanLevelView extends javax.swing.JFrame {
         Button_kembali.setBorderPainted(false);
         Button_kembali.setContentAreaFilled(false);
         Button_kembali.setFocusable(false);
-        Button_kembali.setOpaque(false);
         getContentPane().add(Button_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, -1));
 
         Button_Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/lvl-1.png"))); // NOI18N

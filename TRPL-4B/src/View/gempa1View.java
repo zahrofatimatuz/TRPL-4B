@@ -5,6 +5,11 @@
  */
 package View;
 
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author rkhis
@@ -18,6 +23,66 @@ public class gempa1View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
     }
+    
+     public void MejaListener(MouseListener l) {
+        this.button_meja.addMouseListener(l);
+    }
+    public void LariListener(MouseListener l) {
+        this.button_lari.addMouseListener(l);
+    }
+    public void JendelaListener(MouseListener l) {
+        this.button_jendela.addMouseListener(l);
+    }
+    public void TanggalaListener(MouseListener l) {
+        this.button_tangga.addMouseListener(l);
+    }
+    
+    public void setDynamic_gempa(JPanel Dynamic_gempa) {
+        this.Dynamic_gempa = Dynamic_gempa;
+    }
+     public JPanel getDynamic_gempa() {
+        return Dynamic_gempa;
+    }
+
+    public JButton getButton_jendela() {
+        return button_jendela;
+    }
+
+    public void setButton_jendela(JButton button_jendela) {
+        this.button_jendela = button_jendela;
+    }
+
+    public JButton getButton_lari() {
+        return button_lari;
+    }
+
+    public void setButton_lari(JButton button_lari) {
+        this.button_lari = button_lari;
+    }
+
+    public JButton getButton_meja() {
+        return button_meja;
+    }
+
+    public void setButton_meja(JButton button_meja) {
+        this.button_meja = button_meja;
+    }
+
+    public JButton getButton_tangga() {
+        return button_tangga;
+    }
+
+    public void setButton_tangga(JButton button_tangga) {
+        this.button_tangga = button_tangga;
+    }
+    public JLabel getLabel_darah() {
+        return darah;
+    }
+
+    public void setLabel_darah(JLabel darah) {
+        this.darah = darah;
+    }
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,14 +93,51 @@ public class gempa1View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        darah = new javax.swing.JLabel();
+        Dynamic_gempa = new javax.swing.JPanel();
+        button_jendela = new javax.swing.JButton();
+        button_lari = new javax.swing.JButton();
+        button_meja = new javax.swing.JButton();
+        button_tangga = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
+        getContentPane().add(darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        Dynamic_gempa.setOpaque(false);
+        Dynamic_gempa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(Dynamic_gempa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 750));
+
+        button_jendela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-1.png"))); // NOI18N
+        button_jendela.setBorder(null);
+        button_jendela.setBorderPainted(false);
+        button_jendela.setContentAreaFilled(false);
+        button_jendela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(button_jendela, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 480, -1));
+
+        button_lari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-2.png"))); // NOI18N
+        button_lari.setBorder(null);
+        button_lari.setBorderPainted(false);
+        button_lari.setContentAreaFilled(false);
+        button_lari.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(button_lari, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 390, 470, 60));
+
+        button_meja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-3.png"))); // NOI18N
+        button_meja.setBorder(null);
+        button_meja.setBorderPainted(false);
+        button_meja.setContentAreaFilled(false);
+        button_meja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(button_meja, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, -1, -1));
+
+        button_tangga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-4.png"))); // NOI18N
+        button_tangga.setBorder(null);
+        button_tangga.setBorderPainted(false);
+        button_tangga.setContentAreaFilled(false);
+        button_tangga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(button_tangga, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 360, 490, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/frame.gif"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -44,7 +146,12 @@ public class gempa1View extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Dynamic_gempa;
+    private javax.swing.JButton button_jendela;
+    private javax.swing.JButton button_lari;
+    private javax.swing.JButton button_meja;
+    private javax.swing.JButton button_tangga;
+    private javax.swing.JLabel darah;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
