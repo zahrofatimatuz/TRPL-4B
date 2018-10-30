@@ -267,10 +267,6 @@ public class UserController {
         pilihLevel.getButton_gempa2().setVisible(false);
         pilihLevel.getButton_kebakaran2().setVisible(false);
 
-//        pilihLevel.getButton_gempa1().setEnabled(Gempa1);
-//        pilihLevel.getButton_kebakaran1().setEnabled(bakar1);
-//        System.out.println(bakar1);
-//        pilihLevel.getButton_Level2().setEnabled(level2);
 
     }
 
