@@ -25,6 +25,6 @@ public class TRPL4B {
         kebakaran1View bakar = new kebakaran1View();
         gempa1View gempa = new gempa1View();
         UserModel userM = new UserModel();
-        new UserController(pilih,userM);
+        new UserController(awal,userM);
     }    
 }
