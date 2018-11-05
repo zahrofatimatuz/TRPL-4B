@@ -28,6 +28,7 @@ import View.PopUpdialogView;
 import View.PopUpdialog2View;
 import View.PopUpdialog3View;
 import View.PopUpdialogwinView;
+import View.banjir2View;
 import View.panelBakar1;
 import View.panelBakar2;
 import View.panelGempa2;
@@ -79,6 +80,7 @@ public class UserController {
     private KorbanBanjirView korban1 = new KorbanBanjirView();
     private KorbanGempaView korban2 = new KorbanGempaView();
     private KorbanKebakaranView korban3 = new KorbanKebakaranView();
+    private banjir2View banjir2 = new banjir2View();
     private PopupKeluarView dialogKeluar;
     private PopUpRegisterView dialogRegister;
     private PopUpLoginView dialogLogin;
@@ -157,6 +159,29 @@ public class UserController {
         dialogKeluar = new PopupKeluarView(awal, true);
         dialogKeluar.YaMouseListener(new YaMouseListener());
         dialogKeluar.TidakMouseListener(new TidakMouseListener());
+
+    }
+
+    public UserController(PilihanLevelView pilihLevel, UserModel userM) throws SQLException {
+
+        this.pilihLevel = pilihLevel;
+        this.userM = userM;
+        pilihLevel.setVisible(true);
+        pilihLevel.KembaliMouseListener(new KembaliPilihLevel());
+        pilihLevel.Level1MouseListener(new Level1MouseListener());
+        pilihLevel.Banjir1MouseListener(new Banjir1MouseListener());
+        pilihLevel.Gempa1MouseListener(new Gempa1MouseListener());
+        pilihLevel.Kebakaran1MouseListener(new Kebakaran1MouseListener());
+        pilihLevel.Level2MouseListener(new Level2MouseListener());
+        pilihLevel.Banjir2MouseListener(new Banjir2MouseListener());
+        pilihLevel.Gempa2MouseListener(new Gempa2MouseListener());
+        pilihLevel.Kebakaran2MouseListener(new Kebakaran2MouseListener());
+        pilihLevel.getButton_Banjir1().setVisible(false);
+        pilihLevel.getButton_gempa1().setVisible(false);
+        pilihLevel.getButton_kebakaran1().setVisible(false);
+        pilihLevel.getButton_Banjir2().setVisible(false);
+        pilihLevel.getButton_gempa2().setVisible(false);
+        pilihLevel.getButton_kebakaran2().setVisible(false);
 
     }
 
@@ -254,6 +279,8 @@ public class UserController {
         this.korban1 = korban1;
         this.userM = UserM;
         korban1.setVisible(true);
+        
+        korban1.OkListener(new OkKorbanBanjir());
     }
 
     public UserController(KorbanGempaView korban2, UserModel UserM) throws SQLException {
@@ -297,6 +324,7 @@ public class UserController {
         introKebakaran1.setVisible(true);
         introKebakaran1.okMouseListener(new okKebakaranListenner());
     }
+
     public UserController(IntroGempa1View introGempa1, UserModel userM) {
         this.introGempa1 = introGempa1;
         this.userM = userM;
@@ -304,28 +332,16 @@ public class UserController {
         introGempa1.okMouseListener(new okGempaListenner());
     }
 
-    public UserController(PilihanLevelView pilihLevel, UserModel userM) throws SQLException {
-
-        this.pilihLevel = pilihLevel;
+    public UserController(banjir2View banjir2, UserModel userM) {
+        this.banjir2 = banjir2;
         this.userM = userM;
-        pilihLevel.setVisible(true);
-        pilihLevel.KembaliMouseListener(new KembaliPilihLevel());
-        pilihLevel.Level1MouseListener(new Level1MouseListener());
-        pilihLevel.Banjir1MouseListener(new Banjir1MouseListener());
-        pilihLevel.Gempa1MouseListener(new Gempa1MouseListener());
-        pilihLevel.Kebakaran1MouseListener(new Kebakaran1MouseListener());
-        pilihLevel.Level2MouseListener(new Level2MouseListener());
-        pilihLevel.Banjir2MouseListener(new Banjir2MouseListener());
-        pilihLevel.Gempa2MouseListener(new Gempa2MouseListener());
-        pilihLevel.Kebakaran2MouseListener(new Kebakaran2MouseListener());
-        pilihLevel.getButton_Banjir1().setVisible(false);
-        pilihLevel.getButton_gempa1().setVisible(false);
-        pilihLevel.getButton_kebakaran1().setVisible(false);
-        pilihLevel.getButton_Banjir2().setVisible(false);
-        pilihLevel.getButton_gempa2().setVisible(false);
-        pilihLevel.getButton_kebakaran2().setVisible(false);
-
+        banjir2.setVisible(true);
+        banjir2.DadaMouseListener(new DadaListener());
+        banjir2.LututMouseListener(new LututListener());
+        banjir2.KakiMouseListener(new KakiListener());
+        banjir2.TanganMouseListener(new TanganListener());
     }
+//====================================================================================
 
     private void setIcon(JButton button, String resource) {
         button.setIcon(new ImageIcon(getClass().getResource(resource)));
@@ -522,18 +538,60 @@ public class UserController {
 
     }
 
-    private class okGempaListenner implements MouseListener {
+    private class OkKorbanBanjir implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            new UserController(banjir2, userM);
+            korban1.dispose();
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
+    }
+
+    private class TanganListener implements MouseListener {
 
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            try {
-                new UserController(gempa1, userM);
-                introGempa1.dispose();
-            } catch (SQLException ex) {
-                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
          }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class KakiListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
 
         @Override
         public void mousePressed(MouseEvent e) {
@@ -549,7 +607,82 @@ public class UserController {
 
         @Override
         public void mouseExited(MouseEvent e) {
-         }
+        }
+    }
+
+    private class LututListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class DadaListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class okGempaListenner implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+                new UserController(gempa1, userM);
+                introGempa1.dispose();
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
     }
 
     private class okKebakaranListenner implements MouseListener {
