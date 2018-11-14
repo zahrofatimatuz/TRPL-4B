@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author rkhis
@@ -17,6 +20,17 @@ public class KorbanKebakaranView extends javax.swing.JFrame {
     public KorbanKebakaranView() {
         initComponents();
     }
+    public void OkListenerKebakaran(MouseListener l) {
+        this.ok_button.addMouseListener(l);
+    }
+
+    public JButton getOk_buttonKebakaran() {
+        return ok_button;
+    }
+
+    public void setOk_buttonKebakaran(JButton ok_button) {
+        this.ok_button = ok_button;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,7 +41,7 @@ public class KorbanKebakaranView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        ok_button = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -35,12 +49,12 @@ public class KorbanKebakaranView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/PopUp/Ok.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 570, -1, -1));
+        ok_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/PopUp/Ok.png"))); // NOI18N
+        ok_button.setBorder(null);
+        ok_button.setBorderPainted(false);
+        ok_button.setContentAreaFilled(false);
+        ok_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(ok_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 570, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/PopUp/Kebakaran.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
@@ -91,9 +105,9 @@ public class KorbanKebakaranView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton ok_button;
     // End of variables declaration//GEN-END:variables
 }

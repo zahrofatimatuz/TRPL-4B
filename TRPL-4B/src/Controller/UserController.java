@@ -8,6 +8,7 @@ import View.HomeView;
 import View.IntroBanjir1View;
 import View.IntroGempa1View;
 import View.IntroKebakaran1View;
+import View.Kebakaran2View;
 import View.KorbanBanjirView;
 import View.KorbanGempaView;
 import View.KorbanKebakaranView;
@@ -16,6 +17,10 @@ import View.PanelBanjir3View;
 import View.PanelBanjir4View;
 import View.PanellBanjir1View;
 import View.PilihanLevelView;
+import View.PopUpDialogKorban1;
+import View.PopUpDialogKorban2;
+import View.PopUpDialogKorban3;
+import View.PopUpDialogKorbanMenang;
 import View.PopUpGantiPasswordView;
 import View.PopUpLoginView;
 import View.PopUpRegisterView;
@@ -81,6 +86,7 @@ public class UserController {
     private KorbanGempaView korban2 = new KorbanGempaView();
     private KorbanKebakaranView korban3 = new KorbanKebakaranView();
     private banjir2View banjir2 = new banjir2View();
+    private Kebakaran2View bakar2 = new Kebakaran2View();
     private PopupKeluarView dialogKeluar;
     private PopUpRegisterView dialogRegister;
     private PopUpLoginView dialogLogin;
@@ -89,6 +95,10 @@ public class UserController {
     private PopUpdialog2View dialogPopUp2;
     private PopUpdialog3View dialogPopup3;
     private PopUpdialogwinView dialogPopupWin;
+    private PopUpDialogKorban1 dialogKorban1;
+    private PopUpDialogKorban2 dialogKorban2;
+    private PopUpDialogKorban3 dialogKorban3;
+    private PopUpDialogKorbanMenang dialogMenang;
 
     private UserModel userM;
     private int darah;
@@ -274,7 +284,7 @@ public class UserController {
         dialogPopupWin = new PopUpdialogwinView(kebakaran1, true);
         dialogPopupWin.OKMouseListener(new OKWinListener());
     }
-
+//============================KORBAN=============================================================
     public UserController(KorbanBanjirView korban1, UserModel UserM) throws SQLException {
         this.korban1 = korban1;
         this.userM = UserM;
@@ -293,8 +303,9 @@ public class UserController {
         this.korban3 = korban3;
         this.userM = UserM;
         korban3.setVisible(true);
+        korban3.OkListenerKebakaran(new OkKorbanKebakaran());
     }
-
+//========================================USER CONTROLLER=====================================================
     public UserController(AboutView about, UserModel userM) throws SQLException {
 
         this.about = about;
@@ -310,7 +321,7 @@ public class UserController {
         help.setVisible(true);
         help.KembaliMouseListener(new KembaliHelpMouseListener());
     }
-
+//===============================INTRO============================================================
     public UserController(IntroBanjir1View introBanjir1, UserModel userM) {
         this.introbanjir1 = introBanjir1;
         this.userM = userM;
@@ -331,7 +342,7 @@ public class UserController {
         introGempa1.setVisible(true);
         introGempa1.okMouseListener(new okGempaListenner());
     }
-
+//===============================LEVEL 2=============================================================
     public UserController(banjir2View banjir2, UserModel userM) {
         this.banjir2 = banjir2;
         this.userM = userM;
@@ -340,6 +351,12 @@ public class UserController {
         banjir2.LututMouseListener(new LututListener());
         banjir2.KakiMouseListener(new KakiListener());
         banjir2.TanganMouseListener(new TanganListener());
+    }
+    
+    public UserController(Kebakaran2View bakar2, UserModel userM){
+    this.bakar2=bakar2;
+    this.userM=userM;
+    bakar2.setVisible(true);
     }
 //====================================================================================
 
@@ -538,6 +555,32 @@ public class UserController {
 
     }
 
+    private class OkKorbanKebakaran implements MouseListener {
+
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            new UserController(bakar2, userM);
+            korban3.dispose();
+            }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            }
+    }
+//===============================Button OK level2=============================================
     private class OkKorbanBanjir implements MouseListener {
 
         @Override
