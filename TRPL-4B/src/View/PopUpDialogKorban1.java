@@ -6,6 +6,8 @@
 package View;
 
 import java.awt.Color;
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -21,7 +23,17 @@ public class PopUpDialogKorban1 extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(this);
         setBackground(new Color(0,0,0,0));
-        
+    }
+    public void OK1(MouseListener l) {
+        this.ok_button.addMouseListener(l);
+    }
+
+    public JButton getButton_ok() {
+        return ok_button;
+    }
+
+    public void setButton_ok(JButton ok_button) {
+        this.ok_button = ok_button;
     }
 
     /**
@@ -33,19 +45,20 @@ public class PopUpDialogKorban1 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        ok_button = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Banjir2/btn-OkLg.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusable(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
+        ok_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Banjir2/btn-OkLg.png"))); // NOI18N
+        ok_button.setBorder(null);
+        ok_button.setBorderPainted(false);
+        ok_button.setContentAreaFilled(false);
+        ok_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ok_button.setFocusable(false);
+        getContentPane().add(ok_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/PopUp/popUp-banjir1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 356, 290));
@@ -96,7 +109,7 @@ public class PopUpDialogKorban1 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ok_button;
     // End of variables declaration//GEN-END:variables
 }

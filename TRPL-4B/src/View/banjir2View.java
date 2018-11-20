@@ -7,6 +7,7 @@ package View;
 
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -54,6 +55,15 @@ public class banjir2View extends javax.swing.JFrame {
         this.Button_tangan.addMouseListener(l);
     }
 
+    public JLabel getLabel_darah() {
+        return Label_darah;
+    }
+
+    public void setLabel_darah(JLabel Label_darah) {
+        this.Label_darah = Label_darah;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,6 +77,7 @@ public class banjir2View extends javax.swing.JFrame {
         Button_kaki = new javax.swing.JButton();
         Button_lutut = new javax.swing.JButton();
         Button_tangan = new javax.swing.JButton();
+        Label_darah = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,6 +110,9 @@ public class banjir2View extends javax.swing.JFrame {
         Button_tangan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_tangan.setFocusable(false);
         getContentPane().add(Button_tangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 580, 140, 150));
+
+        Label_darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
+        getContentPane().add(Label_darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Banjir2/bajirframe.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -146,6 +160,7 @@ public class banjir2View extends javax.swing.JFrame {
     private javax.swing.JButton Button_kaki;
     private javax.swing.JButton Button_lutut;
     private javax.swing.JButton Button_tangan;
+    private javax.swing.JLabel Label_darah;
     private javax.swing.JLabel bg;
     // End of variables declaration//GEN-END:variables
 }

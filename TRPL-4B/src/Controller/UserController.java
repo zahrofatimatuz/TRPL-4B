@@ -3,6 +3,7 @@ package Controller;
 import Model.Koneksi;
 import Model.UserModel;
 import View.AboutView;
+import View.Gempa2View;
 import View.HelpView;
 import View.HomeView;
 import View.IntroBanjir1View;
@@ -12,6 +13,7 @@ import View.Kebakaran2View;
 import View.KorbanBanjirView;
 import View.KorbanGempaView;
 import View.KorbanKebakaranView;
+import View.LevelKuisView;
 import View.PanelBanjir2View;
 import View.PanelBanjir3View;
 import View.PanelBanjir4View;
@@ -39,6 +41,7 @@ import View.panelBakar2;
 import View.panelGempa2;
 import View.panelGempa3;
 import View.panelGempa1;
+import View.panelGempa4;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.GridBagLayout;
@@ -52,6 +55,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -71,37 +75,43 @@ import javax.swing.UIManager;
 
 public class UserController {
 
-    private HomeView home = new HomeView();
-    private awalanView awal = new awalanView();
-    private AboutView about = new AboutView();
-    private HelpView help = new HelpView();
-    private banjir1View banjir1 = new banjir1View();
-    private kebakaran1View kebakaran1 = new kebakaran1View();
-    private gempa1View gempa1 = new gempa1View();
-    private PilihanLevelView pilihLevel = new PilihanLevelView();
-    private IntroBanjir1View introbanjir1 = new IntroBanjir1View();
-    private IntroKebakaran1View introKebakaran1 = new IntroKebakaran1View();
-    private IntroGempa1View introGempa1 = new IntroGempa1View();
-    private KorbanBanjirView korban1 = new KorbanBanjirView();
-    private KorbanGempaView korban2 = new KorbanGempaView();
-    private KorbanKebakaranView korban3 = new KorbanKebakaranView();
-    private banjir2View banjir2 = new banjir2View();
-    private Kebakaran2View bakar2 = new Kebakaran2View();
-    private PopupKeluarView dialogKeluar;
-    private PopUpRegisterView dialogRegister;
-    private PopUpLoginView dialogLogin;
-    private PopUpGantiPasswordView dialogGantiPass;
-    private PopUpdialogView dialogPopUp;
-    private PopUpdialog2View dialogPopUp2;
-    private PopUpdialog3View dialogPopup3;
-    private PopUpdialogwinView dialogPopupWin;
-    private PopUpDialogKorban1 dialogKorban1;
-    private PopUpDialogKorban2 dialogKorban2;
-    private PopUpDialogKorban3 dialogKorban3;
-    private PopUpDialogKorbanMenang dialogMenang;
+    private static HomeView home = new HomeView();
+    private static awalanView awal = new awalanView();
+    private static AboutView about = new AboutView();
+    private static HelpView help = new HelpView();
+    private static banjir1View banjir1 = new banjir1View();
+    private static kebakaran1View kebakaran1 = new kebakaran1View();
+    private static gempa1View gempa1 = new gempa1View();
+    private static PilihanLevelView pilihLevel = new PilihanLevelView();
+    private static IntroBanjir1View introbanjir1 = new IntroBanjir1View();
+    private static IntroKebakaran1View introKebakaran1 = new IntroKebakaran1View();
+    private static IntroGempa1View introGempa1 = new IntroGempa1View();
+    private static KorbanBanjirView korban1 = new KorbanBanjirView();
+    private static KorbanGempaView korban2 = new KorbanGempaView();
+    private static KorbanKebakaranView korban3 = new KorbanKebakaranView();
 
+    private static banjir2View banjir2 = new banjir2View();
+    private static Gempa2View gempa2 = new Gempa2View();
+    private static Kebakaran2View bakar2 = new Kebakaran2View();
+    private static LevelKuisView kuis = new LevelKuisView();
+    private static PopupKeluarView dialogKeluar;
+    private static PopUpRegisterView dialogRegister;
+    private static PopUpLoginView dialogLogin;
+    private static PopUpGantiPasswordView dialogGantiPass;
+    private static PopUpdialogView dialogPopUp;
+    private static PopUpdialog2View dialogPopUp2;
+    private static PopUpdialog3View dialogPopup3;
+    private static PopUpdialogwinView dialogPopupWin;
+    private static PopUpDialogKorban1 dialogKorban1;
+    private static PopUpDialogKorban2 dialogKorban2;
+    private static PopUpDialogKorban3 dialogKorban3;
+    private static PopUpDialogKorbanMenang dialogMenang;
+    private Random random = new Random();
+    public int idsoal;
+    private int soal[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     private UserModel userM;
     private int darah;
+    private int darah2;
     private Timer time;
     private Timer timeWin;
     private int sekon = 5;
@@ -120,6 +130,7 @@ public class UserController {
     panelGempa1 meja = new panelGempa1();
     panelGempa2 lari = new panelGempa2();
     panelGempa3 lompat = new panelGempa3();
+    panelGempa4 tangga = new panelGempa4();
 
     public static String username = "";
     private boolean sound = true;
@@ -153,6 +164,7 @@ public class UserController {
         this.userM = userM;
         this.home = home;
         home.setVisible(true);
+
         home.getLabel_profilUser().setText(username);
         System.out.println(username);
         home.PlayMouseListener(new PlayMouseListnner());
@@ -185,6 +197,7 @@ public class UserController {
         pilihLevel.Level2MouseListener(new Level2MouseListener());
         pilihLevel.Banjir2MouseListener(new Banjir2MouseListener());
         pilihLevel.Gempa2MouseListener(new Gempa2MouseListener());
+        pilihLevel.KuisMouseListener(new KuisMouseListener());
         pilihLevel.Kebakaran2MouseListener(new Kebakaran2MouseListener());
         pilihLevel.getButton_Banjir1().setVisible(false);
         pilihLevel.getButton_gempa1().setVisible(false);
@@ -265,11 +278,13 @@ public class UserController {
         gempa1.LariListener(new LariListener());
         gempa1.MejaListener(new MejaListener());
         gempa1.JendelaListener(new JendelaListener());
+        gempa1.TanggalaListener(new TanggaListener());
 
         gempa1.getDynamic_gempa().setLayout(layout3);
         gempa1.getDynamic_gempa().add(meja);
         gempa1.getDynamic_gempa().add(lari);
         gempa1.getDynamic_gempa().add(lompat);
+        gempa1.getDynamic_gempa().add(tangga);
         gempa1.getDynamic_gempa().setVisible(false);
 
         dialogPopUp = new PopUpdialogView(kebakaran1, true);
@@ -285,11 +300,12 @@ public class UserController {
         dialogPopupWin.OKMouseListener(new OKWinListener());
     }
 //============================KORBAN=============================================================
+
     public UserController(KorbanBanjirView korban1, UserModel UserM) throws SQLException {
         this.korban1 = korban1;
         this.userM = UserM;
         korban1.setVisible(true);
-        
+
         korban1.OkListener(new OkKorbanBanjir());
     }
 
@@ -297,6 +313,7 @@ public class UserController {
         this.korban2 = korban2;
         this.userM = UserM;
         korban2.setVisible(true);
+        korban2.OkListenerGempa(new OkKorbanGempa());
     }
 
     public UserController(KorbanKebakaranView korban3, UserModel UserM) throws SQLException {
@@ -306,6 +323,7 @@ public class UserController {
         korban3.OkListenerKebakaran(new OkKorbanKebakaran());
     }
 //========================================USER CONTROLLER=====================================================
+
     public UserController(AboutView about, UserModel userM) throws SQLException {
 
         this.about = about;
@@ -322,6 +340,7 @@ public class UserController {
         help.KembaliMouseListener(new KembaliHelpMouseListener());
     }
 //===============================INTRO============================================================
+
     public UserController(IntroBanjir1View introBanjir1, UserModel userM) {
         this.introbanjir1 = introBanjir1;
         this.userM = userM;
@@ -343,7 +362,9 @@ public class UserController {
         introGempa1.okMouseListener(new okGempaListenner());
     }
 //===============================LEVEL 2=============================================================
+
     public UserController(banjir2View banjir2, UserModel userM) {
+        darah2 = 3;
         this.banjir2 = banjir2;
         this.userM = userM;
         banjir2.setVisible(true);
@@ -351,14 +372,85 @@ public class UserController {
         banjir2.LututMouseListener(new LututListener());
         banjir2.KakiMouseListener(new KakiListener());
         banjir2.TanganMouseListener(new TanganListener());
+
+        dialogKorban1 = new PopUpDialogKorban1(korban1, true);
+        dialogKorban1.OK1(new OkPopUp1lvl2Listener());
+
+        dialogKorban2 = new PopUpDialogKorban2(korban1, true);
+        dialogKorban2.OK2(new OkPopUp2lvl2Listener());
+
+        dialogKorban3 = new PopUpDialogKorban3(korban1, true);
+        dialogKorban3.OK3(new OkPopUp3lvl2Listener());
     }
-    
-    public UserController(Kebakaran2View bakar2, UserModel userM){
-    this.bakar2=bakar2;
-    this.userM=userM;
-    bakar2.setVisible(true);
+
+    public UserController(Kebakaran2View bakar2, UserModel userM) {
+        darah2 = 3;
+
+        this.bakar2 = bakar2;
+        this.userM = userM;
+        bakar2.setVisible(true);
+
+        bakar2.AirMaduLidahMouseListener(new MaduLidah());
+        bakar2.EsBatuMouseListener(new EsBatu());
+        bakar2.PastaMouseListener(new pasta());
+
+        dialogKorban1 = new PopUpDialogKorban1(korban1, true);
+        dialogKorban1.OK1(new OkPopUp1lvl2Listener());
+
+        dialogKorban2 = new PopUpDialogKorban2(korban1, true);
+        dialogKorban2.OK2(new OkPopUp2lvl2Listener());
+
+        dialogKorban3 = new PopUpDialogKorban3(korban1, true);
+        dialogKorban3.OK3(new OkPopUp3lvl2Listener());
+    }
+
+    public UserController(Gempa2View gempa2, UserModel userM) {
+        this.gempa2 = gempa2;
+        this.userM = userM;
+        gempa2.setVisible(true);
+        darah2 = 3;
+        gempa2.ObatMouseListener(new ObatListener());
+        gempa2.ObatdanSapuMouseListener(new ObatdanSapuListener());
+        gempa2.ObatdanTanduMouseListener(new ObatdanTanduListener());
+        gempa2.TanduMouseListener(new TanduListener());
+
+        dialogKorban1 = new PopUpDialogKorban1(korban1, true);
+        dialogKorban1.OK1(new OkPopUp1lvl2Listener());
+
+        dialogKorban2 = new PopUpDialogKorban2(korban1, true);
+        dialogKorban2.OK2(new OkPopUp2lvl2Listener());
+
+        dialogKorban3 = new PopUpDialogKorban3(korban1, true);
+        dialogKorban3.OK3(new OkPopUp3lvl2Listener());
+    }
+
+    public UserController(LevelKuisView kuis, UserModel userM) {
+        this.kuis = kuis;
+        this.userM = userM;
+        kuis.setVisible(true);
+        darah2 = 3;
+        
+        kuis.BackMouseListener(new BackKuisListener());
     }
 //====================================================================================
+
+    public void setSoal() {
+        setRandomSoal();
+        userM.ambilSoal(idsoal);
+        kuis.getLabel_soal().setText(userM.getSoal00());
+        kuis.getButton_jawabA().setText(userM.getSoal01());
+        kuis.getButton_jawabB().setText(userM.getSoal02());
+        kuis.getButton_jawabC().setText(userM.getSoal03());
+        kuis.getButton_jawabD().setText(userM.getSoal04());
+    }
+
+    public void setRandomSoal() {
+        do {
+            idsoal = random.nextInt(9);
+        } while (soal[idsoal] == 1);
+        soal[idsoal] = 1;
+        System.out.println(idsoal);
+    }
 
     private void setIcon(JButton button, String resource) {
         button.setIcon(new ImageIcon(getClass().getResource(resource)));
@@ -438,6 +530,80 @@ public class UserController {
                         }
                     }
                 } else if (frame.equalsIgnoreCase("gempa1")) {
+                    if (sekon == 0) {
+                        if (darah == 2) {
+                            dialogPopUp.setVisible(true);
+                            gempa1.getDynamic_gempa().setVisible(false);
+                        } else if (darah == 1) {
+                            dialogPopUp2.setVisible(true);
+                            gempa1.getDynamic_gempa().setVisible(false);
+                        } else if (darah == 0) {
+                            try {
+                                dialogPopup3.setVisible(true);
+                                gempa1.dispose();
+                                new UserController(pilihLevel, userM);
+
+                            } catch (SQLException ex) {
+                                Logger.getLogger(UserController.class
+                                        .getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        time = new Timer(1000, gameTimer);
+        time.start();
+    }
+
+    private void timer2(String frame) {
+        ActionListener gameTimer = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                sekon--;
+                if (frame.equalsIgnoreCase("banjir2")) {
+
+                    if (sekon == 0) {
+                        if (darah == 2) {
+                            dialogPopUp.setVisible(true);
+                            banjir1.getDynamicP().setVisible(false);
+                        } else if (darah == 1) {
+                            dialogPopUp2.setVisible(true);
+                            banjir1.getDynamicP().setVisible(false);
+                        } else if (darah == 0) {
+                            try {
+                                dialogPopup3.setVisible(true);
+                                banjir1.dispose();
+                                new UserController(pilihLevel, userM);
+
+                            } catch (SQLException ex) {
+                                Logger.getLogger(UserController.class
+                                        .getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                } else if (frame.equalsIgnoreCase("bakar2")) {
+                    if (sekon == 0) {
+                        if (darah == 2) {
+                            dialogPopUp.setVisible(true);
+                            kebakaran1.getDynamic_Panel().setVisible(false);
+                        } else if (darah == 1) {
+                            dialogPopUp2.setVisible(true);
+
+                            kebakaran1.getDynamic_Panel().setVisible(false);
+                        } else if (darah == 0) {
+                            try {
+                                dialogPopup3.setVisible(true);
+                                kebakaran1.dispose();
+                                new UserController(pilihLevel, userM);
+
+                            } catch (SQLException ex) {
+                                Logger.getLogger(UserController.class
+                                        .getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                } else if (frame.equalsIgnoreCase("gempa2")) {
                     if (sekon == 0) {
                         if (darah == 2) {
                             dialogPopUp.setVisible(true);
@@ -547,6 +713,45 @@ public class UserController {
         }
     }
 
+    private void minDarah2(String frame) throws SQLException {
+
+        darah2--;
+        if (frame.equalsIgnoreCase("banjir2")) {
+            if (darah2 == 2) {
+                setIconLabel(banjir2.getLabel_darah(), "/View/Level/75_.png");
+                dialogKorban1.setVisible(true);
+
+            } else if (darah2 == 1) {
+                setIconLabel(banjir2.getLabel_darah(), "/View/Level/50_.png");
+                dialogKorban2.setVisible(true);
+
+            } else if (darah2 == 0) {
+                setIconLabel(banjir2.getLabel_darah(), "/View/Level/25_.png");
+                dialogKorban3.setVisible(true);
+
+            }
+        } else if (frame.equalsIgnoreCase("kebakaran2")) {
+            if (darah2 == 2) {
+                setIconLabel(kebakaran1.getLabel_darah(), "/View/Level/50_.png");
+                dialogKorban2.setVisible(true);
+            } else if (darah2 == 1) {
+                setIconLabel(kebakaran1.getLabel_darah(), "/View/Level/25_.png");
+                dialogKorban3.setVisible(true);
+            }
+        } else if (frame.equalsIgnoreCase("gempa2")) {
+            if (darah2 == 2) {
+                setIconLabel(gempa2.getLabel_darah(), "/View/Level/75_.png");
+                dialogKorban1.setVisible(true);
+            } else if (darah2 == 1) {
+                setIconLabel(gempa2.getLabel_darah(), "/View/Level/50_.png");
+                dialogKorban2.setVisible(true);
+            } else if (darah2 == 0) {
+                setIconLabel(gempa2.getLabel_darah(), "/View/Level/25_.png");
+                dialogKorban3.setVisible(true);
+            }
+        }
+    }
+
     private void resetInputan() {
         dialogRegister.get_Username().setText("");
         dialogRegister.get_Password().setText("");
@@ -555,67 +760,446 @@ public class UserController {
 
     }
 
-    private class OkKorbanKebakaran implements MouseListener {
+    private class BackKuisListener implements MouseListener {
 
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            kuis.dispose();
+            try {
+                new UserController(pilihLevel, userM);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class KuisMouseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            setSoal();
+            new UserController(kuis, userM);
+            pilihLevel.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class EsBatu implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah2("kebakaran2");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class pasta implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah2("kebakaran2");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class MaduLidah implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class TanduListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah2("gempa2");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class ObatdanTanduListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class ObatdanSapuListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah2("gempa2");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class ObatListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah2("gempa2");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class OkPopUp3lvl2Listener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            dialogKorban3.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class OkPopUp2lvl2Listener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            dialogKorban2.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class OkPopUp1lvl2Listener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            dialogKorban1.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class OkKorbanGempa implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            new UserController(gempa2, userM);
+            korban2.dispose();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class TanggaListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+            gempa1.getDynamic_gempa().setVisible(true);
+            meja.setVisible(false);
+            lari.setVisible(false);
+            lompat.setVisible(false);
+            tangga.setVisible(true);
+            try {
+                minDarah("gempa1");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class OkKorbanKebakaran implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
             new UserController(bakar2, userM);
             korban3.dispose();
-            }
+        }
 
         @Override
         public void mousePressed(MouseEvent e) {
-            }
+        }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            }
+        }
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            }
+        }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            }
+        }
     }
 //===============================Button OK level2=============================================
+
     private class OkKorbanBanjir implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
             new UserController(banjir2, userM);
             korban1.dispose();
-            }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            }
-    }
-
-    private class TanganListener implements MouseListener {
-
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
-         }
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class TanganListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah2("banjir2");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
 
         @Override
         public void mouseReleased(MouseEvent e) {
@@ -634,6 +1218,11 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah2("banjir2");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         @Override
@@ -657,6 +1246,11 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            try {
+                minDarah2("banjir2");
+            } catch (SQLException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         @Override
@@ -794,6 +1388,7 @@ public class UserController {
             gempa1.getDynamic_gempa().setVisible(true);
             meja.setVisible(false);
             lari.setVisible(false);
+            tangga.setVisible(false);
             lompat.setVisible(true);
             try {
                 minDarah("gempa1");
@@ -826,6 +1421,7 @@ public class UserController {
             gempa1.getDynamic_gempa().setVisible(true);
             meja.setVisible(true);
             lari.setVisible(false);
+            tangga.setVisible(false);
             lompat.setVisible(false);
             timerWin();
         }
@@ -854,6 +1450,7 @@ public class UserController {
             gempa1.getDynamic_gempa().setVisible(true);
             lari.setVisible(true);
             meja.setVisible(false);
+            tangga.setVisible(false);
             lompat.setVisible(false);
             try {
                 minDarah("gempa1");
@@ -1833,8 +2430,8 @@ public class UserController {
             } catch (SQLException ex) {
                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            home.dispose();
             dialogKeluar.dispose();
+            home.dispose();
         }
 
         @Override
@@ -1863,12 +2460,13 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             try {
+
                 username = dialogLogin.getTextField_Username().getText();
                 String pass = dialogLogin.getPasswordField_Password().getText();
 
                 userM.Login(username, pass);
                 if (username.equals("") || pass.equals("")) {
-                    JOptionPane.showMessageDialog(home, "Data tidak boleh kosong");
+                    JOptionPane.showMessageDialog(home, "Username atau password tidak boleh kosong!!");
                 } else {
                     if (userM.getResult() > 0) {
                         new UserController(home, userM);

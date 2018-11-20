@@ -6,6 +6,8 @@
 package View;
 
 import java.awt.Color;
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -23,6 +25,17 @@ public class PopUpDialogKorban3 extends javax.swing.JDialog {
         setBackground(new Color(0,0,0,0));
         
     }
+    public void OK3(MouseListener l) {
+        this.ok_button.addMouseListener(l);
+    }
+
+    public JButton getButton_ok() {
+        return ok_button;
+    }
+
+    public void setButton_ok(JButton ok_button) {
+        this.ok_button = ok_button;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,41 +46,22 @@ public class PopUpDialogKorban3 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        ok_button = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Banjir2/btn-OkLg.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusable(false);
+        ok_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Banjir2/btn-OkLg.png"))); // NOI18N
+        ok_button.setBorder(null);
+        ok_button.setBorderPainted(false);
+        ok_button.setContentAreaFilled(false);
+        ok_button.setFocusable(false);
+        getContentPane().add(ok_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 275, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/PopUp/popUp-banjir3.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jButton1)))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 0, -1, 257));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,7 +109,7 @@ public class PopUpDialogKorban3 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ok_button;
     // End of variables declaration//GEN-END:variables
 }

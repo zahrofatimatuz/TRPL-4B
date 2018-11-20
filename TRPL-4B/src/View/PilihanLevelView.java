@@ -25,6 +25,9 @@ public class PilihanLevelView extends javax.swing.JFrame {
     public void Level1MouseListener(MouseListener l) {
         this.Button_Level1.addMouseListener(l);
     }
+    public void KuisMouseListener(MouseListener l) {
+        this.Button_kuis.addMouseListener(l);
+    }
     public void KembaliMouseListener(MouseListener l) {
         this.Button_kembali.addMouseListener(l);
     }
@@ -122,6 +125,14 @@ public class PilihanLevelView extends javax.swing.JFrame {
         this.Button_kebakaran1 = Button_kebakaran1;
     }
 
+    public JButton getButton_kuis() {
+        return Button_kuis;
+    }
+
+    public void setButton_kuis(JButton Button_kuis) {
+        this.Button_kuis = Button_kuis;
+    }
+    
     public JButton getButton_kebakaran2() {
         return Button_kebakaran2;
     }
@@ -140,6 +151,7 @@ public class PilihanLevelView extends javax.swing.JFrame {
     private void initComponents() {
 
         Button_kembali = new javax.swing.JButton();
+        Button_kuis = new javax.swing.JButton();
         Button_Level1 = new javax.swing.JButton();
         Button_Banjir1 = new javax.swing.JButton();
         Button_gempa1 = new javax.swing.JButton();
@@ -158,6 +170,11 @@ public class PilihanLevelView extends javax.swing.JFrame {
         Button_kembali.setContentAreaFilled(false);
         Button_kembali.setFocusable(false);
         getContentPane().add(Button_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, -1));
+
+        Button_kuis.setText("Kuis");
+        Button_kuis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_kuis.setFocusable(false);
+        getContentPane().add(Button_kuis, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, -1, -1));
 
         Button_Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/lvl-1.png"))); // NOI18N
         Button_Level1.setBorderPainted(false);
@@ -233,6 +250,7 @@ public class PilihanLevelView extends javax.swing.JFrame {
     private javax.swing.JButton Button_kebakaran1;
     private javax.swing.JButton Button_kebakaran2;
     private javax.swing.JButton Button_kembali;
+    private javax.swing.JButton Button_kuis;
     private javax.swing.JLabel bg;
     // End of variables declaration//GEN-END:variables
 }

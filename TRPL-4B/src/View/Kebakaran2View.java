@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author rkhis
@@ -18,7 +22,48 @@ public class Kebakaran2View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
+    public void AirMaduLidahMouseListener(MouseListener l) {
+        this.Button_AitMaduLidah.addMouseListener(l);
+    }
+    public void EsBatuMouseListener(MouseListener l) {
+        this.Button_EsBatu.addMouseListener(l);
+    }
+    public void PastaMouseListener(MouseListener l) {
+        this.Button_PastaGigi.addMouseListener(l);
+    }
+
+    public JButton getButton_AitMaduLidah() {
+        return Button_AitMaduLidah;
+    }
+
+    public void setButton_AitMaduLidah(JButton Button_AitMaduLidah) {
+        this.Button_AitMaduLidah = Button_AitMaduLidah;
+    }
+
+    public JButton getButton_EsBatu() {
+        return Button_EsBatu;
+    }
+
+    public void setButton_EsBatu(JButton Button_EsBatu) {
+        this.Button_EsBatu = Button_EsBatu;
+    }
+
+    public JButton getButton_PastaGigi() {
+        return Button_PastaGigi;
+    }
+
+    public void setButton_PastaGigi(JButton Button_PastaGigi) {
+        this.Button_PastaGigi = Button_PastaGigi;
+    }
+
+    public JLabel getBg() {
+        return bg;
+    }
+
+    public void setBg(JLabel bg) {
+        this.bg = bg;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,37 +74,37 @@ public class Kebakaran2View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Button_EsBatu = new javax.swing.JButton();
+        Button_PastaGigi = new javax.swing.JButton();
+        Button_AitMaduLidah = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-2_1.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusable(false);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 290, -1, -1));
+        Button_EsBatu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-2_1.png"))); // NOI18N
+        Button_EsBatu.setBorder(null);
+        Button_EsBatu.setBorderPainted(false);
+        Button_EsBatu.setContentAreaFilled(false);
+        Button_EsBatu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_EsBatu.setFocusable(false);
+        getContentPane().add(Button_EsBatu, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 290, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-3_1.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setFocusable(false);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 470, -1, -1));
+        Button_PastaGigi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-3_1.png"))); // NOI18N
+        Button_PastaGigi.setBorder(null);
+        Button_PastaGigi.setBorderPainted(false);
+        Button_PastaGigi.setContentAreaFilled(false);
+        Button_PastaGigi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_PastaGigi.setFocusable(false);
+        getContentPane().add(Button_PastaGigi, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 470, -1, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-1_1.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setFocusable(false);
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 110, 140, 160));
+        Button_AitMaduLidah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-1_1.png"))); // NOI18N
+        Button_AitMaduLidah.setBorder(null);
+        Button_AitMaduLidah.setBorderPainted(false);
+        Button_AitMaduLidah.setContentAreaFilled(false);
+        Button_AitMaduLidah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_AitMaduLidah.setFocusable(false);
+        getContentPane().add(Button_AitMaduLidah, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 110, 140, 160));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/kebakaran-frame.gif"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, -1, -1));
@@ -103,9 +148,9 @@ public class Kebakaran2View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button_AitMaduLidah;
+    private javax.swing.JButton Button_EsBatu;
+    private javax.swing.JButton Button_PastaGigi;
     private javax.swing.JLabel bg;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }
