@@ -34,6 +34,7 @@ public class banjir1View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Button_pause = new javax.swing.JButton();
         Label_darah = new javax.swing.JLabel();
         dynamicP = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -47,12 +48,15 @@ public class banjir1View extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Button_pause.setText("pause");
+        getContentPane().add(Button_pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 20, -1, -1));
+
         Label_darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
         getContentPane().add(Label_darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 60));
 
         dynamicP.setOpaque(false);
         dynamicP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(dynamicP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 570));
+        getContentPane().add(dynamicP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 570));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/banjir1.gif"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 570));
@@ -96,6 +100,9 @@ public class banjir1View extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void PauseListener(MouseListener l) {
+        this.Button_pause.addMouseListener(l);
+    }
     public void PelampungListener(MouseListener l) {
         this.pelampung.addMouseListener(l);
     }
@@ -170,6 +177,7 @@ public class banjir1View extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button_pause;
     private javax.swing.JLabel Label_darah;
     private javax.swing.JButton debog;
     private javax.swing.JPanel dynamicP;

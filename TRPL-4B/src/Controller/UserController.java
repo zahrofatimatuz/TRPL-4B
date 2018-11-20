@@ -14,6 +14,7 @@ import View.KorbanBanjirView;
 import View.KorbanGempaView;
 import View.KorbanKebakaranView;
 import View.LevelKuisView;
+import View.MenangKuisView;
 import View.PanelBanjir2View;
 import View.PanelBanjir3View;
 import View.PanelBanjir4View;
@@ -94,6 +95,7 @@ public class UserController {
     private static Gempa2View gempa2 = new Gempa2View();
     private static Kebakaran2View bakar2 = new Kebakaran2View();
     private static LevelKuisView kuis = new LevelKuisView();
+    private static MenangKuisView menangKuis = new MenangKuisView();
     private static PopupKeluarView dialogKeluar;
     private static PopUpRegisterView dialogRegister;
     private static PopUpLoginView dialogLogin;
@@ -108,14 +110,19 @@ public class UserController {
     private static PopUpDialogKorbanMenang dialogMenang;
     private Random random = new Random();
     public int idsoal;
-    private int soal[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    private int soal[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    private int nosoal = 0;
     private UserModel userM;
     private int darah;
     private int darah2;
+    private boolean pause = false;
     private Timer time;
     private Timer timeWin;
     private int sekon = 5;
+    private int sekons = 2;
     private int win = 5;
+    private static int skor = 0;
+    private static boolean level[] = {true, false, false};
     GridBagLayout layout = new GridBagLayout();
     GridBagLayout layout2 = new GridBagLayout();
     GridBagLayout layout3 = new GridBagLayout();
@@ -131,15 +138,17 @@ public class UserController {
     panelGempa2 lari = new panelGempa2();
     panelGempa3 lompat = new panelGempa3();
     panelGempa4 tangga = new panelGempa4();
-
+    public static int hasil[] = new int[3];
+    public static int jawabBenar = 0;
+    public static int jawabSalah = 0;
     public static String username = "";
     private boolean sound = true;
-    private boolean Pelampung = false;
-    private boolean Gas = false;
-    private boolean Debog = false;
-    private boolean bakar1 = false;
-    private boolean Gempa1 = false;
-    private boolean level2 = false;
+//    private boolean Pelampung = false;
+//    private boolean Gas = false;
+//    private boolean Debog = false;
+//    private boolean bakar1 = false;
+//    private boolean Gempa1 = false;
+//    private boolean level2 = false;
 
     public UserController(awalanView awal, UserModel userM) throws SQLException {
 //        playMusic("src//Music//Menu utama.wav");
@@ -215,6 +224,7 @@ public class UserController {
         this.userM = userM;
         darah = 3;
 
+        banjir1.PauseListener(new PauseListener());
         banjir1.PelampungListener(new PelampungListener());
         banjir1.PisangListener(new PisangListener());
         banjir1.GalonListener(new GalonListener());
@@ -245,7 +255,7 @@ public class UserController {
         this.userM = userM;
         darah = 3;
         kebakaran1.setVisible(true);
-
+        kebakaran1.PauseListener(new PauseListener());
         kebakaran1.AirListener(new AirListener());
         kebakaran1.GasListener(new GasListener());
         kebakaran1.LapListener(new LapListener());
@@ -428,11 +438,71 @@ public class UserController {
         this.kuis = kuis;
         this.userM = userM;
         kuis.setVisible(true);
+        kuis.getLabel_Nama().setText(username);
+        kuis.getLabel_Skor().setText(Integer.toString(skor));
         darah2 = 3;
-        
+
         kuis.BackMouseListener(new BackKuisListener());
+        kuis.jawabAMouseListener(new jawabAKuisListener());
+        kuis.jawabBMouseListener(new jawabBKuisListener());
+        kuis.jawabCMouseListener(new jawabCKuisListener());
+        kuis.jawabDMouseListener(new jawabDKuisListener());
+        kuis.PauseMouseListener(new PauseListener());
+    }
+
+    public UserController(MenangKuisView menangKuis, UserModel userM) {
+        this.menangKuis = menangKuis;
+        this.userM = userM;
+        menangKuis.setVisible(true);
+        menangKuis.getLabel_nama().setText(username);
+        menangKuis.getLabel_Skor().setText(Integer.toString(skor));
+        menangKuis.getLabel_jawabanBenar().setText(Integer.toString(jawabBenar));
+        menangKuis.getLabel_jawabanSalah().setText(Integer.toString(jawabSalah));
+
     }
 //====================================================================================
+
+    public void Pencocokan(String jawab) {
+        System.out.println("jawaban :" + userM.getSoal05());
+        if (userM.getSoal05().equalsIgnoreCase(kuis.getButton_jawabA().getText()) && jawab.equalsIgnoreCase("A")) {
+            System.out.println("pilihan :" + kuis.getButton_jawabA().getText());
+            skor += 10;
+            jawabBenar += 1;
+            setIcon(kuis.getButton_jawabA(), "/View/level3/opt-bener.png");
+            kuis.getLabel_Skor().setText(Integer.toString(skor));
+        } else if (userM.getSoal05().equalsIgnoreCase(kuis.getButton_jawabB().getText()) && jawab.equalsIgnoreCase("B")) {
+            System.out.println("pilihan :" + kuis.getButton_jawabB().getText());
+            skor += 10;
+            jawabBenar += 1;
+            setIcon(kuis.getButton_jawabB(), "/View/level3/opt-bener.png");
+            kuis.getLabel_Skor().setText(Integer.toString(skor));
+        } else if (userM.getSoal05().equalsIgnoreCase(kuis.getButton_jawabC().getText()) && jawab.equalsIgnoreCase("C")) {
+            System.out.println("pilihan :" + kuis.getButton_jawabC().getText());
+            skor += 10;
+            jawabBenar += 1;
+            setIcon(kuis.getButton_jawabC(), "/View/level3/opt-bener.png");
+            kuis.getLabel_Skor().setText(Integer.toString(skor));
+        } else if (userM.getSoal05().equalsIgnoreCase(kuis.getButton_jawabD().getText()) && jawab.equalsIgnoreCase("D")) {
+            System.out.println("pilihan :" + kuis.getButton_jawabD().getText());
+            skor += 10;
+            jawabBenar += 1;
+            setIcon(kuis.getButton_jawabD(), "/View/level3/opt-bener.png");
+            kuis.getLabel_Skor().setText(Integer.toString(skor));
+        } else if (!userM.getSoal05().equalsIgnoreCase(kuis.getButton_jawabD().getText()) && jawab.equalsIgnoreCase("D")) {
+            setIcon(kuis.getButton_jawabD(), "/View/level3/opt-salah.png");
+            jawabSalah += 1;
+        } else if (!userM.getSoal05().equalsIgnoreCase(kuis.getButton_jawabC().getText()) && jawab.equalsIgnoreCase("C")) {
+            setIcon(kuis.getButton_jawabC(), "/View/level3/opt-salah.png");
+            jawabSalah += 1;
+        } else if (!userM.getSoal05().equalsIgnoreCase(kuis.getButton_jawabB().getText()) && jawab.equalsIgnoreCase("B")) {
+            setIcon(kuis.getButton_jawabB(), "/View/level3/opt-salah.png");
+            jawabSalah += 1;
+        } else if (!userM.getSoal05().equalsIgnoreCase(kuis.getButton_jawabA().getText()) && jawab.equalsIgnoreCase("A")) {
+            setIcon(kuis.getButton_jawabA(), "/View/level3/opt-salah.png");
+            jawabSalah += 1;
+        }
+
+    }
 
     public void setSoal() {
         setRandomSoal();
@@ -444,12 +514,45 @@ public class UserController {
         kuis.getButton_jawabD().setText(userM.getSoal04());
     }
 
+    public void pause() {
+        if (pause) {
+            kuis.getButton_jawabA().setEnabled(false);
+            kuis.getButton_jawabB().setEnabled(false);
+            kuis.getButton_jawabC().setEnabled(false);
+            kuis.getButton_jawabD().setEnabled(false);
+
+            banjir1.getPelampung().setEnabled(false);
+            banjir1.getSapu().setEnabled(false);
+            banjir1.getGalon().setEnabled(false);
+            banjir1.getDebog().setEnabled(false);
+            kebakaran1.getAir_button().setEnabled(false);
+            kebakaran1.getGas_button().setEnabled(false);
+            kebakaran1.getLap_button().setEnabled(false);
+            gempa1.getButton_jendela().setEnabled(false);
+            gempa1.getButton_lari().setEnabled(false);
+            gempa1.getButton_meja().setEnabled(false);
+            gempa1.getButton_tangga().setEnabled(false);
+
+        } else {
+            kuis.getButton_jawabA().setEnabled(true);
+            kuis.getButton_jawabB().setEnabled(true);
+            kuis.getButton_jawabC().setEnabled(true);
+            kuis.getButton_jawabD().setEnabled(true);
+        }
+    }
+
     public void setRandomSoal() {
         do {
-            idsoal = random.nextInt(9);
-        } while (soal[idsoal] == 1);
-        soal[idsoal] = 1;
-        System.out.println(idsoal);
+            nosoal += 1;
+            idsoal = (random.nextInt(13) + 1);
+            soal[idsoal] = 1;
+        } while (soal[idsoal] == 1 && nosoal == 10);
+        if (nosoal == 11) {
+            new UserController(menangKuis, userM);
+            kuis.dispose();
+        }
+        System.out.println("no soal : " + nosoal);
+        System.out.println("idsoal :" + idsoal);
     }
 
     private void setIcon(JButton button, String resource) {
@@ -556,73 +659,15 @@ public class UserController {
         time.start();
     }
 
-    private void timer2(String frame) {
+    private void pindahsoal() {
         ActionListener gameTimer = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                sekon--;
-                if (frame.equalsIgnoreCase("banjir2")) {
-
-                    if (sekon == 0) {
-                        if (darah == 2) {
-                            dialogPopUp.setVisible(true);
-                            banjir1.getDynamicP().setVisible(false);
-                        } else if (darah == 1) {
-                            dialogPopUp2.setVisible(true);
-                            banjir1.getDynamicP().setVisible(false);
-                        } else if (darah == 0) {
-                            try {
-                                dialogPopup3.setVisible(true);
-                                banjir1.dispose();
-                                new UserController(pilihLevel, userM);
-
-                            } catch (SQLException ex) {
-                                Logger.getLogger(UserController.class
-                                        .getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                    }
-                } else if (frame.equalsIgnoreCase("bakar2")) {
-                    if (sekon == 0) {
-                        if (darah == 2) {
-                            dialogPopUp.setVisible(true);
-                            kebakaran1.getDynamic_Panel().setVisible(false);
-                        } else if (darah == 1) {
-                            dialogPopUp2.setVisible(true);
-
-                            kebakaran1.getDynamic_Panel().setVisible(false);
-                        } else if (darah == 0) {
-                            try {
-                                dialogPopup3.setVisible(true);
-                                kebakaran1.dispose();
-                                new UserController(pilihLevel, userM);
-
-                            } catch (SQLException ex) {
-                                Logger.getLogger(UserController.class
-                                        .getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                    }
-                } else if (frame.equalsIgnoreCase("gempa2")) {
-                    if (sekon == 0) {
-                        if (darah == 2) {
-                            dialogPopUp.setVisible(true);
-                            gempa1.getDynamic_gempa().setVisible(false);
-                        } else if (darah == 1) {
-                            dialogPopUp2.setVisible(true);
-                            gempa1.getDynamic_gempa().setVisible(false);
-                        } else if (darah == 0) {
-                            try {
-                                dialogPopup3.setVisible(true);
-                                gempa1.dispose();
-                                new UserController(pilihLevel, userM);
-
-                            } catch (SQLException ex) {
-                                Logger.getLogger(UserController.class
-                                        .getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                    }
+                sekons--;
+                if (sekons == 0) {
+                    setSoal();
+                    sekons = 2;
+                    time.stop();
                 }
             }
         };
@@ -760,8 +805,156 @@ public class UserController {
 
     }
 
-    private class BackKuisListener implements MouseListener {
+   
 
+    private class PauseListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (pause) {
+                pause = false;
+                pause();
+            } else {
+                pause = true;
+                pause();
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
+    }
+
+    private class jawabDKuisListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (pause == false) {
+                Pencocokan("D");
+                pindahsoal();
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            setIcon(kuis.getButton_jawabD(), "/View/level3/opt-soalhover.png");
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setIcon(kuis.getButton_jawabD(), "/View/level3/opt-soal.png");
+        }
+    }
+
+    private class jawabCKuisListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (pause == false) {
+                Pencocokan("C");
+                pindahsoal();
+
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            setIcon(kuis.getButton_jawabC(), "/View/level3/opt-soalhover.png");
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setIcon(kuis.getButton_jawabC(), "/View/level3/opt-soal.png");
+        }
+    }
+
+    private class jawabBKuisListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (pause == false) {
+                Pencocokan("B");
+                pindahsoal();
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            setIcon(kuis.getButton_jawabB(), "/View/level3/opt-soalhover.png");
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setIcon(kuis.getButton_jawabB(), "/View/level3/opt-soal.png");
+        }
+    }
+
+    private class jawabAKuisListener implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (pause == false) {
+                Pencocokan("A");
+                pindahsoal();
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            setIcon(kuis.getButton_jawabA(), "/View/level3/opt-soalhover.png");
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            setIcon(kuis.getButton_jawabA(), "/View/level3/opt-soal.png");
+        }
+    }
+
+    private class BackKuisListener implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -1752,8 +1945,8 @@ public class UserController {
             debog.setVisible(true);
             galon.setVisible(false);
             sapu.setVisible(false);
-            Debog = true;
-            bakar1 = true;
+//            Debog = true;
+//            bakar1 = true;
             timerWin();
         }
 
@@ -1783,8 +1976,8 @@ public class UserController {
             debog.setVisible(false);
             sapu.setVisible(false);
             galon.setVisible(false);
-            Pelampung = true;
-            bakar1 = true;
+//            Pelampung = true;
+//            bakar1 = true;
             timerWin();
         }
 

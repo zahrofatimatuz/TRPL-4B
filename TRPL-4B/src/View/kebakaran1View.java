@@ -23,6 +23,34 @@ public class kebakaran1View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
     }
+
+    public JButton getButton_pause() {
+        return Button_pause;
+    }
+
+    public void setButton_pause(JButton Button_pause) {
+        this.Button_pause = Button_pause;
+    }
+
+    public JLabel getApi() {
+        return api;
+    }
+
+    public void setApi(JLabel api) {
+        this.api = api;
+    }
+
+    public JLabel getDarah() {
+        return darah;
+    }
+
+    public void setDarah(JLabel darah) {
+        this.darah = darah;
+    }
+    
+    public void PauseListener(MouseListener l) {
+        this.Button_pause.addMouseListener(l);
+    }
     public void GasListener(MouseListener l) {
         this.gas_button.addMouseListener(l);
     }
@@ -81,6 +109,7 @@ public class kebakaran1View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Button_pause = new javax.swing.JButton();
         darah = new javax.swing.JLabel();
         dynamic_Panel = new javax.swing.JPanel();
         api = new javax.swing.JLabel();
@@ -92,6 +121,9 @@ public class kebakaran1View extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Button_pause.setText("pause");
+        getContentPane().add(Button_pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 20, -1, -1));
 
         darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
         getContentPane().add(darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
@@ -135,6 +167,7 @@ public class kebakaran1View extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button_pause;
     private javax.swing.JButton air_button;
     private javax.swing.JLabel api;
     private javax.swing.JLabel darah;

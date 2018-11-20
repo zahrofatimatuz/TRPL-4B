@@ -72,6 +72,10 @@ public class UserModel {
         return soal[0][4];
     }
 
+    public String getSoal05() {
+        return soal[0][5];
+    }
+
     public int cekUsername(String username) {
         try {
             String query = "select username from user where username = '" + username + "'";

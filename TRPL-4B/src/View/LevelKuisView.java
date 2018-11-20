@@ -32,7 +32,10 @@ public class LevelKuisView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Label_Nama = new javax.swing.JLabel();
+        Label_Skor = new javax.swing.JLabel();
         Label_soal = new javax.swing.JLabel();
+        Button_pause = new javax.swing.JButton();
         Button_jawabB = new javax.swing.JButton();
         Button_jawabC = new javax.swing.JButton();
         Button_jawabA = new javax.swing.JButton();
@@ -44,35 +47,81 @@ public class LevelKuisView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label_soal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Label_soal.setText("Ini adalah contoh soal dari kuis MECIN LEVEL 3, Ini adalah contoh soal dari kuis MECIN LEVEL 3, Ini adalah contoh soal dari kuis MECIN LEVEL 3");
+        Label_Nama.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_Nama.setForeground(new java.awt.Color(153, 0, 0));
+        Label_Nama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(Label_Nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 80, 110, 30));
+
+        Label_Skor.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_Skor.setForeground(new java.awt.Color(204, 51, 0));
+        Label_Skor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(Label_Skor, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 110, 30));
+
+        Label_soal.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Label_soal.setForeground(new java.awt.Color(255, 255, 255));
+        Label_soal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_soal.setAutoscrolls(true);
+        Label_soal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(Label_soal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 840, 150));
 
+        Button_pause.setText("Pause");
+        getContentPane().add(Button_pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 670, 80, -1));
+
+        Button_jawabB.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Button_jawabB.setForeground(new java.awt.Color(255, 255, 255));
+        Button_jawabB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/opt-soal.png"))); // NOI18N
         Button_jawabB.setText("JAWABAN 2");
-        getContentPane().add(Button_jawabB, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 188, 79));
+        Button_jawabB.setBorder(null);
+        Button_jawabB.setBorderPainted(false);
+        Button_jawabB.setContentAreaFilled(false);
+        Button_jawabB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_jawabB.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(Button_jawabB, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 410, 120));
 
+        Button_jawabC.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Button_jawabC.setForeground(new java.awt.Color(255, 255, 255));
+        Button_jawabC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/opt-soal.png"))); // NOI18N
         Button_jawabC.setText("JAWABAN 3");
-        getContentPane().add(Button_jawabC, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 570, 188, 79));
+        Button_jawabC.setBorder(null);
+        Button_jawabC.setBorderPainted(false);
+        Button_jawabC.setContentAreaFilled(false);
+        Button_jawabC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_jawabC.setFocusable(false);
+        Button_jawabC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(Button_jawabC, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, -1, 120));
 
+        Button_jawabA.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Button_jawabA.setForeground(new java.awt.Color(255, 255, 255));
         Button_jawabA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/opt-soal.png"))); // NOI18N
         Button_jawabA.setText("JAWABAN 1");
         Button_jawabA.setBorder(null);
         Button_jawabA.setBorderPainted(false);
         Button_jawabA.setContentAreaFilled(false);
-        getContentPane().add(Button_jawabA, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 470, 130));
+        Button_jawabA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_jawabA.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(Button_jawabA, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 410, 120));
 
+        Button_jawabD.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Button_jawabD.setForeground(new java.awt.Color(255, 255, 255));
+        Button_jawabD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/opt-soal.png"))); // NOI18N
         Button_jawabD.setText("JAWABAN 4");
-        getContentPane().add(Button_jawabD, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 580, 188, 79));
+        Button_jawabD.setBorder(null);
+        Button_jawabD.setBorderPainted(false);
+        Button_jawabD.setContentAreaFilled(false);
+        Button_jawabD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_jawabD.setFocusable(false);
+        Button_jawabD.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(Button_jawabD, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 519, 390, 120));
 
         Button_back.setText("BACK");
-        getContentPane().add(Button_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
+        getContentPane().add(Button_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 670, 80, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("KESEMPATAN :");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 145, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/frame-level3.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 730));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -80,9 +129,65 @@ public class LevelKuisView extends javax.swing.JFrame {
     public void BackMouseListener(MouseListener l) {
         this.Button_back.addMouseListener(l);
     }
+    public void jawabAMouseListener(MouseListener l) {
+        this.Button_jawabA.addMouseListener(l);
+    }
+    public void jawabBMouseListener(MouseListener l) {
+        this.Button_jawabB.addMouseListener(l);
+    }
+    public void jawabCMouseListener(MouseListener l) {
+        this.Button_jawabC.addMouseListener(l);
+    }
+    public void jawabDMouseListener(MouseListener l) {
+        this.Button_jawabD.addMouseListener(l);
+    }
+    public void PauseMouseListener(MouseListener l) {
+        this.Button_pause.addMouseListener(l);
+    }
 
+    public JButton getButton_pause() {
+        return Button_pause;
+    }
+
+    public void setButton_pause(JButton Button_pause) {
+        this.Button_pause = Button_pause;
+    }
+    
+    
     public JButton getButton_back() {
         return Button_back;
+    }
+
+    public JLabel getLabel_Nama() {
+        return Label_Nama;
+    }
+
+    public void setLabel_Nama(JLabel Label_Nama) {
+        this.Label_Nama = Label_Nama;
+    }
+
+    public JLabel getLabel_Skor() {
+        return Label_Skor;
+    }
+
+    public void setLabel_Skor(JLabel Label_Skor) {
+        this.Label_Skor = Label_Skor;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
     }
 
     public void setButton_back(JButton Button_back) {
@@ -171,6 +276,9 @@ public class LevelKuisView extends javax.swing.JFrame {
     private javax.swing.JButton Button_jawabB;
     private javax.swing.JButton Button_jawabC;
     private javax.swing.JButton Button_jawabD;
+    private javax.swing.JButton Button_pause;
+    private javax.swing.JLabel Label_Nama;
+    private javax.swing.JLabel Label_Skor;
     private javax.swing.JLabel Label_soal;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
