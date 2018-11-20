@@ -38,35 +38,41 @@ public class LevelKuisView extends javax.swing.JFrame {
         Button_jawabA = new javax.swing.JButton();
         Button_jawabD = new javax.swing.JButton();
         Button_back = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Label_soal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Label_soal.setText("Ini adalah contoh soal dari kuis MECIN LEVEL 3, Ini adalah contoh soal dari kuis MECIN LEVEL 3, Ini adalah contoh soal dari kuis MECIN LEVEL 3");
-        getContentPane().add(Label_soal, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 179, 752, 92));
+        getContentPane().add(Label_soal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 840, 150));
 
         Button_jawabB.setText("JAWABAN 2");
-        getContentPane().add(Button_jawabB, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 188, 79));
+        getContentPane().add(Button_jawabB, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 188, 79));
 
         Button_jawabC.setText("JAWABAN 3");
-        getContentPane().add(Button_jawabC, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 188, 79));
+        getContentPane().add(Button_jawabC, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 570, 188, 79));
 
+        Button_jawabA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/opt-soal.png"))); // NOI18N
         Button_jawabA.setText("JAWABAN 1");
-        getContentPane().add(Button_jawabA, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 188, 79));
+        Button_jawabA.setBorder(null);
+        Button_jawabA.setBorderPainted(false);
+        Button_jawabA.setContentAreaFilled(false);
+        getContentPane().add(Button_jawabA, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 470, 130));
 
         Button_jawabD.setText("JAWABAN 4");
-        getContentPane().add(Button_jawabD, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, 188, 79));
+        getContentPane().add(Button_jawabD, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 580, 188, 79));
 
         Button_back.setText("BACK");
         getContentPane().add(Button_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 730));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("KESEMPATAN :");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 145, 40));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 145, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/frame-level3.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1420, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
