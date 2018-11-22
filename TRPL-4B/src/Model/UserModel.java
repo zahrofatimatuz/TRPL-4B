@@ -10,6 +10,8 @@ public class UserModel {
     public Koneksi koneksi;
     private int result = 0;
     private static String soal[][] = new String[1][6];
+    private static int level[] = {0, 0, 0};
+    private static int skorTertinggi = 0;
 
     public UserModel() throws SQLException {
         koneksi = new Koneksi("mecin_db", "root", "");
@@ -17,8 +19,9 @@ public class UserModel {
 
     public void tambahUser(String username, String password) throws SQLException {
         try {
-            String query = "INSERT INTO `user`(`iduser`, `username`, `password`)"
-                    + " VALUES (default,'" + username + "','" + password + "')";
+            String query = "INSERT INTO `user` (`iduser`, `username`, `password`, "
+                    + "`level1`, `level2`, `level3`, `skortertinggi`) VALUES "
+                    + "(NULL, '" + username + "', '" + password + "', '1', '0', '0', '0');";
             System.out.println(query);
             koneksi.execute(query);
         } catch (SQLException e) {
@@ -75,6 +78,39 @@ public class UserModel {
     public String getSoal05() {
         return soal[0][5];
     }
+//
+
+    public int getLevel1() {
+        return level[0];
+    }
+
+    public int getLevel2() {
+        return level[1];
+    }
+
+    public int getLevel3() {
+        return level[2];
+    }
+
+    public void tambahLevel1() {
+        level[0] += 1;
+    }
+
+    public void tambahLevel2() {
+        level[1] += 1;
+    }
+
+    public void tambahLevel3() {
+        level[2] += 1;
+    }
+
+    public int getskortertinggi() {
+        return skorTertinggi;
+    }
+
+    public void setskortertinggi(int skor) {
+        skorTertinggi = skor;
+    }
 
     public int cekUsername(String username) {
         try {
@@ -83,6 +119,7 @@ public class UserModel {
             ResultSet rs = koneksi.getResult(query);
             rs.last();
             result = rs.getRow();
+
             System.out.println("result : " + result);
         } catch (SQLException e) {
             System.out.println(e);
@@ -97,6 +134,18 @@ public class UserModel {
             ResultSet rs = koneksi.getResult(query);
             rs.last();
             result = rs.getRow();
+            if (rs.getRow() == 1) {
+                rs.beforeFirst();
+                rs.next();
+                level[0] = rs.getInt("level1");
+                level[1] = rs.getInt("level2");
+                level[2] = rs.getInt("level3");
+                skorTertinggi = rs.getInt("skortertinggi");
+
+                for (int i = 0; i < 3; i++) {
+                    System.out.println(level[i]);
+                }
+            }
             System.out.println("result : " + result);
         } catch (SQLException e) {
             System.out.println(e);
@@ -121,6 +170,27 @@ public class UserModel {
     public void updatePassword(String username, String password) {
         try {
             String query = "UPDATE `user` SET `password`='" + password + "' WHERE username = '" + username + "'";
+            System.out.println(query);
+            koneksi.execute(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void updateLevel(String username) {
+        try {
+            String query = "UPDATE `user` SET `level1`=" + level[0] + ",`"
+                    + "level2`=" + level[1] + " ,`level3`=" + level[2] + " WHERE username ='" + username + "'";
+            System.out.println(query);
+            koneksi.execute(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void updateSkorTertinggi(String username) {
+        try {
+            String query = "UPDATE `user` SET `skortertinggi`=" + skorTertinggi + " WHERE username ='" + username + "'";
             System.out.println(query);
             koneksi.execute(query);
         } catch (Exception e) {

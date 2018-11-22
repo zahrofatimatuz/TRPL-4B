@@ -19,6 +19,7 @@ public class KorbanKebakaranView extends javax.swing.JFrame {
      */
     public KorbanKebakaranView() {
         initComponents();
+        setLocationRelativeTo(this);
     }
     public void OkListenerKebakaran(MouseListener l) {
         this.ok_button.addMouseListener(l);

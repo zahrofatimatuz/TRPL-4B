@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 
 /**
@@ -20,7 +21,11 @@ public class MenangKuisView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
     }
-
+    
+    public void OK(MouseListener l) {
+        this.Button_ok.addMouseListener(l);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +45,7 @@ public class MenangKuisView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        Button_ok = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,6 +83,9 @@ public class MenangKuisView extends javax.swing.JFrame {
 
         jLabel3.setOpaque(true);
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 354, 240, 290));
+
+        Button_ok.setText("OK");
+        getContentPane().add(Button_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 680, -1, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-Home.png"))); // NOI18N
@@ -212,6 +221,7 @@ public class MenangKuisView extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button_ok;
     private javax.swing.JLabel Label_Skor;
     private javax.swing.JLabel Label_SkorTertinggi;
     private javax.swing.JLabel Label_jawabanBenar;
