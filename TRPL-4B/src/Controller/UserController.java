@@ -3,6 +3,7 @@ package Controller;
 import Model.Koneksi;
 import Model.UserModel;
 import View.AboutView;
+import View.AmbulanView;
 import View.Gempa2View;
 import View.HelpView;
 import View.HomeView;
@@ -76,43 +77,44 @@ import javax.swing.UIManager;
 
 public class UserController {
 
-    private static HomeView home = new HomeView();
-    private static awalanView awal = new awalanView();
-    private static AboutView about = new AboutView();
-    private static HelpView help = new HelpView();
-    private static banjir1View banjir1 = new banjir1View();
-    private static kebakaran1View kebakaran1 = new kebakaran1View();
-    private static gempa1View gempa1 = new gempa1View();
-    private static PilihanLevelView pilihLevel = new PilihanLevelView();
-    private static IntroBanjir1View introbanjir1 = new IntroBanjir1View();
-    private static IntroKebakaran1View introKebakaran1 = new IntroKebakaran1View();
-    private static IntroGempa1View introGempa1 = new IntroGempa1View();
-    private static KorbanBanjirView korban1 = new KorbanBanjirView();
-    private static KorbanGempaView korban2 = new KorbanGempaView();
-    private static KorbanKebakaranView korban3 = new KorbanKebakaranView();
+    private HomeView home = new HomeView();
+    private awalanView awal = new awalanView();
+    private AboutView about = new AboutView();
+    private HelpView help = new HelpView();
+    private banjir1View banjir1 = new banjir1View();
+    private kebakaran1View kebakaran1 = new kebakaran1View();
+    private gempa1View gempa1 = new gempa1View();
+    private PilihanLevelView pilihLevel = new PilihanLevelView();
+    private IntroBanjir1View introbanjir1 = new IntroBanjir1View();
+    private IntroKebakaran1View introKebakaran1 = new IntroKebakaran1View();
+    private IntroGempa1View introGempa1 = new IntroGempa1View();
+    private KorbanBanjirView korban1 = new KorbanBanjirView();
+    private KorbanGempaView korban2 = new KorbanGempaView();
+    private KorbanKebakaranView korban3 = new KorbanKebakaranView();
+    private AmbulanView ambulan = new AmbulanView();
 
-    private static banjir2View banjir2 = new banjir2View();
-    private static Gempa2View gempa2 = new Gempa2View();
-    private static Kebakaran2View bakar2 = new Kebakaran2View();
-    private static LevelKuisView kuis = new LevelKuisView();
-    private static MenangKuisView menangKuis = new MenangKuisView();
-    private static PopupKeluarView dialogKeluar;
-    private static PopUpRegisterView dialogRegister;
-    private static PopUpLoginView dialogLogin;
-    private static PopUpGantiPasswordView dialogGantiPass;
-    private static PopUpdialogView dialogPopUp;
-    private static PopUpdialog2View dialogPopUp2;
-    private static PopUpdialog3View dialogPopup3;
-    private static PopUpdialogwinView dialogPopupWin;
-    private static PopUpDialogKorban1 dialogKorban1;
-    private static PopUpDialogKorban2 dialogKorban2;
-    private static PopUpDialogKorban3 dialogKorban3;
-    private static PopUpDialogKorbanMenang dialogMenang;
+    private banjir2View banjir2 = new banjir2View();
+    private Gempa2View gempa2 = new Gempa2View();
+    private Kebakaran2View bakar2 = new Kebakaran2View();
+    private LevelKuisView kuis = new LevelKuisView();
+    private MenangKuisView menangKuis = new MenangKuisView();
+    private PopupKeluarView dialogKeluar;
+    private PopUpRegisterView dialogRegister;
+    private PopUpLoginView dialogLogin;
+    private PopUpGantiPasswordView dialogGantiPass;
+    private PopUpdialogView dialogPopUp;
+    private PopUpdialog2View dialogPopUp2;
+    private PopUpdialog3View dialogPopup3;
+    private PopUpdialogwinView dialogPopupWin;
+    private PopUpDialogKorban1 dialogKorban1;
+    private PopUpDialogKorban2 dialogKorban2;
+    private PopUpDialogKorban3 dialogKorban3;
+    private PopUpDialogKorbanMenang dialogMenang;
     private Random random = new Random();
     public int idsoal;
-    private int soal[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    private static int soal[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     private boolean lvl[] = {false, false, false, false, false};
-    private int nosoal = 0;
+    private static int nosoal = 1;
     private UserModel userM;
     private int darah;
     private int darah2;
@@ -124,21 +126,21 @@ public class UserController {
     private int win = 5;
     private static int skor = 0;
     private static boolean level[] = {true, false, false};
-    GridBagLayout layout = new GridBagLayout();
-    GridBagLayout layout2 = new GridBagLayout();
-    GridBagLayout layout3 = new GridBagLayout();
-    PanellBanjir1View debog = new PanellBanjir1View();
-    PanelBanjir2View pelampung = new PanelBanjir2View();
-    PanelBanjir4View sapu = new PanelBanjir4View();
-    PanelBanjir3View galon = new PanelBanjir3View();
-    panelBakar1 gas = new panelBakar1();
-    panelBakar2 air = new panelBakar2();
-    panelBakar2 lap = new panelBakar2();
+    static GridBagLayout layout = new GridBagLayout();
+    static GridBagLayout layout2 = new GridBagLayout();
+    static GridBagLayout layout3 = new GridBagLayout();
+    static PanellBanjir1View debog = new PanellBanjir1View();
+    static PanelBanjir2View pelampung = new PanelBanjir2View();
+    static PanelBanjir4View sapu = new PanelBanjir4View();
+    static PanelBanjir3View galon = new PanelBanjir3View();
+    static panelBakar1 gas = new panelBakar1();
+    static panelBakar2 air = new panelBakar2();
+    static panelBakar2 lap = new panelBakar2();
     Clip clip;
-    panelGempa1 meja = new panelGempa1();
-    panelGempa2 lari = new panelGempa2();
-    panelGempa3 lompat = new panelGempa3();
-    panelGempa4 tangga = new panelGempa4();
+    static panelGempa1 meja = new panelGempa1();
+    static panelGempa2 lari = new panelGempa2();
+    static panelGempa3 lompat = new panelGempa3();
+    static panelGempa4 tangga = new panelGempa4();
     public static int hasil[] = new int[3];
     public static int jawabBenar = 0;
     public static int jawabSalah = 0;
@@ -216,6 +218,13 @@ public class UserController {
         pilihLevel.getButton_Banjir2().setVisible(false);
         pilihLevel.getButton_gempa2().setVisible(false);
         pilihLevel.getButton_kebakaran2().setVisible(false);
+//        dialogPopUp = new PopUpdialogView(pilihLevel, true);
+//
+//        dialogPopUp2 = new PopUpdialog2View(pilihLevel, true);
+//
+//        dialogPopup3 = new PopUpdialog3View(pilihLevel, true);
+//
+//        dialogPopupWin = new PopUpdialogwinView(pilihLevel, true);
     }
 
     public UserController(banjir1View banjir1, UserModel userM) throws SQLException {
@@ -238,16 +247,13 @@ public class UserController {
         banjir1.getDynamicP().add(galon);
         banjir1.getDynamicP().setVisible(false);
 
-        dialogPopUp = new PopUpdialogView(banjir1, true);
+        dialogPopUp = new PopUpdialogView(pilihLevel, true);
         dialogPopUp.OKMouseListener(new popOkListener());
-
-        dialogPopUp2 = new PopUpdialog2View(banjir1, true);
+        dialogPopUp2 = new PopUpdialog2View(pilihLevel, true);
         dialogPopUp2.OK2MouseListener(new OK2Listenner());
-
-        dialogPopup3 = new PopUpdialog3View(banjir1, true);
+        dialogPopup3 = new PopUpdialog3View(pilihLevel, true);
         dialogPopup3.OK3MouseListener(new OK3Listener());
-
-        dialogPopupWin = new PopUpdialogwinView(banjir1, true);
+        dialogPopupWin = new PopUpdialogwinView(pilihLevel, true);
         dialogPopupWin.OKMouseListener(new OKWinListener());
     }
 
@@ -267,16 +273,16 @@ public class UserController {
         kebakaran1.getDynamic_Panel().add(lap);
         kebakaran1.getDynamic_Panel().setVisible(false);
 
-        dialogPopUp = new PopUpdialogView(kebakaran1, true);
+        dialogPopUp = new PopUpdialogView(pilihLevel, true);
         dialogPopUp.OKMouseListener(new popOkListener());
 
-        dialogPopUp2 = new PopUpdialog2View(kebakaran1, true);
+        dialogPopUp2 = new PopUpdialog2View(pilihLevel, true);
         dialogPopUp2.OK2MouseListener(new OK2Listenner());
 
-        dialogPopup3 = new PopUpdialog3View(kebakaran1, true);
+        dialogPopup3 = new PopUpdialog3View(pilihLevel, true);
         dialogPopup3.OK3MouseListener(new OK3Listener());
 
-        dialogPopupWin = new PopUpdialogwinView(kebakaran1, true);
+        dialogPopupWin = new PopUpdialogwinView(pilihLevel, true);
         dialogPopupWin.OKMouseListener(new OKWinListener());
     }
 
@@ -298,16 +304,16 @@ public class UserController {
         gempa1.getDynamic_gempa().add(tangga);
         gempa1.getDynamic_gempa().setVisible(false);
 
-        dialogPopUp = new PopUpdialogView(kebakaran1, true);
+        dialogPopUp = new PopUpdialogView(pilihLevel, true);
         dialogPopUp.OKMouseListener(new popOkListener());
 
-        dialogPopUp2 = new PopUpdialog2View(kebakaran1, true);
+        dialogPopUp2 = new PopUpdialog2View(pilihLevel, true);
         dialogPopUp2.OK2MouseListener(new OK2Listenner());
 
-        dialogPopup3 = new PopUpdialog3View(kebakaran1, true);
+        dialogPopup3 = new PopUpdialog3View(pilihLevel, true);
         dialogPopup3.OK3MouseListener(new OK3Listener());
 
-        dialogPopupWin = new PopUpdialogwinView(kebakaran1, true);
+        dialogPopupWin = new PopUpdialogwinView(pilihLevel, true);
         dialogPopupWin.OKMouseListener(new OKWinListener());
     }
 //============================KORBAN=============================================================
@@ -384,16 +390,16 @@ public class UserController {
         banjir2.KakiMouseListener(new KakiListener());
         banjir2.TanganMouseListener(new TanganListener());
 
-        dialogKorban1 = new PopUpDialogKorban1(banjir2, true);
+        dialogKorban1 = new PopUpDialogKorban1(pilihLevel, true);
         dialogKorban1.OK1(new OkPopUp1lvl2Listener());
 
-        dialogKorban2 = new PopUpDialogKorban2(banjir2, true);
+        dialogKorban2 = new PopUpDialogKorban2(pilihLevel, true);
         dialogKorban2.OK2(new OkPopUp2lvl2Listener());
 
-        dialogKorban3 = new PopUpDialogKorban3(banjir2, true);
+        dialogKorban3 = new PopUpDialogKorban3(pilihLevel, true);
         dialogKorban3.OK3(new OkPopUp3lvl2Listener());
 
-        dialogMenang = new PopUpDialogKorbanMenang(banjir2, true);
+        dialogMenang = new PopUpDialogKorbanMenang(pilihLevel, true);
         dialogMenang.OKselamat(new OKselamat());
     }
 
@@ -408,16 +414,16 @@ public class UserController {
         bakar2.EsBatuMouseListener(new EsBatu());
         bakar2.PastaMouseListener(new pasta());
 
-        dialogKorban1 = new PopUpDialogKorban1(bakar2, true);
+        dialogKorban1 = new PopUpDialogKorban1(pilihLevel, true);
         dialogKorban1.OK1(new OkPopUp1lvl2Listener());
 
-        dialogKorban2 = new PopUpDialogKorban2(bakar2, true);
+        dialogKorban2 = new PopUpDialogKorban2(pilihLevel, true);
         dialogKorban2.OK2(new OkPopUp2lvl2Listener());
 
-        dialogKorban3 = new PopUpDialogKorban3(bakar2, true);
+        dialogKorban3 = new PopUpDialogKorban3(pilihLevel, true);
         dialogKorban3.OK3(new OkPopUp3lvl2Listener());
 
-        dialogMenang = new PopUpDialogKorbanMenang(bakar2, true);
+        dialogMenang = new PopUpDialogKorbanMenang(pilihLevel, true);
         dialogMenang.OKselamat(new OKselamat());
     }
 
@@ -431,16 +437,16 @@ public class UserController {
         gempa2.ObatdanTanduMouseListener(new ObatdanTanduListener());
         gempa2.TanduMouseListener(new TanduListener());
 
-        dialogKorban1 = new PopUpDialogKorban1(gempa2, true);
+        dialogKorban1 = new PopUpDialogKorban1(pilihLevel, true);
         dialogKorban1.OK1(new OkPopUp1lvl2Listener());
 
-        dialogKorban2 = new PopUpDialogKorban2(gempa2, true);
+        dialogKorban2 = new PopUpDialogKorban2(pilihLevel, true);
         dialogKorban2.OK2(new OkPopUp2lvl2Listener());
 
-        dialogKorban3 = new PopUpDialogKorban3(gempa2, true);
+        dialogKorban3 = new PopUpDialogKorban3(pilihLevel, true);
         dialogKorban3.OK3(new OkPopUp3lvl2Listener());
 
-        dialogMenang = new PopUpDialogKorbanMenang(gempa2, true);
+        dialogMenang = new PopUpDialogKorbanMenang(pilihLevel, true);
         dialogMenang.OKselamat(new OKselamat());
     }
 
@@ -451,6 +457,22 @@ public class UserController {
         kuis.getLabel_Nama().setText(username);
         kuis.getLabel_Skor().setText(Integer.toString(skor));
         darah2 = 3;
+        skor = 0;
+        nosoal = 0;
+        soal[0] = 0;
+        soal[1] = 0;
+        soal[2] = 0;
+        soal[3] = 0;
+        soal[4] = 0;
+        soal[5] = 0;
+        soal[6] = 0;
+        soal[7] = 0;
+        soal[8] = 0;
+        soal[9] = 0;
+        soal[10] = 0;
+        soal[11] = 0;
+        soal[12] = 0;
+        soal[13] = 0;
 
         kuis.BackMouseListener(new BackKuisListener());
         kuis.jawabAMouseListener(new jawabAKuisListener());
@@ -609,39 +631,27 @@ public class UserController {
     }
 
     public void setRandomSoal() {
-        nosoal += 1;
         do {
             idsoal = (random.nextInt(13) + 1);
-        } while (soal[idsoal] == 1);
+        } while (soal[idsoal] == 1 && nosoal <= 9);
         soal[idsoal] = 1;
 
-        if (nosoal == 10) {
+        if (nosoal == 9) {
             if (skor > userM.getskortertinggi()) {
                 userM.setskortertinggi(skor);
                 userM.updateSkorTertinggi(username);
+                menangKuis.getLabel_SkorTertinggi().setText(Integer.toString(userM.getskortertinggi()));
+                new UserController(menangKuis, userM);
+                kuis.dispose();
             }
+            menangKuis.getLabel_Skor().setText(Integer.toString(skor));
             menangKuis.getLabel_SkorTertinggi().setText(Integer.toString(userM.getskortertinggi()));
             new UserController(menangKuis, userM);
             kuis.dispose();
-            skor = 0;
-            nosoal = 0;
-            soal[0] = 0;
-            soal[1] = 0;
-            soal[2] = 0;
-            soal[3] = 0;
-            soal[4] = 0;
-            soal[5] = 0;
-            soal[6] = 0;
-            soal[7] = 0;
-            soal[8] = 0;
-            soal[9] = 0;
-            soal[10] = 0;
-            soal[11] = 0;
-            soal[12] = 0;
-            soal[13] = 0;
         }
         System.out.println("no soal : " + nosoal);
         System.out.println("idsoal :" + idsoal);
+        nosoal += 1;
     }
 
     private void setIcon(JButton button, String resource) {
@@ -863,16 +873,22 @@ public class UserController {
             } else if (darah2 == 0) {
                 setIconLabel(banjir2.getLabel_darah(), "/View/Level/25_.png");
                 dialogKorban3.setVisible(true);
+                banjir2.dispose();
+                ambulan.setVisible(true);
 
             }
-        } else if (frame.equalsIgnoreCase("kebakaran2")) {
+        } else if (frame.equalsIgnoreCase("bakar2")) {
             if (darah2 == 2) {
                 setIconLabel(kebakaran1.getLabel_darah(), "/View/Level/50_.png");
                 dialogKorban2.setVisible(true);
             } else if (darah2 == 1) {
                 setIconLabel(kebakaran1.getLabel_darah(), "/View/Level/25_.png");
                 dialogKorban3.setVisible(true);
+            }else if (darah2 == 0) {
+                bakar2.dispose();
+                ambulan.setVisible(true);
             }
+            
         } else if (frame.equalsIgnoreCase("gempa2")) {
             if (darah2 == 2) {
                 setIconLabel(gempa2.getLabel_darah(), "/View/Level/75_.png");
@@ -883,6 +899,8 @@ public class UserController {
             } else if (darah2 == 0) {
                 setIconLabel(gempa2.getLabel_darah(), "/View/Level/25_.png");
                 dialogKorban3.setVisible(true);
+                gempa2.dispose();
+                ambulan.setVisible(true);
             }
         }
     }
@@ -894,6 +912,8 @@ public class UserController {
         dialogLogin.getPasswordField_Password().setText("");
 
     }
+
+
 
     private class okMenang implements MouseListener {
 
@@ -928,8 +948,6 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            cekLevel();
-            userM.tambahLevel2();
             try {
                 dialogMenang.setVisible(false);
 
@@ -1244,6 +1262,8 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             dialogMenang.setVisible(true);
+            userM.tambahLevel2();
+            cekLevel();
         }
 
         @Override
@@ -1296,6 +1316,8 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             dialogMenang.setVisible(true);
+            userM.tambahLevel2();
+            cekLevel();
         }
 
         @Override
@@ -1532,8 +1554,8 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            new UserController(banjir2, userM);
             korban1.dispose();
+            new UserController(banjir2, userM);
         }
 
         @Override
@@ -1642,6 +1664,8 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             dialogMenang.setVisible(true);
+            userM.tambahLevel2();
+            cekLevel();;
         }
 
         @Override
@@ -1666,8 +1690,8 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             try {
-                new UserController(gempa1, userM);
                 introGempa1.dispose();
+                new UserController(gempa1, userM);
             } catch (SQLException ex) {
                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1695,8 +1719,8 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             try {
-                new UserController(kebakaran1, userM);
                 introKebakaran1.dispose();
+                new UserController(kebakaran1, userM);
             } catch (SQLException ex) {
                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1724,8 +1748,8 @@ public class UserController {
         @Override
         public void mouseClicked(MouseEvent e) {
             try {
-                new UserController(banjir1, userM);
                 introbanjir1.dispose();
+                new UserController(banjir1, userM);
             } catch (SQLException ex) {
                 Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1792,6 +1816,8 @@ public class UserController {
             tangga.setVisible(false);
             lompat.setVisible(false);
             timerWin();
+            userM.tambahLevel1();
+            cekLevel();
         }
 
         @Override
@@ -1887,7 +1913,8 @@ public class UserController {
             gas.setVisible(true);
             air.setVisible(false);
             timerWin();
-
+            userM.tambahLevel1();
+            cekLevel();
         }
 
         @Override
@@ -1945,8 +1972,7 @@ public class UserController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            userM.tambahLevel1();
-            cekLevel();
+
             try {
                 new UserController(pilihLevel, userM);
             } catch (SQLException ex) {
@@ -2126,6 +2152,7 @@ public class UserController {
 //            Debog = true;
 //            bakar1 = true;
             timerWin();
+            userM.getLevel1();
         }
 
         @Override
@@ -2155,6 +2182,8 @@ public class UserController {
             sapu.setVisible(false);
             galon.setVisible(false);
             timerWin();
+            userM.tambahLevel1();
+            cekLevel();
         }
 
         @Override

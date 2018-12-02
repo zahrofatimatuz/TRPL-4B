@@ -67,6 +67,8 @@ public class PopUpRegisterView extends javax.swing.JDialog {
         });
         getContentPane().add(Button_simpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 540, 140, -1));
 
+        TextField_Username.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TextField_Username.setForeground(new java.awt.Color(0, 102, 102));
         TextField_Username.setBorder(null);
         TextField_Username.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         TextField_Username.addActionListener(new java.awt.event.ActionListener() {
