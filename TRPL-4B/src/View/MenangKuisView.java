@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.event.MouseListener;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -25,6 +26,9 @@ public class MenangKuisView extends javax.swing.JFrame {
     public void OK(MouseListener l) {
         this.Button_ok.addMouseListener(l);
     }
+    public void Reload(MouseListener l) {
+        this.Button_re.addMouseListener(l);
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,12 +44,8 @@ public class MenangKuisView extends javax.swing.JFrame {
         Label_jawabanBenar = new javax.swing.JLabel();
         Label_Skor = new javax.swing.JLabel();
         Label_SkorTertinggi = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         Button_ok = new javax.swing.JButton();
+        Button_re = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,43 +56,50 @@ public class MenangKuisView extends javax.swing.JFrame {
         Label_nama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Label_nama.setText("sd");
         getContentPane().add(Label_nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 30, 120, 40));
-        getContentPane().add(Label_jawabanSalah, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 590, 60, 30));
-        getContentPane().add(Label_jawabanBenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 520, 60, 30));
-        getContentPane().add(Label_Skor, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, 60, 30));
-        getContentPane().add(Label_SkorTertinggi, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 60, 30));
 
-        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel6.setText("Jawaban Salah  :");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, -1, -1));
+        Label_jawabanSalah.setFont(new java.awt.Font("Comic Sans MS", 1, 32)); // NOI18N
+        Label_jawabanSalah.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(Label_jawabanSalah, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 408, 60, 30));
 
-        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel5.setText("Jawaban Benar : ");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 520, -1, -1));
+        Label_jawabanBenar.setFont(new java.awt.Font("Comic Sans MS", 1, 32)); // NOI18N
+        Label_jawabanBenar.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(Label_jawabanBenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 367, 60, 30));
 
-        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel2.setText("Skor                 : ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, -1, -1));
+        Label_Skor.setFont(new java.awt.Font("Comic Sans MS", 1, 55)); // NOI18N
+        Label_Skor.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(Label_Skor, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, 80, 60));
 
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel4.setText("Skor Tertinggi  : ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 380, -1, -1));
+        Label_SkorTertinggi.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
+        Label_SkorTertinggi.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(Label_SkorTertinggi, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 295, 60, 50));
 
-        jLabel3.setOpaque(true);
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 354, 240, 290));
+        Button_ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/btnHome.png"))); // NOI18N
+        Button_ok.setBorder(null);
+        Button_ok.setBorderPainted(false);
+        Button_ok.setContentAreaFilled(false);
+        Button_ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_okActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Button_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, -1, -1));
 
-        Button_ok.setText("OK");
-        getContentPane().add(Button_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 680, -1, -1));
+        Button_re.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/btnRe.png"))); // NOI18N
+        Button_re.setBorder(null);
+        Button_re.setBorderPainted(false);
+        Button_re.setContentAreaFilled(false);
+        getContentPane().add(Button_re, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 500, -1, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Home/bg-Home.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/win (1).png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Button_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_okActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,6 +153,23 @@ public class MenangKuisView extends javax.swing.JFrame {
         this.Label_Skor = Label_Skor;
     }
 
+    public JButton getButton_ok() {
+        return Button_ok;
+    }
+
+    public void setButton_ok(JButton Button_ok) {
+        this.Button_ok = Button_ok;
+    }
+
+    public JButton getButton_re() {
+        return Button_re;
+    }
+
+    public void setButton_re(JButton Button_re) {
+        this.Button_re = Button_re;
+    }
+    
+    
     public JLabel getLabel_SkorTertinggi() {
         return Label_SkorTertinggi;
     }
@@ -178,60 +202,56 @@ public class MenangKuisView extends javax.swing.JFrame {
         this.jLabel1 = jLabel1;
     }
 
-    public JLabel getjLabel2() {
-        return jLabel2;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
-    }
-
-    public JLabel getjLabel3() {
-        return jLabel3;
-    }
-
-    public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
-    }
-
-    public JLabel getjLabel4() {
-        return jLabel4;
-    }
-
-    public void setjLabel4(JLabel jLabel4) {
-        this.jLabel4 = jLabel4;
-    }
-
-    public JLabel getjLabel5() {
-        return jLabel5;
-    }
-
-    public void setjLabel5(JLabel jLabel5) {
-        this.jLabel5 = jLabel5;
-    }
-
-    public JLabel getjLabel6() {
-        return jLabel6;
-    }
-
-    public void setjLabel6(JLabel jLabel6) {
-        this.jLabel6 = jLabel6;
-    }
+//    public JLabel getjLabel2() {
+//        return jLabel2;
+//    }
+//
+//    public void setjLabel2(JLabel jLabel2) {
+//        this.jLabel2 = jLabel2;
+//    }
+//
+//    public JLabel getjLabel3() {
+//        return jLabel3;
+//    }
+//
+//    public void setjLabel3(JLabel jLabel3) {
+//        this.jLabel3 = jLabel3;
+//    }
+//
+//    public JLabel getjLabel4() {
+//        return jLabel4;
+//    }
+//
+//    public void setjLabel4(JLabel jLabel4) {
+//        this.jLabel4 = jLabel4;
+//    }
+//
+//    public JLabel getjLabel5() {
+//        return jLabel5;
+//    }
+//
+//    public void setjLabel5(JLabel jLabel5) {
+//        this.jLabel5 = jLabel5;
+//    }
+//
+//    public JLabel getjLabel6() {
+//        return jLabel6;
+//    }
+//
+//    public void setjLabel6(JLabel jLabel6) {
+//        this.jLabel6 = jLabel6;
+//    }
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_ok;
+    private javax.swing.JButton Button_re;
     private javax.swing.JLabel Label_Skor;
     private javax.swing.JLabel Label_SkorTertinggi;
     private javax.swing.JLabel Label_jawabanBenar;
     private javax.swing.JLabel Label_jawabanSalah;
     private javax.swing.JLabel Label_nama;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }

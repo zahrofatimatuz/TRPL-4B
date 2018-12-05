@@ -24,6 +24,25 @@ public class banjir1View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
     }
+     public void KembaliListener(MouseListener l) {
+        this.kembali.addMouseListener(l);
+    }   
+
+    public JButton getKembali() {
+        return kembali;
+    }
+
+    public void setKembali(JButton kembali) {
+        this.kembali = kembali;
+    }
+    
+    public JLabel getLabel_timer() {
+        return Label_timer;
+    }
+
+    public void setLabel_timer(JLabel Label_timer) {
+        this.Label_timer = Label_timer;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,8 +53,9 @@ public class banjir1View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Button_pause = new javax.swing.JButton();
         Label_darah = new javax.swing.JLabel();
+        kembali = new javax.swing.JButton();
+        Label_timer = new javax.swing.JLabel();
         dynamicP = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         navigasi = new javax.swing.JPanel();
@@ -48,11 +68,19 @@ public class banjir1View extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Button_pause.setText("pause");
-        getContentPane().add(Button_pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 20, -1, -1));
-
         Label_darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
         getContentPane().add(Label_darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 60));
+
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/btn-Kembali.png"))); // NOI18N
+        kembali.setBorder(null);
+        kembali.setBorderPainted(false);
+        kembali.setContentAreaFilled(false);
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 20, -1, -1));
+
+        Label_timer.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        Label_timer.setForeground(new java.awt.Color(153, 51, 0));
+        Label_timer.setText("0");
+        getContentPane().add(Label_timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 90, 50));
 
         dynamicP.setOpaque(false);
         dynamicP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,9 +128,7 @@ public class banjir1View extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void PauseListener(MouseListener l) {
-        this.Button_pause.addMouseListener(l);
-    }
+   
     public void PelampungListener(MouseListener l) {
         this.pelampung.addMouseListener(l);
     }
@@ -177,13 +203,14 @@ public class banjir1View extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Button_pause;
     private javax.swing.JLabel Label_darah;
+    private javax.swing.JLabel Label_timer;
     private javax.swing.JButton debog;
     private javax.swing.JPanel dynamicP;
     private javax.swing.JButton galon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton kembali;
     private javax.swing.JPanel navigasi;
     private javax.swing.JButton pelampung;
     private javax.swing.JButton sapu;

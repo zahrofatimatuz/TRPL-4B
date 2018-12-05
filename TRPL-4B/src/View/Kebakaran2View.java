@@ -22,7 +22,7 @@ public class Kebakaran2View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+    
     public void AirMaduLidahMouseListener(MouseListener l) {
         this.Button_AitMaduLidah.addMouseListener(l);
     }
@@ -31,6 +31,14 @@ public class Kebakaran2View extends javax.swing.JFrame {
     }
     public void PastaMouseListener(MouseListener l) {
         this.Button_PastaGigi.addMouseListener(l);
+    }
+
+    public JLabel getLabel_timer() {
+        return Label_timer;
+    }
+
+    public void setLabel_timer(JLabel Label_timer) {
+        this.Label_timer = Label_timer;
     }
 
     public JButton getButton_AitMaduLidah() {
@@ -74,13 +82,21 @@ public class Kebakaran2View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Label_timer = new javax.swing.JLabel();
         Button_EsBatu = new javax.swing.JButton();
         Button_PastaGigi = new javax.swing.JButton();
         Button_AitMaduLidah = new javax.swing.JButton();
+        kembali = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_timer.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        Label_timer.setForeground(new java.awt.Color(255, 204, 0));
+        Label_timer.setText("0");
+        getContentPane().add(Label_timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, 60));
 
         Button_EsBatu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/opt-2_1.png"))); // NOI18N
         Button_EsBatu.setBorder(null);
@@ -106,8 +122,17 @@ public class Kebakaran2View extends javax.swing.JFrame {
         Button_AitMaduLidah.setFocusable(false);
         getContentPane().add(Button_AitMaduLidah, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 110, 140, 160));
 
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/btn-Kembali.png"))); // NOI18N
+        kembali.setBorder(null);
+        kembali.setBorderPainted(false);
+        kembali.setContentAreaFilled(false);
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 20, -1, -1));
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/kebakaran-frame.gif"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, -1, -1));
+
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 350, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,6 +176,9 @@ public class Kebakaran2View extends javax.swing.JFrame {
     private javax.swing.JButton Button_AitMaduLidah;
     private javax.swing.JButton Button_EsBatu;
     private javax.swing.JButton Button_PastaGigi;
+    private javax.swing.JLabel Label_timer;
     private javax.swing.JLabel bg;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton kembali;
     // End of variables declaration//GEN-END:variables
 }

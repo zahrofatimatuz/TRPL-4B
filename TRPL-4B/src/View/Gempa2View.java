@@ -45,6 +45,14 @@ public class Gempa2View extends javax.swing.JFrame {
         this.Button_Obat = Button_Obat;
     }
 
+    public JLabel getLabel_timer() {
+        return Label_timer;
+    }
+
+    public void setLabel_timer(JLabel Label_timer) {
+        this.Label_timer = Label_timer;
+    }
+    
     public JButton getButton_ObatdanSapu() {
         return Button_ObatdanSapu;
     }
@@ -94,15 +102,22 @@ public class Gempa2View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Label_timer = new javax.swing.JLabel();
         Button_ObatdanSapu = new javax.swing.JButton();
         Button_ObatdanTandu = new javax.swing.JButton();
         Button_Tandu = new javax.swing.JButton();
         Button_Obat = new javax.swing.JButton();
+        kembali = new javax.swing.JButton();
         Label_darah = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Label_timer.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        Label_timer.setForeground(new java.awt.Color(153, 0, 0));
+        Label_timer.setText("0");
+        getContentPane().add(Label_timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 70, 60));
 
         Button_ObatdanSapu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/PopUp/opt-obatdanSapu.png"))); // NOI18N
         Button_ObatdanSapu.setBorder(null);
@@ -135,6 +150,12 @@ public class Gempa2View extends javax.swing.JFrame {
         Button_Obat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_Obat.setFocusable(false);
         getContentPane().add(Button_Obat, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, -1, -1));
+
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/btn-Kembali.png"))); // NOI18N
+        kembali.setBorder(null);
+        kembali.setBorderPainted(false);
+        kembali.setContentAreaFilled(false);
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 20, -1, -1));
 
         Label_darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
         getContentPane().add(Label_darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
@@ -187,7 +208,9 @@ public class Gempa2View extends javax.swing.JFrame {
     private javax.swing.JButton Button_ObatdanTandu;
     private javax.swing.JButton Button_Tandu;
     private javax.swing.JLabel Label_darah;
+    private javax.swing.JLabel Label_timer;
     private javax.swing.JLabel bg;
+    private javax.swing.JButton kembali;
     // End of variables declaration//GEN-END:variables
 
 }

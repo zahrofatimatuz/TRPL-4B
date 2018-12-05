@@ -55,11 +55,11 @@ public class HelpView extends javax.swing.JFrame {
         Button_Kembali.setContentAreaFilled(false);
         Button_Kembali.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_Kembali.setFocusable(false);
-        getContentPane().add(Button_Kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 650, 140, -1));
+        getContentPane().add(Button_Kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 140, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 153, 153));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Help/bg-Help_1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Help/bg-Help.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 750));
 
         pack();

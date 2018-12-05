@@ -23,14 +23,27 @@ public class kebakaran1View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
     }
+         public void KembaliListener(MouseListener l) {
+        this.kembali.addMouseListener(l);
+    }   
 
-    public JButton getButton_pause() {
-        return Button_pause;
+    public JButton getKembali() {
+        return kembali;
     }
 
-    public void setButton_pause(JButton Button_pause) {
-        this.Button_pause = Button_pause;
+    public void setKembali(JButton kembali) {
+        this.kembali = kembali;
     }
+
+    public JLabel getLabel_timer() {
+        return Label_timer;
+    }
+
+    public void setLabel_timer(JLabel Label_timer) {
+        this.Label_timer = Label_timer;
+    }
+
+   
 
     public JLabel getApi() {
         return api;
@@ -48,9 +61,7 @@ public class kebakaran1View extends javax.swing.JFrame {
         this.darah = darah;
     }
     
-    public void PauseListener(MouseListener l) {
-        this.Button_pause.addMouseListener(l);
-    }
+   
     public void GasListener(MouseListener l) {
         this.gas_button.addMouseListener(l);
     }
@@ -109,8 +120,9 @@ public class kebakaran1View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Button_pause = new javax.swing.JButton();
+        Label_timer = new javax.swing.JLabel();
         darah = new javax.swing.JLabel();
+        kembali = new javax.swing.JButton();
         dynamic_Panel = new javax.swing.JPanel();
         api = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -122,11 +134,19 @@ public class kebakaran1View extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Button_pause.setText("pause");
-        getContentPane().add(Button_pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 20, -1, -1));
+        Label_timer.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        Label_timer.setForeground(new java.awt.Color(255, 255, 102));
+        Label_timer.setText("0");
+        getContentPane().add(Label_timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 70));
 
         darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
         getContentPane().add(darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 70));
+
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/btn-Kembali.png"))); // NOI18N
+        kembali.setBorder(null);
+        kembali.setBorderPainted(false);
+        kembali.setContentAreaFilled(false);
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, 160, 50));
 
         dynamic_Panel.setOpaque(false);
         getContentPane().add(dynamic_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 570));
@@ -167,7 +187,7 @@ public class kebakaran1View extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Button_pause;
+    private javax.swing.JLabel Label_timer;
     private javax.swing.JButton air_button;
     private javax.swing.JLabel api;
     private javax.swing.JLabel darah;
@@ -175,6 +195,7 @@ public class kebakaran1View extends javax.swing.JFrame {
     private javax.swing.JButton gas_button;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton kembali;
     private javax.swing.JButton lap_button;
     // End of variables declaration//GEN-END:variables
 }

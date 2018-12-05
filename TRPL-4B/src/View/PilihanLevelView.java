@@ -171,13 +171,13 @@ public class PilihanLevelView extends javax.swing.JFrame {
         Button_kembali.setFocusable(false);
         getContentPane().add(Button_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 150, -1));
 
-        Button_kuis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/Level3.png"))); // NOI18N
+        Button_kuis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/lvl-3.png"))); // NOI18N
         Button_kuis.setBorder(null);
         Button_kuis.setBorderPainted(false);
         Button_kuis.setContentAreaFilled(false);
         Button_kuis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_kuis.setFocusable(false);
-        getContentPane().add(Button_kuis, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 150, -1, -1));
+        getContentPane().add(Button_kuis, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 150, -1, -1));
 
         Button_Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/lvl-1.png"))); // NOI18N
         Button_Level1.setBorderPainted(false);
@@ -212,28 +212,28 @@ public class PilihanLevelView extends javax.swing.JFrame {
         Button_Level2.setContentAreaFilled(false);
         Button_Level2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_Level2.setFocusable(false);
-        getContentPane().add(Button_Level2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
+        getContentPane().add(Button_Level2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 190, -1));
 
         Button_kebakaran2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/sub-kebakar.png"))); // NOI18N
         Button_kebakaran2.setBorderPainted(false);
         Button_kebakaran2.setContentAreaFilled(false);
         Button_kebakaran2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_kebakaran2.setFocusable(false);
-        getContentPane().add(Button_kebakaran2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, -1, -1));
+        getContentPane().add(Button_kebakaran2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, -1, -1));
 
         Button_Banjir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/sub-Banjir.png"))); // NOI18N
         Button_Banjir2.setBorderPainted(false);
         Button_Banjir2.setContentAreaFilled(false);
         Button_Banjir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_Banjir2.setFocusable(false);
-        getContentPane().add(Button_Banjir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, -1, -1));
+        getContentPane().add(Button_Banjir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, -1, -1));
 
         Button_gempa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/sub-gempa.png"))); // NOI18N
         Button_gempa2.setBorderPainted(false);
         Button_gempa2.setContentAreaFilled(false);
         Button_gempa2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_gempa2.setFocusable(false);
-        getContentPane().add(Button_gempa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, -1, -1));
+        getContentPane().add(Button_gempa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, -1, -1));
 
         bg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/bg-Level.png"))); // NOI18N

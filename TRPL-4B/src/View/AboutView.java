@@ -54,7 +54,7 @@ public class AboutView extends javax.swing.JFrame {
         Button_kembali.setContentAreaFilled(false);
         Button_kembali.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Button_kembali.setFocusable(false);
-        getContentPane().add(Button_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 150, -1));
+        getContentPane().add(Button_kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 80, 150, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/About/bg-About.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 750));

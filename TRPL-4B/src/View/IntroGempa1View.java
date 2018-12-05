@@ -67,7 +67,7 @@ public class IntroGempa1View extends javax.swing.JFrame {
         jLabel2.setToolTipText("");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Intro/gempa-1.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/PopUp/new gempa-1.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/frame.gif"))); // NOI18N

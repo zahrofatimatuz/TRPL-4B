@@ -23,6 +23,25 @@ public class gempa1View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(this);
     }
+         public void KembaliListener(MouseListener l) {
+        this.kembali.addMouseListener(l);
+    }   
+
+    public JButton getKembali() {
+        return kembali;
+    }
+
+    public void setKembali(JButton kembali) {
+        this.kembali = kembali;
+    }
+
+    public JLabel getLabel_timer() {
+        return Label_timer;
+    }
+
+    public void setLabel_timer(JLabel Label_timer) {
+        this.Label_timer = Label_timer;
+    }
     
      public void MejaListener(MouseListener l) {
         this.button_meja.addMouseListener(l);
@@ -94,6 +113,8 @@ public class gempa1View extends javax.swing.JFrame {
     private void initComponents() {
 
         darah = new javax.swing.JLabel();
+        kembali = new javax.swing.JButton();
+        Label_timer = new javax.swing.JLabel();
         Dynamic_gempa = new javax.swing.JPanel();
         button_jendela = new javax.swing.JButton();
         button_lari = new javax.swing.JButton();
@@ -106,6 +127,17 @@ public class gempa1View extends javax.swing.JFrame {
 
         darah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Level/100_.png"))); // NOI18N
         getContentPane().add(darah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/btn-Kembali.png"))); // NOI18N
+        kembali.setBorder(null);
+        kembali.setBorderPainted(false);
+        kembali.setContentAreaFilled(false);
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 20, -1, -1));
+
+        Label_timer.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
+        Label_timer.setForeground(new java.awt.Color(153, 0, 0));
+        Label_timer.setText("0");
+        getContentPane().add(Label_timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 80, 50));
 
         Dynamic_gempa.setOpaque(false);
         Dynamic_gempa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -147,11 +179,13 @@ public class gempa1View extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Dynamic_gempa;
+    private javax.swing.JLabel Label_timer;
     private javax.swing.JButton button_jendela;
     private javax.swing.JButton button_lari;
     private javax.swing.JButton button_meja;
     private javax.swing.JButton button_tangga;
     private javax.swing.JLabel darah;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton kembali;
     // End of variables declaration//GEN-END:variables
 }

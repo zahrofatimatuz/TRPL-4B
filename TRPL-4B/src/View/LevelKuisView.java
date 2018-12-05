@@ -32,30 +32,36 @@ public class LevelKuisView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        label_highskor = new javax.swing.JLabel();
         Label_Nama = new javax.swing.JLabel();
         Label_Skor = new javax.swing.JLabel();
         Label_soal = new javax.swing.JLabel();
-        Button_pause = new javax.swing.JButton();
         Button_jawabB = new javax.swing.JButton();
         Button_jawabC = new javax.swing.JButton();
         Button_jawabA = new javax.swing.JButton();
         Button_jawabD = new javax.swing.JButton();
         Button_back = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        label_highskor.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        label_highskor.setForeground(new java.awt.Color(204, 51, 0));
+        label_highskor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(label_highskor, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 100, 40));
 
         Label_Nama.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Label_Nama.setForeground(new java.awt.Color(153, 0, 0));
         Label_Nama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(Label_Nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 80, 110, 30));
 
-        Label_Skor.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Label_Skor.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         Label_Skor.setForeground(new java.awt.Color(204, 51, 0));
         Label_Skor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(Label_Skor, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 110, 30));
+        getContentPane().add(Label_Skor, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 110, 40));
 
         Label_soal.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         Label_soal.setForeground(new java.awt.Color(255, 255, 255));
@@ -63,9 +69,6 @@ public class LevelKuisView extends javax.swing.JFrame {
         Label_soal.setAutoscrolls(true);
         Label_soal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(Label_soal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 840, 150));
-
-        Button_pause.setText("Pause");
-        getContentPane().add(Button_pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 670, 80, -1));
 
         Button_jawabB.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         Button_jawabB.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,12 +116,21 @@ public class LevelKuisView extends javax.swing.JFrame {
         Button_jawabD.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(Button_jawabD, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 519, 390, 120));
 
-        Button_back.setText("BACK");
-        getContentPane().add(Button_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 670, 80, -1));
+        Button_back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/btn-Kembali.png"))); // NOI18N
+        Button_back.setBorder(null);
+        Button_back.setBorderPainted(false);
+        Button_back.setContentAreaFilled(false);
+        getContentPane().add(Button_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 670, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("KESEMPATAN :");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 145, 40));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 51, 0));
+        jLabel4.setText("Score :");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 50, 30));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 51, 0));
+        jLabel5.setText("High Score :");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 80, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/level3/frame-level3.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -141,17 +153,20 @@ public class LevelKuisView extends javax.swing.JFrame {
     public void jawabDMouseListener(MouseListener l) {
         this.Button_jawabD.addMouseListener(l);
     }
-    public void PauseMouseListener(MouseListener l) {
-        this.Button_pause.addMouseListener(l);
+   
+
+    public JLabel getLabel_highskor() {
+        return label_highskor;
     }
 
-    public JButton getButton_pause() {
-        return Button_pause;
+    public void setLabel_highskor(JLabel label_highskor) {
+        this.label_highskor = label_highskor;
     }
+    
+    
+   
 
-    public void setButton_pause(JButton Button_pause) {
-        this.Button_pause = Button_pause;
-    }
+
     
     
     public JButton getButton_back() {
@@ -276,11 +291,12 @@ public class LevelKuisView extends javax.swing.JFrame {
     private javax.swing.JButton Button_jawabB;
     private javax.swing.JButton Button_jawabC;
     private javax.swing.JButton Button_jawabD;
-    private javax.swing.JButton Button_pause;
     private javax.swing.JLabel Label_Nama;
     private javax.swing.JLabel Label_Skor;
     private javax.swing.JLabel Label_soal;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel label_highskor;
     // End of variables declaration//GEN-END:variables
 }
