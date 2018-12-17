@@ -19,6 +19,7 @@ public class KorbanGempaView extends javax.swing.JFrame {
      */
     public KorbanGempaView() {
         initComponents();
+        setLocationRelativeTo(this);
     }
     public void OkListenerGempa(MouseListener l) {
         this.ok_button.addMouseListener(l);

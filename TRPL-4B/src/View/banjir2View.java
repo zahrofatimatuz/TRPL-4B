@@ -22,6 +22,18 @@ public class banjir2View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
+    
+      public void KembaliMouseListener(MouseListener l) {
+        this.kembali.addMouseListener(l);
+    }
+
+    public JButton getKembali() {
+        return kembali;
+    }
+
+    public void setKembali(JButton kembali) {
+        this.kembali = kembali;
+    }
 
     public void setButton_dada(JButton Button_dada) {
         this.Button_dada = Button_dada;

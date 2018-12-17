@@ -21,6 +21,19 @@ public class Gempa2View extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
+    public void KembaliMouseListener(MouseListener l) {
+        this.kembali.addMouseListener(l);
+    }
+
+    public JButton getKembali() {
+        return kembali;
+    }
+
+    public void setKembali(JButton kembali) {
+        this.kembali = kembali;
+    }
+    
+    
     public void ObatMouseListener(MouseListener l) {
         this.Button_Obat.addMouseListener(l);
     }

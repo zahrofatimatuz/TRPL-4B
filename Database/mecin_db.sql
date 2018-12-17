@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2018 at 03:38 AM
+-- Generation Time: Dec 17, 2018 at 10:08 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -42,7 +42,7 @@ INSERT INTO `jawaban` (`idJawaban`, `jawaban`) VALUES
 (2, 'Sembunyi Dibawah Meja'),
 (3, 'Gas Pemadam'),
 (4, 'Tekan Pada Dada'),
-(5, 'Semua Benda dan Bangunan Di Sekitar Bergerak'),
+(5, 'Semua benda bergerak'),
 (6, 'Pingsan dan Kemasukan Air'),
 (7, 'Luka Bakar'),
 (8, 'Air, Tandu dan Lidah Buaya'),
@@ -76,15 +76,15 @@ INSERT INTO `pilihanganda` (`idPilihanGanda`, `pilihanA`, `pilihanB`, `pilihanC`
 (2, 'Lari Keluar Ruangan', 'Keluar Lewat Jendela', 'Mencari Tangga Darurat', 'Sembunyi Dibawah Meja'),
 (3, 'Gas Pemadam', 'Air', 'Lap Basah', 'Lap Kering'),
 (4, 'Tekan Pada Dada', 'Tekan Pada Kaki', 'Tekan Pada Lutut', 'Tekan Pada Tangan'),
-(5, 'Semua Benda dan Bangunan Di Sekitar Bergerak', 'Air Laut Meluap', 'Air Masuk Ke Rumah', 'Ranting Pohon Berjatuhan'),
+(5, 'Semua benda bergerak', 'Air Laut Meluap', 'Air Masuk Ke Rumah', 'Ranting Pohon Berjatuhan'),
 (6, 'Pingsan dan Luka-luka', 'Pingsan dan Kemasukan Air', 'Pingsan dan Patah Tulang', 'Pingsan dan Ceria'),
 (7, 'Luka Bakar', 'Pingsan', 'Lecet', 'Sehat-sehat Saja'),
-(8, 'Air, Tandu dan Lidah Buaya', 'Es Batu', 'Pasta Gigi', 'Hansaplast'),
+(8, 'Pasta gigi ', 'Es Batu', 'Air, Tandu dan Lidah Buaya', 'Hansaplast'),
 (9, 'Obat', 'Obat dan Sapu', 'Obat dan Tandu', 'Tandu'),
 (10, 'Besi', 'Kayu', 'Alumunium', 'Kaca'),
 (11, 'Musim Kemarau', 'Pohon Tumbang', 'Musim Hujan Yang Berkepanjangan', 'Sampah Kering'),
-(12, 'Korsleting', 'Kompor Hidup', 'Api Unggun', 'Rusak Kompor'),
-(13, 'Jangan Membuang Sampah Ditempat Sampah', 'Jangan Hujan', 'Jangan Tidur Kemalaman', 'Jangan Membuang Sampah Di Sungai'),
+(12, 'Rusak Kompor', 'Kompor Hidup', 'Api Unggun', 'Korsleting'),
+(13, 'Membuang sampah sembarangan', 'Jangan Hujan', 'Jangan Tidur Kemalaman', 'Jangan Membuang Sampah Di Sungai'),
 (14, 'Menjauhi Api', 'Jauhkan Benda Mudah Terbakar Dari Api', 'Jauhkan Diri Dari Api', 'Jauhkan Api Dan Air');
 
 -- --------------------------------------------------------
@@ -105,16 +105,16 @@ CREATE TABLE `soal` (
 --
 
 INSERT INTO `soal` (`idSoal`, `Soal`, `idJawaban`, `idPilihanganda`) VALUES
-(1, 'Benda apa yang paling tepat untuk digunakan untuk melakukan pertolongan pertama pada korban banjir?', 1, 1),
-(2, 'Pilihan yang tepat saat terjadi gempa adalah?', 2, 2),
-(3, 'Benda apa yang tepat untuk digunakan untuk memadamkan kebakaran?', 3, 3),
-(4, 'Saat ada korban banjir yang tenggelam apa yang seharusnya kita lakukan dan kemasukkan air kita menyelamatkan korban dengan?', 4, 4),
+(1, 'Benda untuk melakukan pertolongan pertama pada korban banjir?', 1, 1),
+(2, 'Pilihan yang tepat saat terjadi gempa?', 2, 2),
+(3, 'Benda untuk memadamkan kebakaran?', 3, 3),
+(4, 'Saat kemasukan air kita menyelamatkan korban dengan?', 4, 4),
 (5, 'Saat terjadi gempa keadaan seperti apa yang sering terjadi?', 5, 5),
-(6, 'Hal yang sering terjadi pada korban banjir adalah?', 6, 6),
-(7, 'Keadaan yang sering terjadi pada korban kebakaran adalah?', 7, 7),
-(8, 'Saat korban kebakaran mengalami luka bakar, penanganan yang tepat dengan menggunakan?', 8, 8),
-(9, 'Saat korban gempa bumi mengalami patah tulang mengangkat korban yang tepat bagaimana?', 9, 9),
-(10, 'Barang yang sering terbakar saat terjadi kebakaran adalah?', 10, 10),
+(6, 'Saat terjadi banjir, korban sering mengalami seperti apa?', 6, 6),
+(7, 'Keadaan yang sering terjadi saat kebakaran?', 7, 7),
+(8, 'Saat mengalami luka bakar, penanganan yang tepat dengan menggunakan?', 8, 8),
+(9, 'Saat korban gempa bumi mengalami patah tulang penanganan yang tepat?', 9, 9),
+(10, 'Barang yang mudah terbakar saat terjadi kebakaran adalah?', 10, 10),
 (11, 'Penyebab terjadinya banjir adalah?', 11, 11),
 (12, 'Kebakaran di ruangan sering terjadi karena?', 12, 12),
 (13, 'Cara mengatasi agar tidak terjadi banjir?', 13, 13),
@@ -141,8 +141,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`iduser`, `username`, `password`, `level1`, `level2`, `level3`, `skortertinggi`) VALUES
-(9, 'a', 'a', 4, 7, 1, 100),
-(10, 'b', 'b', 1, 0, 0, 0);
+(18, 'c', 'c', 8, 4, 1, 80),
+(20, 'faza', 'a', 4, 4, 1, 50);
 
 --
 -- Indexes for dumped tables
@@ -201,7 +201,7 @@ ALTER TABLE `soal`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
