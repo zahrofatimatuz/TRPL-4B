@@ -149,12 +149,6 @@ public class UserController {
     public static int jawabSalah = 0;
     public static String username = "";
     private static boolean sound = true;
-//    private boolean Pelampung = false;
-//    private boolean Gas = false;
-//    private boolean Debog = false;
-//    private boolean bakar1 = false;
-//    private boolean Gempa1 = false;
-//    private boolean level2 = false;
 
     public UserController(awalanView awal, UserModel userM) throws SQLException {
         playMusic("src//Music//Menu utama.wav");
